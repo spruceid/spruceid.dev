@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Spruce Developer Portal Blog</title>
+        <link>https://spruceid.dev/blog</link>
+        <description>Spruce Developer Portal Blog</description>
+        <lastBuildDate>Wed, 06 Jan 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Spruce Developer Field Notes #5]]></title>
+            <link>https://spruceid.dev/blog/field-notes-5</link>
+            <guid>field-notes-5</guid>
+            <pubDate>Wed, 06 Jan 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[screengrab of did:tezos specification]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Spruce Developer Field Notes #4]]></title>
+            <link>https://spruceid.dev/blog/field-notes-4</link>
+            <guid>field-notes-4</guid>
+            <pubDate>Fri, 04 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[At Spruce, we’re building a product suite to manage all aspects of the data supply chain. Here’s the latest from our development efforts:]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Introducing DIDKit]]></title>
+            <link>https://spruceid.dev/blog/introducing-did-kit</link>
+            <guid>introducing-did-kit</guid>
+            <pubDate>Fri, 13 Nov 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[In order to better work with decentralized identifiers and verifiable credentials, we’re working on DIDKit.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Spruce Developer Field Notes #3]]></title>
+            <link>https://spruceid.dev/blog/field-notes-3</link>
+            <guid>field-notes-3</guid>
+            <pubDate>Sun, 08 Nov 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[At Spruce, we’re building a product suite to manage all aspects of the data supply chain. Here’s the latest from our development efforts:]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Spruce joins the Decentralized Identity Foundation]]></title>
+            <link>https://spruceid.dev/blog/spruce-joins-dif</link>
+            <guid>spruce-joins-dif</guid>
+            <pubDate>Fri, 23 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[highly businessy clipart]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Spruce joins the Worldwide Web Consortium]]></title>
+            <link>https://spruceid.dev/blog/spruce-joins-w3c</link>
+            <guid>spruce-joins-w3c</guid>
+            <pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[highly businessy clipart]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reimagining the Social Security Number]]></title>
+            <link>https://spruceid.dev/blog/reimagining-the-ssn</link>
+            <guid>reimagining-the-ssn</guid>
+            <pubDate>Thu, 15 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[detective clip art]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Spruce Developer Field Notes #2]]></title>
+            <link>https://spruceid.dev/blog/field-notes-2</link>
+            <guid>field-notes-2</guid>
+            <pubDate>Wed, 07 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[At Spruce, we’re building software to power the future of digital identity. Here’s the latest from our development efforts:]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Spruce's Origins, Decentralized Markets, and Identity]]></title>
+            <link>https://spruceid.dev/blog/spruce-origin-story</link>
+            <guid>spruce-origin-story</guid>
+            <pubDate>Tue, 29 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[chaotic urban life crosssection]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Spruce Developer Field Notes #1]]></title>
+            <link>https://spruceid.dev/blog/field-notes-1</link>
+            <guid>field-notes-1</guid>
+            <pubDate>Tue, 08 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[At Spruce, we’re building software to power the future of digital identity. Here’s the latest from our development efforts:]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Decentralized Identity on Tezos]]></title>
+            <link>https://spruceid.dev/blog/decentralized-identity-on-tezos</link>
+            <guid>decentralized-identity-on-tezos</guid>
+            <pubDate>Thu, 27 Aug 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[spruce and tezos logos dancing slowly]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Introducing Spruce]]></title>
+            <link>https://spruceid.dev/blog/introducing-spruce</link>
+            <guid>introducing-spruce</guid>
+            <pubDate>Tue, 25 Aug 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[brand asset(https://miro.medium.com/max/700/1ILg9HYN8JxQOSuk8ftFpkA.png))]]></description>
+        </item>
+    </channel>
+</rss>
