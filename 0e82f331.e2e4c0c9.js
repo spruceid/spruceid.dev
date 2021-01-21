@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{73:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"w-3-c","name":"w3c","count":1,"permalink":"/blog/tags/w-3-c"}')}}]);
