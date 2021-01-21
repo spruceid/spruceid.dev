@@ -43,11 +43,13 @@ We depend on some Rust nightly features. When installing with Rustup, pick the n
 
 Spruce's [ssi][] library must be cloned alongside the `didkit` repository:
 ```sh
+//from root directory of DIDKit project
 $ git clone https://github.com/spruceid/ssi ../ssi
 ```
 
 Build DIDKit using [Cargo][]:
 ```sh
+//from root directory of DIDKit project
 $ cargo build
 ```
 That will give you the DIDKit CLI and HTTP server executables located at

@@ -71,17 +71,19 @@ For Android, build the separate [Android library (AAR file)](#android) which inc
 
 ### Requires
 
-Android SDK and NDK for Linux x86\_64. The Android SDK is expected to be installed at `~/Android/Sdk`. If it is somewhere else instead, you can specify it with a Make variable, e.g. `make ANDROID_SDK_ROOT=/other/location/android-sdk`
+Android SDK and NDK for Linux x86\_64. The Android SDK is expected to be installed at `~/Android/Sdk`. If it is somewhere else instead, you can specify it with a Make variable, e.g. `make ANDROID_SDK_ROOT=/other/location/android-sdk`. 
 
 Rust Android targets are also required. To install those with `rustup`, run:
 ```sh
-$ make -C ../ install-rustup-android
+//from root directory of didkit project
+$ make -C lib/ install-rustup-android
 ```
 
 ### Build
 
 ```sh
-$ make -C ../ ../target/test/aar.stamp
+//from root directory of didkit project
+$ make -C lib/ ../target/test/aar.stamp
 ```
 
 #### Make variables
@@ -96,6 +98,8 @@ $ make -C ../ ../target/test/aar.stamp
 ## Flutter
 
 [Flutter plugin][packages-plugins] for the DIDKit library. Includes Dart bindings, and functionality for Android and iOS (WIP).
+
+Flutter Doctor and CLI tools are also required.
 
 ## Usage
 
