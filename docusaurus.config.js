@@ -6,8 +6,8 @@ module.exports = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
-  organizationName: 'bumblefudge', // Usually your GitHub org/user name.
-  projectName: 'sprucedev', // Usually your repo name.
+  organizationName: 'spruceid', // Usually your GitHub org/user name.
+  projectName: 'spruceid.dev', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'Spruce',
