@@ -1,15 +1,19 @@
 ---
 id: devhome
-title: spruceID.dev home
+title: Welcome to the Spruce Developer Portal
 sidebar_label: Home
 slug: /
 ---
+## Get Started
+- Check out [DIDKit](/docs/didkit), our cross-platform toolkit for W3C Decentralized Identifiers and Verifiable Credentials.
+- Check out [Credible](/docs/credible), our lightweight credential wallet.
 
-no idea what goes here yet, bear with me. I'm of two minds:
+## About Spruce Systems
+When’s the last time you felt comfortable sending or receiving important documents digitally? Have you ever been shocked at how much an online platform knows about you and wish you had more control over your identity? As a business, do your customers feel any of the above when they’re doing business with you?
 
-1. we can nix the whole section, which would be easier than figuring out how to turn off the high-light color when you're browsing a subsection (god this "alpha v.40 is full of infuriating minor bugs, and the documentation is totally lacking! so much for "versioning your docs to be in line with your releases," faceboogers.). i'm similarly baffled about what to do with the home page at domain root...
-   1. see also the [blog as homepage](https://v2.docusaurus.io/docs/blog/#blog-only-mode) option 
-2. Or, if it makes sense to have a general dev lobby outside of the blog and product docs, we could use this space forrandom articles like "why we're so into Rust" and "why you should do an Udemy on SSI cuz we'll have a labor shortage in two years". or we could get really aggro and put in an article like, "why aries isn't w3c-compliant [yet/still]", if we're feeling spicy. 
-   1. to be honest, there's lots of good content already in the blog-- pulling extracts from that, I think a few case-studies or articles wouldn't take long to frankenstein together.
- 
-ideas? votes? discuss wednesday?
+Spruce is reimagining trusted interactions for enterprises and governments — the stewards of the most foundational and impactful layers of infrastructure shaping our lives. We believe that in any organization you can find people who wish public and private institutions respected an individual’s control over their own information and privacy. We are also pragmatists, who understand that these principles are most likely to be implemented at scale when they also make commercial and operational sense. We firmly believe that there are paths striking a balance that both respects individual liberty and allows for enterprise success.
+
+We are creating open-source software products that help our customers go from untrusted data to verifiable information that can be shared privately and with consent. Our products enable complete lifecycle management for licenses, certificates, audit reports, registrations, and other mission-critical data that must remain secure while passing many hands. Our main workflows allow end-users to manage their own data, and for everyone else to have confidence in the consent and purpose of data shared by them. To achieve this, we will utilize a cadre of emerging data technologies, including the recent W3C Verifiable Credentials and W3C Decentralized Identifiers specifications, which have been designed to solve business problems while leaving ample room to champion the end user’s control within a data supply chain.
+
+## Contact
+Have any questions about Spruce's development efforts? Reach us via email at hello@spruceid.com.
