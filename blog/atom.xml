@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://spruceid.dev/blog</id>
     <title>Spruce Developer Portal Blog</title>
-    <updated>2021-01-06T00:00:00.000Z</updated>
+    <updated>2021-01-21T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://spruceid.dev/blog"/>
     <subtitle>Spruce Developer Portal Blog</subtitle>
     <icon>https://spruceid.dev/img/logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Developer Portal goes live!]]></title>
+        <id>hello_world_i_am_baby</id>
+        <link href="https://spruceid.dev/blog/hello_world_i_am_baby"/>
+        <updated>2021-01-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The rest of the site will be entirely devoted to documenting our projects. Please take your time, stay a while, and look not just at the explanatory sections and technical definitions, but also the examples. We have certain style and ergonomic approach which we hope comes across in our documentation. Our goal in setting up this site was to convey the identity of our products and the values of our team, rather than just a functional or transactional set of "user's manuals." This documentation is yours, though, not just in the sense that we wrote it for you-- feel free to request "features" and "fixes" of it!]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Spruce Developer Field Notes #5]]></title>
         <id>field-notes-5</id>
