@@ -42,9 +42,6 @@ Src: [DID specification](https://www.w3.org/TR/vc-data-model/#lifecycle-details)
 
 ### The Mechanics of Decentralized Identifiers
 
-![Architecture Diagram](/img/did-core_architecture.png)
-
-Src: [DID specification](https://www.w3.org/TR/did-core/#architecture-overview)
 
 Verifiable Credentials are designed refer to their issuers and subjects verifiably. This means that in the ideal case, any reference to an entity should be under that entity's direct and ultimate control, yet still be used to verify the credential's contents and trustworthiness cryptographically. In plain language, this means that a verifier would need to be able to get a cryptographic public key corresponding to that identifier, which might change or be deactivated over time.
 
