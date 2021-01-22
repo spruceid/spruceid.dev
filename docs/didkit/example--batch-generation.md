@@ -1,5 +1,5 @@
 ---
-id: script2
+id: "example--batch-generation"
 title: Bash Script - Batch Generation & Verification
 ---
 
@@ -17,15 +17,15 @@ To generate these VC ids, they use the commonplace [uuidgen](https://stackoverfl
 # Exit if any command in this script fails.
 set -e
 
-if [ -e key.jwk ]; then
+if [ -e issuer_key.jwk ]; then
 	echo 'Using existing keypair.'
 else
-	didkit generate-ed25519-key > key.jwk
+	didkit generate-ed25519-key > issuer_key.jwk
 	echo 'Generated keypair.'
 fi
-issuer=$(didkit key-to-did-key -k key.jwk)
+issuer=$(didkit key-to-did-key -k issuer_key.jwk)
 printf 'Issuer DID: %s\n' "$issuer"
-issuer_vm=$(didkit key-to-verification-method -k key.jwk)
+issuer_vm=$(didkit key-to-verification-method -k issuer_key.jwk)
 printf 'Issuer verification method: %s\n' "$issuer_vm"
 ```
 
@@ -33,7 +33,7 @@ printf 'Issuer verification method: %s\n' "$issuer_vm"
 ```bash
 generate_credential() {
 	didkit vc-issue-credential \
-		-k key.jwk \
+		-k issuer_key.jwk \
 		-v "$issuer_vm" \
 		-p assertionMethod <<-EOF
 	{
@@ -83,12 +83,12 @@ Were one to remove the `key.jwk` check, the generation of a verification method,
 # Exit if any command in this script fails.
 set -e
 
-if [ ! -e key.jwk ]; then
+if [ ! -e issuer_key.jwk ]; then
 	echo 'Missing keypair.' >&2
 	exit 1
 fi
 
-issuer_vm=$(didkit key-to-verification-method -k key.jwk)
+issuer_vm=$(didkit key-to-verification-method -k issuer_key.jwk)
 printf 'Issuer verification method: %s\n' "$issuer_vm"
 ```
 
@@ -124,7 +124,9 @@ printf '\nDone\n'
 ```
 
 
-## Appendix: whole script without comments
+## Appendix: whole script 
+
+<!-- replace this section with relative links -->
 
 Also available on Github as
 * /cli/tests/example2-batch-generation.sh
@@ -136,21 +138,21 @@ Also available on Github as
 # Exit if any command in this script fails.
 set -e
 
-if [ -e key.jwk ]; then
+if [ -e issuer_key.jwk ]; then
 	echo 'Using existing keypair.'
 else
-	didkit generate-ed25519-key > key.jwk
+	didkit generate-ed25519-key > issuer_key.jwk
 	echo 'Generated keypair.'
 fi
-issuer=$(didkit key-to-did-key -k key.jwk)
+issuer=$(didkit key-to-did-key -k issuer_key.jwk)
 printf 'Issuer DID: %s\n' "$issuer"
-issuer_vm=$(didkit key-to-verification-method -k key.jwk)
+issuer_vm=$(didkit key-to-verification-method -k issuer_key.jwk)
 printf 'Issuer verification method: %s\n' "$issuer_vm"
 
 # Generate a new dummy credential
 generate_credential() {
 	didkit vc-issue-credential \
-		-k key.jwk \
+		-k issuer_key.jwk \
 		-v "$issuer_vm" \
 		-p assertionMethod <<-EOF
 	{
@@ -187,12 +189,12 @@ printf '\nDone\n'
 # Exit if any command in this script fails.
 set -e
 
-if [ ! -e key.jwk ]; then
+if [ ! -e issuer_key.jwk ]; then
 	echo 'Missing keypair.' >&2
 	exit 1
 fi
 
-issuer_vm=$(didkit key-to-verification-method -k key.jwk)
+issuer_vm=$(didkit key-to-verification-method -k issuer_key.jwk)
 printf 'Issuer verification method: %s\n' "$issuer_vm"
 
 verify_credential() {

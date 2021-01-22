@@ -2,8 +2,10 @@
 id: ffis
 title: Foreign Function Interfaces
 ---
+[path-packages]: https://dart.dev/tools/pub/dependencies#path-packages
+[packages-plugins]: https://flutter.dev/developing-packages/
 
-DIDKit has bindings for various languages and environments. Each corresponding directory contains a README with additional info particular to it. The Makefile used to build all the libraries requires [GNU Make][https://www.gnu.org/software/make/].
+DIDKit has bindings for various languages and environments. Each corresponding directory contains a README with additional info particular to it. The Makefile used to build all the libraries requires [GNU Make](https://www.gnu.org/software/make/).
 
 Building and testing each library requires tools for the corresponding environment:
 
@@ -22,13 +24,15 @@ To build and test a particular library, see the instructions below.
 ### Build
 
 ```sh
-$ make -C ../ ../target/release/libdidkit.so
+# from DIDKit root directory:
+$ make -C lib ../target/release/libdidkit.so
 ```
 
 ### Test
 
 ```sh
-$ make -C ../ ../target/test/c.stamp
+# from DIDKit root directory:
+$ make -C lib ../target/test/c.stamp
 ```
 
 ### + Android
@@ -43,18 +47,21 @@ Java bindings for DIDKit, using [JNI][]. The [JAR][] file includes Java class fi
 
 Run:
 ```sh
-$ make -C ../ ../target/didkit.jar
+# from DIDKit root directory:
+$ make -C lib ../target/didkit.jar
 ```
 
 To build the shared library for your current platform/architecture:
 ```sh
-$ make -C ../ ../target/release/libdidkit.so
+# from DIDKit root directory:
+$ make -C lib ../target/release/libdidkit.so
 ```
 
 ### Test
 
 ```sh
-$ make -C ../ ../target/tests/java.stamp
+# from DIDKit root directory:
+$ make -C lib ../target/tests/java.stamp
 ```
 
 ### + Android
@@ -76,14 +83,14 @@ Android SDK and NDK for Linux x86\_64. The Android SDK is expected to be install
 Rust Android targets are also required. To install those with `rustup`, run:
 ```sh
 //from root directory of didkit project
-$ make -C lib/ install-rustup-android
+$ make -C lib install-rustup-android
 ```
 
 ### Build
 
 ```sh
 //from root directory of didkit project
-$ make -C lib/ ../target/test/aar.stamp
+$ make -C lib ../target/test/aar.stamp
 ```
 
 #### Make variables
@@ -107,9 +114,9 @@ You can depend on this plugin as a [path dependency][path-packages].
 
 You will also need to build the DIDKit library for your target platforms.
 To do that for Android, trigger building the AAR file:
-```
-make -C ../ ../target/didkit.aar
+
+```sh
+# from DIDKit root directory:
+make -C lib ../target/didkit.aar
 ```
 
-[path-packages]: https://dart.dev/tools/pub/dependencies#path-packages
-[packages-plugins]: https://flutter.dev/developing-packages/

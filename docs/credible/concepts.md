@@ -12,7 +12,7 @@ All QRCode interactions start as listed below:
 2. User is presented the choice to trust the domain in the URL;
 3. App makes a GET request to the URL;
 
-:::Warning
+:::warning
 Tiago: are there two GET requests with choice of identifier/alias in between, or one? I can't confidently guess from the way it's currently described.
 :::
 

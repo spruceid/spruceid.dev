@@ -1,9 +1,11 @@
 ---
-id: glossary
-title: Glossary
+id: terminology
+title: Terminology
 ---
 
 ## Terminology
+
+For more detailed explanations and references to core specifications, see the [developer portal glossary](https://spruceid.dev/docs/glossary).
 
 ### Verifiable Credentials ("*VCs*")
 Verifiable Credentials combine properties and superpowers from many different mental models. They are like portable, free-floating data units, which are not exactly documents or data points or records. They are signed and thus tamper-evident, and thus share much of the verifiability of blockchain data or signed PDFs insofar as the signatures they contain can be properly verified by reference to the identities included inside the document. Particularly in the form of JSON-LD verifiable credentials, they are highly portable, in that the structure of their data can often be reconstructed years later and completely out of their original context. For more on JSON-LD and linked data, see the Semantics section of the [DIDKit Core Concepts](/docs/didkit/concepts.md#Semantics) entry.
