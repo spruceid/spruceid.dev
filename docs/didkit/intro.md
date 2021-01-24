@@ -5,7 +5,48 @@ sidebar_label: Introduction
 slug: /didkit/
 ---
 
-DIDKit is a lightweight set of libraries containing a command-line interface and an HTTP interface. Both interfaces expose the core Verifiable Credential functionality of Spruce’s core “ssi” library. This means that shell scripts, sysadmins, cross-application automations, and even web servers can log events, store data, and communicate between themselves in signed and verifiable W3C-compliant JSON-LD credentials rather than simple clear-text JSON objects.
+DIDKit is written in Rust at the core and provides Verifiable Credential and
+Decentralized Identifier functionality across different platforms. Rust was
+picked for its expressive type system, memory safety, and suitability across
+different platforms including embedded systems.
+
+It supports the following use cases, growing over time:
+
+- W3C Verifiable Credentials with JSON-LD Proofs: issuance, presentation, and
+  verification
+- W3C Decentralized Identifiers: resolution for did-key, did-web, and one layer
+  of did-tezos
+
+DIDKit ships with a command line tool and HTTP service. The HTTP service aims
+to comply with [HTTP-VC-API](https://w3c-ccg.github.io/vc-http-api/).
+
+Through cross-compilation and linking through C ABIs, DIDKit supports other
+platforms through SDKs written in:
+
+- C (C ABI)
+- Objective-C/iOS (C ABI)
+- Java (JNI, see an example project using Spring Boot)
+- Android (via Java)
+- Flutter (via Android and iOS)
+- JavaScript/ES6 (npm-linked library)
+- WASM (cross-compiled using ...)
+
+Support across different platforms is in its beginning stages, and we will
+continue to add new platforms and improve interface ergonomics over time. For
+platforms that do not have SDK support, the HTTP API and command line tools are
+readily integrated.
+
+## Specifications and Test Suites
+
+To demonstrate our commitment to standards and interoperability, we have
+ensured that our implementation conforms to the following test suites.
+
+- JSON-LD
+- vc-test-suite
+- VC-HTTP-API
+- ...
+
+## Cryptography Libraries
 
 ## Features
 
