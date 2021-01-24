@@ -12,16 +12,16 @@ different platforms including embedded systems.
 
 It supports the following high level use cases, with more to be added shortly:
 
-- W3C Verifiable Credentials with JSON-LD Proofs: issuance, presentation, and
-  verification
-- W3C Decentralized Identifiers: resolution for did-key, did-web, and one layer
-  of did-tezos
+- [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) with
+  JSON-LD Proofs: issuance, presentation, and verification.
+- [W3C Decentralized Identifiers](https://www.w3.org/TR/did-core/): resolution
+  for did-key, did-web, and one layer of did-tezos.
 
 DIDKit ships with a command line tool and HTTP service. The HTTP service aims
 to comply with [HTTP-VC-API](https://w3c-ccg.github.io/vc-http-api/).
 
-Through cross-compilation and linking through C ABIs, DIDKit supports other
-platforms through SDKs written in:
+Through cross-compilation and linking through C ABIs, DIDKit also supports
+other platforms through SDKs for:
 
 - [C/Objective-C](https://github.com/spruceid/didkit/tree/main/lib/cbindings) (C ABI)
 - [Java](https://github.com/spruceid/didkit/tree/main/lib/java) (via JNI, see an [example project using Spring Boot](https://github.com/spruceid/didkit/tree/example-java-1/examples/java-springboot))
@@ -35,6 +35,43 @@ Although support across different platforms is in its early stages, we will
 continue to add new platforms and improve interface ergonomics over time. For
 platforms that do not currently have SDK support, the HTTP API and command line
 tools are readily integrated.
+
+## Quickstart
+
+In this quickstart, we will build and run the command line tool along with the
+HTTP server.
+
+Prerequisites:
+- GNU/Linux or MacOS, not yet tested on Windows.
+- [Rust nightly](https://www.rust-lang.org/tools/install) (`rustup default
+  nightly`)
+
+Building `didkit` (we are working on crate packaging):
+```sh
+$ git clone https://github.com/spruceid/ssi
+$ git clone https://github.com/spruceid/didkit
+$ cd didkit/
+$ cargo build
+```
+
+Using `didkit` CLI
+([documentation](https://github.com/spruceid/didkit/tree/main/cli)):
+```sh
+$ ./target/debug/didkit -h
+$ ./target/debug/didkit generate-ed25519-key > key.jwk
+```
+
+Using `didkit` HTTP server
+([documentation](https://github.com/spruceid/didkit/tree/main/http)):
+```sh
+$ ./target/debug/didkit-http -k key.jwk
+Listening on http://127.0.0.1:51467/
+```
+
+Please see the installation instructions for more detailed steps or how to use
+containerized builds. The CLI and HTTP related pages in the [examples
+section](/docs/didkit/examples) will demonstrate how to issue and verify
+Verifiable Credentials and Verifiable Presentations.
 
 ## Specifications and Test Suites
 
