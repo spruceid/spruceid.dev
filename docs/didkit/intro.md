@@ -10,7 +10,7 @@ Decentralized Identifier functionality across different platforms. Rust was
 picked for its expressive type system, memory safety, and suitability across
 different platforms including embedded systems.
 
-It supports the following core use cases, with more to be added shortly:
+It supports the following high level use cases, with more to be added shortly:
 
 - W3C Verifiable Credentials with JSON-LD Proofs: issuance, presentation, and
   verification
@@ -23,16 +23,15 @@ to comply with [HTTP-VC-API](https://w3c-ccg.github.io/vc-http-api/).
 Through cross-compilation and linking through C ABIs, DIDKit supports other
 platforms through SDKs written in:
 
-- [C]() (C ABI)
-- Objective-C/iOS (C ABI)
-- Java (JNI, see an example project using Spring Boot)
-- Android (via Java)
-- Flutter (via Android and iOS)
-- [[WIP](https://github.com/spruceid/didkit/pull/17)] JavaScript/ES6 (npm-linked library)
-- [[WIP](https://github.com/spruceid/didkit/pull/15)] WASM (cross-compiled using [wasm-pack](https://github.com/rustwasm/wasm-pack))
-- [Future] PHP, Python, Ruby/Rails, Go, C#, C++
+- [C/Objective-C](https://github.com/spruceid/didkit/tree/main/lib/cbindings) (C ABI)
+- [Java](https://github.com/spruceid/didkit/tree/main/lib/java) (via JNI, see an [example project using Spring Boot](https://github.com/spruceid/didkit/tree/example-java-1/examples/java-springboot))
+- [Android](https://github.com/spruceid/didkit/tree/main/lib/android) (via Java)
+- [Flutter](https://github.com/spruceid/didkit/tree/main/lib/flutter) (via Android and iOS)
+- ([WIP](https://github.com/spruceid/didkit/pull/17)) JavaScript/ES6 (npm-linked library)
+- ([WIP](https://github.com/spruceid/didkit/pull/15)) WASM (cross-compiled using [wasm-pack](https://github.com/rustwasm/wasm-pack))
+- (Future) PHP, Python, Ruby/Rails, Go, C#, C++
 
-While support across different platforms is in its beginning stages, we will
+Although support across different platforms is in its early stages, we will
 continue to add new platforms and improve interface ergonomics over time. For
 platforms that do not currently have SDK support, the HTTP API and command line
 tools are readily integrated.
@@ -59,38 +58,54 @@ aspire to pass their test suites where applicable:
 ## Cryptography Backends
 
 We strongly prefer tried and tested implementations of cryptographic functions
-and believe that it's most responsible to list them out in a forthcoming
-manner to any potential users. DIDKit is engineered so that the target platform
-and compile-time flags may be used to specify different cryptographic backends,
-such as to leverage native hardware capabilities or cross-compile to e.g. WASM.
+and believe that it's most responsible to list them out in a forthcoming manner
+to any potential users. DIDKit is engineered so that the target platform and
+compile-time flags may be used to specify different cryptographic backends,
+such as to leverage native hardware capabilities, cross-compile to e.g. WASM,
+or to give advanced users the option to only use libraries that they trust.
 
+- [`ring`, v0.16](https://docs.rs/ring/0.16.19/ring/): default for hashes, ed25519
+  functions, RSA, and randomness. The ed25519 functions here cannot currently
+  compile to WASM.
+- [`rsa`, v0.3](https://docs.rs/rsa/0.3.0/rsa/): optionally for RSA.
+- [`ed25519-dalek`, v1](https://docs.rs/ed25519-dalek/1.0.1/ed25519_dalek):
+  optionally for ed25519. Compiles to WASM.
+- [`rand`, v0.7](https://docs.rs/rand/0.7.3/rand/): optionally for randomness.
+- [`sha2`, v0.9](https://docs.rs/sha2/0.9.2/sha2/): optionally for sha256
+  hashes.
 
+If you have constructive opinions about the set of cryptographic libraries that
+should be supported, please [open an issue](https://github.com/spruceid/ssi).
 
 ## Features
 
-The core featureset of DIDKit is expanding steadily over time and in the open, so feel free to engage with the repository directly on github. Currently, DID-Kit supports the following features:
+The core featureset of DIDKit is expanding steadily over time and in the open,
+so feel free to engage with the repository directly on github. Currently,
+DIDKit currently supports the following features:
 
-1. Generating keys
-2. Wrapping keys in a DID:Key 
-3. Issuing W3C specification-compliant, JSON-LD verifiable credentials, signed by a local and/or passed key
-4. Verifying W3C specification-compliant, JSON-LD verifiable credentials
+- Key generation and handling.
+- Issuance and presentation of W3C Verifiable Credentials in JSON-LD, signed by
+  a local and/or passed key.
+- Verification of W3C Verifiable Credentials in JSON-LD.
 
 DID Methods supported so far: 
-* did:tezos1
+* did-key
+* did-web
+* did-tezos (tz1 and resolution layer 1)
 
 Proof types verifiable so far:
-* RSASignature2018
-* Ed25519VerificationKeys
+- RSASignature2018
+- Ed25519VerificationKeys
 
-Libraries binding all of the above functionality for the following development languages:
-* C
-* Java
-* Android
-* Flutter
+## Roadmap
 
-
-## Coming soon
-
-The following features have been tentatively roadmapped for the next major release:
-1. JSON Schema editor
-2. Built-in validation for JSON-LD Schema
+The following tools and features are high priority for subsequent releases:
+1. Exposing interfaces for JWT-based Verifiable Credential workflows
+2. JSON-LD context editor
+3. Registration of several new LD signature suites and support for new
+   cryptography
+4. Further DID method support: did-tezos (tz2/tz3 and resolution layers 2 and
+   3), did-btcr, did-onion
+5. BBS+ signatures
+6. DIDComm support
+7. Aries interoperability profile support
