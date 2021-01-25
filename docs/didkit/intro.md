@@ -5,10 +5,10 @@ sidebar_label: Introduction
 slug: /didkit/
 ---
 
-DIDKit is mostly written in Rust and provides Verifiable Credential and
-Decentralized Identifier functionality across different platforms. Rust was
-picked for its expressive type system, memory safety, and suitability across
-different platforms including embedded systems.
+DIDKit provides Verifiable Credential and Decentralized Identifier
+functionality across different platforms. It was written primarily in Rust due
+to Rust's expressive type system, memory safety, simple dependency web, and
+suitability across different platforms including embedded systems.
 
 It supports the following high level use cases, with more to be added shortly:
 
@@ -24,7 +24,7 @@ Through cross-compilation and linking through C ABIs, DIDKit also supports
 other platforms through SDKs for:
 
 - [C/Objective-C](https://github.com/spruceid/didkit/tree/main/lib/cbindings) (C ABI)
-- [Java](https://github.com/spruceid/didkit/tree/main/lib/java) (via JNI, see an [example project using Spring Boot](https://github.com/spruceid/didkit/tree/example-java-1/examples/java-springboot))
+- [Java](https://github.com/spruceid/didkit/tree/main/lib/java) (via JNI, see an [example project using Spring Boot](https://github.com/spruceid/didkit/tree/example-java/examples/java-springboot))
 - [Android](https://github.com/spruceid/didkit/tree/main/lib/android) (via Java)
 - [Flutter](https://github.com/spruceid/didkit/tree/main/lib/flutter) (via Android and iOS)
 - ([WIP](https://github.com/spruceid/didkit/pull/17)) JavaScript/ES6 (npm-linked library)
