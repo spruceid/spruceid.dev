@@ -2,8 +2,7 @@ module.exports = {
   docs: {
     '.dev Portal': [
       'devhome',
-      'primer', 
-      'glossary'
+      'primer' 
     ],
     'DIDKit': [
       'didkit/intro', 
@@ -27,6 +26,10 @@ module.exports = {
       'credible/authn', 
     ],
     'Credible Examples': [
-        'credible/examples',],
-  },
+      'credible/examples',],
+    'References': [
+        'glossary',
+        'further-reading',],
+},
+
 };

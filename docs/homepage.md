@@ -7,6 +7,7 @@ slug: /
 ## Get Started
 - Check out [DIDKit](/docs/didkit), our cross-platform toolkit for W3C Decentralized Identifiers and Verifiable Credentials.
 - Check out [Credible](/docs/credible), our lightweight credential wallet.
+- Not confident you know what or why a verifiable-credential wallet is? Start with our [primer](primer.md) to hit the ground running, or use the [glossary](glossary.md) to go deeper into corner-cases and specifications.
 
 ## About Spruce Systems
 When’s the last time you felt comfortable sending or receiving important documents digitally? Have you ever been shocked at how much an online platform knows about you and wish you had more control over your identity? As a business, do your customers feel any of the above when they’re doing business with you?
