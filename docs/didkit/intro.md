@@ -5,6 +5,10 @@ sidebar_label: Introduction
 slug: /didkit/
 ---
 
+![DIDKit header](/img/didkithead.png)
+
+[![](https://img.shields.io/badge/Docker-19.03.x-blue)](https://www.docker.com/) [![](https://img.shields.io/badge/Rust-v1.49.0-orange)](https://www.rust-lang.org/) [![](https://img.shields.io/badge/ssi-v0.1-green)](https://www.github.com/spruceid/ssi) [![](https://img.shields.io/badge/License-Apache--2.0-green)](https://github.com/spruceid/didkit/blob/main/LICENSE) [![](https://img.shields.io/twitter/follow/sprucesystems?label=Follow&style=social)](https://twitter.com/sprucesystems) 
+
 DIDKit provides Verifiable Credential and Decentralized Identifier
 functionality across different platforms. It was written primarily in Rust due
 to Rust's expressive type system, memory safety, simple dependency web, and
@@ -23,12 +27,18 @@ to comply with [HTTP-VC-API](https://w3c-ccg.github.io/vc-http-api/).
 Through cross-compilation and linking through C ABIs, DIDKit also supports
 other platforms through SDKs for:
 
-- [C/Objective-C](https://github.com/spruceid/didkit/tree/main/lib/cbindings) (C ABI)
-- [Java](https://github.com/spruceid/didkit/tree/main/lib/java) (via JNI, see an [example project using Spring Boot](https://github.com/spruceid/didkit/tree/example-java/examples/java-springboot))
+- [C/Objective-C](https://github.com/spruceid/didkit/tree/main/lib/cbindings) (C 
+ABI)
+- [Java](https://github.com/spruceid/didkit/tree/main/lib/java) (via JNI, see an 
+[example project using Spring Boot](
+https://github.com/spruceid/didkit/tree/example-java/examples/java-springboot))
 - [Android](https://github.com/spruceid/didkit/tree/main/lib/android) (via Java)
-- [Flutter](https://github.com/spruceid/didkit/tree/main/lib/flutter) (via Android and iOS)
-- ([WIP](https://github.com/spruceid/didkit/pull/17)) JavaScript/ES6 (npm-linked library)
-- ([WIP](https://github.com/spruceid/didkit/pull/15)) WASM (cross-compiled using [wasm-pack](https://github.com/rustwasm/wasm-pack))
+- [Flutter](https://github.com/spruceid/didkit/tree/main/lib/flutter) (via Android 
+and iOS)
+- ([WIP](https://github.com/spruceid/didkit/pull/17)) JavaScript/ES6 (npm-linked 
+library)
+- ([WIP](https://github.com/spruceid/didkit/pull/15)) WASM (cross-compiled using 
+[wasm-pack](https://github.com/rustwasm/wasm-pack))
 - (Future) PHP, Python, Ruby/Rails, Go, C#, C++
 
 Although support across different platforms is in its early stages, we will
@@ -79,11 +89,21 @@ To demonstrate our commitment to standards and interoperability, we have
 ensured that our implementation conforms to the following specifications and
 aspire to pass their test suites where applicable:
 
-- [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) [Test Suite](https://github.com/w3c/vc-test-suite) (passing, [instructions](https://github.com/spruceid/ssi/tree/main/vc-test))
-- [W3C Decentralized Identifiers](https://www.w3.org/TR/did-core/) (test suite pending CR, [syntax support](https://github.com/spruceid/ssi/blob/main/src/did.pest))
-- [VC HTTP API Test Suite](https://github.com/w3c-ccg/vc-http-api/tree/master/packages/plugfest-2020) (passing, [instructions](https://github.com/spruceid/vc-http-api/tree/spruce/packages/plugfest-2020/vendors/spruce))
-- [RDF Dataset Normalization Test Cases](https://json-ld.github.io/normalization/tests/) (passing, [instructions](#))
-- [JSON-LD to RDF Transformation Test Cases](https://w3c.github.io/json-ld-api/tests/toRdf-manifest.html) (440/450 passing, [instructions](#))
+- [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) 
+[Test Suite](https://github.com/w3c/vc-test-suite) (passing, 
+[instructions](https://github.com/spruceid/ssi/tree/main/vc-test))
+- [W3C Decentralized Identifiers](https://www.w3.org/TR/did-core/) 
+(test suite pending CR, [syntax support](
+https://github.com/spruceid/ssi/blob/main/src/did.pest))
+- [VC HTTP API Test Suite](
+https://github.com/w3c-ccg/vc-http-api/tree/master/packages/plugfest-2020)
+(passing, [instructions](
+https://github.com/spruceid/vc-http-api/tree/spruce/packages/plugfest-2020/vendors/spruce))
+- [RDF Dataset Normalization Test Cases](
+https://json-ld.github.io/normalization/tests/) (passing, [instructions](#))
+- [JSON-LD to RDF Transformation Test Cases](
+https://w3c.github.io/json-ld-api/tests/toRdf-manifest.html) 
+(440/450 passing, [instructions](#))
 - [Linked Data Proofs 1.0](https://w3c-ccg.github.io/ld-proofs/)
 - [DID Resolution](https://w3c-ccg.github.io/did-resolution/)
 - IETF: [JWT](https://tools.ietf.org/html/rfc7519),
