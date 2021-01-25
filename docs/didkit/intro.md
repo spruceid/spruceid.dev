@@ -5,7 +5,7 @@ sidebar_label: Introduction
 slug: /didkit/
 ---
 
-![DIDKit header](../assets/didkithead.png)
+![DIDKit header](../../static/img/didkithead.png)
 
 DIDKit provides Verifiable Credential and Decentralized Identifier
 functionality across different platforms. It was written primarily in Rust due
