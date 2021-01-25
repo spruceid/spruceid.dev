@@ -9,6 +9,8 @@ slug: /
 - Check out [Credible](/docs/credible), our lightweight credential wallet.
 - Not confident you know what or why a verifiable-credential wallet is? Start with our [primer](primer.md) to hit the ground running, or use the [glossary](glossary.md) to go deeper into corner-cases and specifications.
 
+*Please note: this site documents two different v0.1 products that have not yet undergone substantial external review. They are presented as function alphas for experimentation and to show the direction of the projects (inviting proposals for changes of direction, even!). They are not, however, intended for transacting real-world business just yet.*
+
 ## About Spruce Systems
 When’s the last time you felt comfortable sending or receiving important documents digitally? Have you ever been shocked at how much an online platform knows about you and wish you had more control over your identity? As a business, do your customers feel any of the above when they’re doing business with you?
 

@@ -1,6 +1,7 @@
 ---
 id: intro
-title: Introduction to DIDKit
+title: Introducing DIDKit
+hide_title: true
 sidebar_label: Introduction
 slug: /didkit/
 ---

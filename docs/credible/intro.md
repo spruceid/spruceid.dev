@@ -1,6 +1,7 @@
 ---
 id: intro
-title: Introduction to the Credible Wallet
+title: Introducing the Credible Wallet
+hide_title: true
 sidebar_label: Introduction
 slug: /credible/
 ---
