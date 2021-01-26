@@ -16,6 +16,7 @@ module.exports = {
     'DIDKit Examples': [
       'didkit/examples', 
       'didkit/example--core-functions-in-bash', 
+      'didkit/example--core-functions-in-curl', 
       'didkit/example--batch-generation',
     ],
     'Credible': [

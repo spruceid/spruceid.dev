@@ -7,10 +7,11 @@ Coding is hard, and learning new tools is harder.  For those who learn best by e
 
 |Tool|Example|
 |---|---|
-|DIDKit-CLI|[Core DID, VC, and VP functions][]|
+|DIDKit-CLI|[Core DID, VC, and VP functions (CLI)][]|
 |DIDKit-CLI|[Batch generation/verification][]|
-|DIDKit-HTTP|W3C VC-HTTP-API test suite tutorial|
+|DIDKit-HTTP|[Core DID, VC, and VP functions (HTTP)][]|
 |DIDKit-Java-FFI|*Java+CHAPI code snippets coming soon*|
 
-[Core DID, VC, and VP functions]: example--core-functions-in-bash.md
+[Core DID, VC, and VP functions (CLI)]: example--core-functions-in-bash.md
+[Core DID, VC, and VP functions (HTTP)]: didkit/example--core-functions-in-curl.md
 [Batch generation/verification]: example--batch-generation.md
