@@ -126,11 +126,9 @@ printf '\nDone\n'
 
 ## Appendix: whole script 
 
-<!-- replace this section with relative links -->
-
 Also available on Github as
-* /cli/tests/example2-batch-generation.sh
-* /cli/tests/example2-batch-verification.sh
+* [/cli/tests/example2-batch-generation.sh](https://github.com/spruceid/didkit/cli/tests/example2-batch-generation.sh)
+* [/cli/tests/example2-batch-verification.sh](https://github.com/spruceid/didkit/cli/tests/example2-batch-verification.sh)
 
 ```bash
 #!/bin/sh

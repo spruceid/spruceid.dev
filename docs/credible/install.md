@@ -5,10 +5,10 @@ title: Installation
 
 ## App stores
 
-<!--
+:::note
 Todo: 
 * links and qR codes for app stores
--->
+:::
 
 ## Manual Assembly (Android)
 
@@ -30,7 +30,7 @@ commands from the root of this repository:
 $ flutter build apk             # Android APK
 $ flutter build appbundle       # Android Appbundle
 ```
-<!-- 
+:::note 
 Todo:
 
 ## Setup & Testing
@@ -41,4 +41,4 @@ Todo:
 
 ## Rotation?
 * when
--->
+:::

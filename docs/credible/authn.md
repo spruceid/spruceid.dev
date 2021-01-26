@@ -20,9 +20,9 @@ See also the code snippets provided below of a Credible VP flow used to authenti
 
 *Future versions will be able to specify a subject DID, or a subject DID type (by method), or a date range of issuance, or an issuer, etc etc. Without such specification against which to validate a authenticating presentation, Credible's authentication should be considered "for testing purposes only" and not used to authenticate users to real-world systems.*
 
-<!-->
+:::note
 
 ## OIDC Considerations
 * v0.2? 
   
--->
+:::
