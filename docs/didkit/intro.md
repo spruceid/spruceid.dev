@@ -96,7 +96,7 @@ aspire to pass their test suites where applicable:
 - [W3C Decentralized Identifiers](https://www.w3.org/TR/did-core/) 
 (test suite pending CR, [syntax support](
 https://github.com/spruceid/ssi/blob/main/src/did.pest))
-- [VC HTTP API Test Suite](
+- [VC HTTP API Test Suite v0.0.1](
 https://github.com/w3c-ccg/vc-http-api/tree/master/packages/plugfest-2020)
 (passing, [instructions](
 https://github.com/spruceid/vc-http-api/tree/spruce/packages/plugfest-2020/vendors/spruce))

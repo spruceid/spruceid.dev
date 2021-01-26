@@ -5,9 +5,10 @@ title: Installation
 
 ## App stores
 
-:::warning
-links and [**downloadable**] qR codes would be nice here
-:::
+<!--
+Todo: 
+* links and qR codes for app stores
+-->
 
 ## Manual Assembly (Android)
 
@@ -29,10 +30,15 @@ commands from the root of this repository:
 $ flutter build apk             # Android APK
 $ flutter build appbundle       # Android Appbundle
 ```
+<!-- 
+Todo:
+
 ## Setup & Testing
+* instructions on downloading your first "Friend of Spruce" credential here would be nice.
 
-:::warning
-Instructions on downloading your first "Friend of Spruce" credential here would be nice.
+## Recovery
+* explanation of seed recovery generation and application
 
-Maybe also some way of testing/confirming or even *rotating*/*restoring* your on-device default keypair? If that's even supported or roadmapped, of course!
-:::
+## Rotation?
+* when
+-->

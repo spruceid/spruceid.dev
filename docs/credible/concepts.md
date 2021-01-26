@@ -12,19 +12,20 @@ All QRCode interactions start as listed below:
 2. User is presented the choice to trust the domain in the URL;
 3. App makes a GET request to the URL;
 
-:::warning
-Tiago: are there two GET requests with choice of identifier/alias in between, or one? I can't confidently guess from the way it's currently described.
-:::
+<!--
+Todo:
+* Clarify if there are two GET requests with choice of identifier/alias in between, or one. 
+-->
 
 Then, depending on the type of message, one of the following protocols will be
 executed.
 
 ## CredentialOffer
 
-:::warning
-**TIAGO:** 
-* Is this selection step gonna make it into v0.1?
-* Is the exception if keystore is corrupted going to make it either?
+<!--
+* Did this selection step gonna make it into v0.1?
+* Is the exception if keystore is corrupted implemented yet ?
+--> 
 
 If the wallet manages multiple keypairs/subject identifiers, the user will be prompted to select one. If no additional subject identifiers are available, the wallet will default to the on-device keypair created at time of installation. If this cannot be found, the protocol will throw an exception.
 :::
@@ -42,8 +43,8 @@ The flow of events and actions is thus:
 3. App receives and stores the new credential in app storage;
 4. User is redirect back to the wallet's homepage.
 
-![swimlane diagram](credible_swimlane_issuance.png)
-[hi-rez swimlane here](credible_swimlane_issuance.png)
+![swimlane diagram](img/credible_swimlane_issuance.png)
+[hi-rez swimlane here](img/credible_swimlane_issuance.png)
 
 ## Verifiable Presentation Request
 
@@ -51,12 +52,12 @@ After receiving a `VerifiablePresentationRequest` from a trusted host, the walle
 
 ### Parameters
 
-:::warning
-Tiago: Questions here:
+<!-- 
+Todo: 
 * I assume the `holder` is not being validated, right? If the credential has a URI that isn't a DID or a DID:Key, the presentation issuance protocol doesn't throw an exception?
 * Only one VC for now, right? stringified JSON-LD, I assume?
 * What do you mean the credential's stored private key? Do you mean the private key corresponding to the `id` of the credential *subject*?
-:::
+-->
 
 Here are some of the parameters used to generate a presentation:
 - `presentation`
@@ -80,17 +81,14 @@ The flow of events and actions is listed below:
 - App makes a POST request to the initial URL with the presentation;
 - User is redirect back to the wallet.
 
-![swimlane diagram](credible_swimlane_vp_request.png)
-[hi-rez swimlane here](credible_swimlane_vp_request.png)
+![swimlane diagram](img/credible_swimlane_vp_request.png)
+[hi-rez swimlane here](img/credible_swimlane_vp_request.png)
 
 ## Future Protocols
 
-:::warning
-
-**Wayne**: 
-Should we be mentioning future DIDComm and Presentation Exchange (MSFT and/or Aries variety) support here? 
-
-:::
+Coming in future versions (before v1.0)
+* DIDComm v2 support
+* Presentation Exchange
 
 Note: Verifiable Presentation requests are presented in the form specified by the current W3C-CCG [VP Request Spec] draft. As community-wide, vendor-agnostic specifications for Credential/[Presentation Exchange][], [Wallet Portability][], and DID-based [Transport][] come into maturity, we will support them in future versions.
 
