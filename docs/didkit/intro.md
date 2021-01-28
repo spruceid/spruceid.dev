@@ -131,6 +131,7 @@ or to give advanced users the option to only use libraries that they trust.
 - [`rand`, v0.7](https://docs.rs/rand/0.7.3/rand/): optionally for randomness.
 - [`sha2`, v0.9](https://docs.rs/sha2/0.9.2/sha2/): optionally for sha256
   hashes.
+- [`native-tls`](https://docs.rs/native-tls/0.2.7/native_tls/) ([`openssl`](https://docs.rs/openssl/0.10.32/openssl/), [`security_framework`](https://docs.rs/security-framework/2.0.0/security_framework/), or [`schannel`](https://docs.rs/schannel/0.1.19/schannel/); via [`hyper-tls`](https://docs.rs/hyper-tls/0.5.0/hyper_tls/)): optionally for HTTPS.
 
 If you have constructive opinions about the set of cryptographic libraries that
 should be supported, please [open an issue](https://github.com/spruceid/ssi).
