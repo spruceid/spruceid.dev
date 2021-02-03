@@ -42,7 +42,7 @@ jobs:
           echo "${{ secrets.AUTOMATION_SECRET }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           cat <<EOT >> ~/.ssh/config
-          Host github.com
+          Host https://github.com
           HostName github.com
           IdentityFile ~/.ssh/id_rsa
           EOT
@@ -60,4 +60,4 @@ jobs:
           else
           npm i
           fi
-          npx docusaurus deploy
+          yarn docusaurus deploy
