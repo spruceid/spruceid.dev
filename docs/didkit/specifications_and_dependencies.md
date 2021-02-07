@@ -1,5 +1,5 @@
 ---
-id: specs-and-deps
+id: specs_and_deps
 title: Specifications and Dependencies
 hide_title: true
 sidebar_label: Specifications & Dependencies
