@@ -2,7 +2,9 @@ module.exports = {
   docs: {
     '.dev Portal': [
       'devhome',
-      'primer' 
+      'primer',
+      'contributing',
+      'code-of-conduct', 
     ],
     'DIDKit': [
       'didkit/intro', 

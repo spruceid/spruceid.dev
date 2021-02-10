@@ -1,0 +1,8 @@
+{
+  "contributors": ["bumblefudge", "celehner", "wyc"], 
+  "message": "Thank you for
+  your pull request! Please note that to guarantee clean IPR to our users and
+  downstream dependencies, we ask all of our ", 
+  "label": "...", 
+  "recheckComment": "..."
+}

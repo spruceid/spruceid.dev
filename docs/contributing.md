@@ -1,41 +1,72 @@
 ---
-id: glossary
-title: Glossary
+id: contributing
+title: Contributing
+hide_title: true
+
 ---
 
-## Terminology
+## How to Contribute
 
-### Verifiable Credentials ("*VCs*")
-Verifiable Credentials combine properties and superpowers from many different mental models. They are like portable, free-floating data units, which are not exactly documents or data points or records. They are signed and thus tamper-evident, and thus share much of the verifiability of blockchain data or signed PDFs insofar as the signatures they contain can be properly verified by reference to the identities included inside the document. Particularly in the form of JSON-LD verifiable credentials, they are highly portable, in that the structure of their data can often be reconstructed years later and completely out of their original context. For more on JSON-LD and linked data, see the Semantics section of the [DIDKit Core Concepts](/docs/didkit/concepts.md#Semantics) entry.
+We'd love to accept your patches, feature upgrades, and adapters that can make
+DIDKit, Credible, and/or ssi compatible with other SSI systems and legacy
+systems. To make contributions like these, there are just a few small guidelines
+you need to follow.
 
-### Wallet
-The mental model of a "wallet" for storing directly and manually controlled information and assets has become increasingly common in recent years thanks to the growing popularity of ledger-based cryptocurrencies, NFTs, and other virtual assets controlled by cryptography. Just as wallet software makes cryptographic key management intuitive and human-scaled when handling such cryptographically-controlled assets on common ledgers, so too can "wallet" interfaces make cryptographically-controlled documents like Verifiable Credentials manageable. 
+## Contributor License Agreement
 
-In the verifiable credential space, a "wallet" is traditionally assumed to manage one or more strong cryptographic identifiers, which must be authenticated to an issuer to receive identifier-specific or identifier-locked credentials. This is often assumed to be a direct and interactive process, as is the process of presenting these strong credentials to verifiers (usually double-authenticated, to both the verifier and to the credential, with two respective identifiers). Credible Wallet was designed to a secure, production-grade, yet lightweight and general-purpose wallet for such use cases, completely free of platform-, vendor-, or blockchain-lock-in and almost free of opinions (our preference for open standards is, after all, an opinion).
+Contributions to Spruce's OS projects must be accompanied by a Contributor
+License Agreement. (Don't worry about signing a CLA just for documentation bugs and
+requests, those are not licensed the same way as our software releases).
 
-There are, however, fiduciary, automated, and/or "custodial" wallets (by analogy to cryptocurrency). Here, the dividing line between wallets and agents, services, and service providers gets a little blurry; particularly when the wallet holder is a legal entity or non-human actor, this is an important wrinkle on the concept of the "wallet." Here, DIDKit may be combined with enterprise identity and security platforms to provide a less human-scale "wallet" for handling strong credentials about human and non-human actors. 
+By signing a "CLA", you (and/or your employer) retain all copyrights to your
+contribution; this simply gives us permission to use and redistribute your
+contributions as part of the project and, if necessary, update the project's
+licensing without having to track down all contributors for explicit consent. 
 
-### Decentralized Identifiers ("*DIDs*")
-Decentralized Identifiers are stable identifiers which are bound to a controlling keypair, which is usually rotatable without changing the identifier. This is achieved by a publication mechanism maintaining information about key material in verifiable data stores (usually distributed ledgers) over time. This information is referred to as a DID Document. The [specification](https://www.w3.org/TR/did-core/) governing these identifiers is maintained by a dedicated W3C [working group](https://www.w3.org/2019/did-wg/), of which Spruce is a member. For more information on the W3C, see the **Further Reading** section.
+Please note that there are two distinct contributor agreements: a [Corporate
+CLA][] and an [Individual CLA][]. If your employment contract gives blanket or
+scoped control and ownership of your contributions to your employer (as almost
+all do in the modern software industry), the corporate contributor agreement is
+recommended. Please check with your employer, counsel, or HR staff if you
+have any questions about what you are signing or on whose behalf. Do not sign an
+individual CLA unless you are certain it does not contradict a pre-existing
+contract with your employer.
 
-### DID Document
+You generally only need to submit a CLA to Spruce once, so if you've already
+submitted one (even if it was for a different Spruce project), you don't need to
+do it again. Within two business days of being received, the submitted github
+handle(s) will be added to the allowlist for all our repos.
 
-A record returned by a query for a DID, containing information on how to verify information linked in some way to that identifier. The name can be misleading, since in many cases this "document" is entirely ephemeral or contextual and not intended to be a static file or document stored or cached anywhere.  It is sometimes couched in a "Resolution object," which contains metadata about the query and resolution process, although most application developers have no need to worry about these DID mechanics. For a The [specification](https://w3c-ccg.github.io/did-resolution/) governing the DID-->Document resolution process is maintained by a dedicated W3C [working group](https://www.w3.org/2019/did-wg/), of which Spruce is a member. For more information on the W3C, see the **Further Reading** section on our [Developer Portal](https://spruceid.dev/docs/further-reading).
+## Attribution Requirement
 
-### DID Method
-A set of interdependent governance, publication, and discovery mechanisms for DIDs in a given DID namespace. Most DID methods use blockchains or other publically-readable distributed ledgers as data registries, but some, such as DID:Web, use other systems of verification, such as secure DNS resolution. All methods are specified by a registered specification. This specification explains how to validate a DID (namespace rules), where to query and what to expect back when resolving a DID, etc. The [registry](https://w3c.github.io/did-spec-registries/#did-methods) of compliant specifications for DID Methods is maintained by a dedicated W3C [working group](https://www.w3.org/2019/did-wg/), of which Spruce is a member. For more information on the W3C, see the **Further Reading** section on our [Developer Portal](https://spruceid.dev/docs/further-reading).
+If you are not the sole contributor to a contribution (pull request), please
+identify all contributors in the pull request comment.
 
-### DID:Key
-A special DID Method that generates conformant, offchain DID documents for local, private, and/or ephemeral resolution from a keypair. This can be helpful for integrating conventional PKI or signing infrastructure with DID issuance, or to allow caching or local resolution of DID documents where it is undesirable or impossible to resolve remote DIDs. The [specification](https://w3c-ccg.github.io/did-method-key/) for this method was originally created in, and maintained in, the [W3C-Credentials Community Group](https://w3c-ccg.github.io/).
-  
-### JavaScript Object Notation (JSON)
+To add a contributor (other than yourself, that's automatic), mark them one per
+line as follows:
 
-First described in 2006 as Javascript was becoming the most dominant web development language, and already widespread with it was standardized in 2013 by [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/), the JSON "blob" or "object" is the most widely-used, language-independent format for data. It is often pronounced "JAson" or "JaySON".
++@github_username
+If you added a contributor by mistake, you can remove them in a comment with:
 
-### JSON-LD 
+-@github_username
 
-JSON-LD is a serialization and messaging format building Linked Data capabilities onto data objects expressable as JSON objects. This means it is built on (but not 100% within) the JSON format, with slightly different properties, including serialization, ordering, and referencing mechanics.  In the language of its specification's abstract, its "syntax is designed to easily integrate into deployed systems that already use JSON, and provides a smooth upgrade path from JSON to JSON-LD." The [specification](https://json-ld.org/spec/latest/json-ld/) is maintained and governed in the W3C.
+If you are making a pull request on behalf of someone else but you had no part
+in designing the feature, you can remove yourself with the above syntax. This
+updates the list of contributors to a given PR that must be checked against the
+CLA signees list to be accepted.
 
-### JSON Web Key (JWK)
+## Code Reviews
 
-A JSON Web Key, or a "JWK" for short, is a subset of JSON objects specified for containing cryptographic key or set of keys. They were [specified](https://tools.ietf.org/html/rfc7517) in 2015 through the IETF.
+All submissions, including submissions by full-time Spruce employees, require
+review. We use GitHub pull requests for this purpose. Consult [GitHub
+Help](https://help.github.com/articles/about-pull-requests/) for more
+information on using pull requests. You may tag oustide reviewers additionally,
+but review by Spruce is still the condition of acceptance.
+
+## Code of Conduct
+
+All our OS projects follows Spruce's overall [Code of Conduct][].
+
+[Corporate CLA]: /assets/spruce-corporate-cla.pdf
+[Individual CLA]: /assets/spruce-individual-cla.pdf
+[Code of Conduct]: https://spruceid.dev/docs/code-of-conduct
