@@ -5,7 +5,7 @@ title: Further Reading
 
 Further educational/contextual resources on decentralized identity topics can be
 found on the [Education page](https://identity.foundation/education/) of the
-Decentralized Identity Foundation. 
+Decentralized Identity Foundation.  
 
 For insight into the core specifications authored and maintained by the W3C
 working group, the best overview is the github repositories section of their
