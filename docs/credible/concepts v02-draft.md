@@ -1,7 +1,11 @@
 ---
-id: concepts
+id: concepts-draft
 title: Core Concepts
 ---
+
+:::Note 
+Unstable draft pending design alignment.
+:::
 
 Credible is designed to be a powerful but simple personal wallet for holding
 verifiable credentials-- and little more. 
@@ -32,13 +36,25 @@ keypair stored in the `FlutterSecureStorage`, which is backed by [KeyStore][] on
 Android and [Keychain][] on iOS.
 
 ### Flow
+:::note
+Todo: 
+* I assume the `holder` is not being validated, right? If the credential has a
+  URI that isn't a DID or a DID:Key, the presentation issuance protocol doesn't
+  throw an exception?
+* Only one VC for now, right? stringified JSON-LD, I assume?
+* What do you mean the credential's stored private key? Do you mean the private
+  key corresponding to the `id` of the credential *subject*?
+:::
 
 **Note: some features in this flow are current unstable and may not work as documented.**
 
 The flow of events and actions is thus:
-1. User is presented a credential preview to review and make their decision
-   whether or not receive it (coming soon: option to select subject DID if
-   wallet holds multiple)
+1. User is presented a credential preview to review and make their decision;
+1. [Optional] 
+   1. If User selected identifier (by "petname" or alias), its current DID will
+      be fetched from app storage. Otherwise:
+   2. App generates `didKey` from the secure on-device keypair using the
+      `DIDKit.keyToDIDKey` function;
 2. App makes a POST request to the initial URL with `subject_id` set to this
    DID;
 3. App receives and stores the new credential in app storage;
