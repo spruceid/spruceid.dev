@@ -36,17 +36,17 @@ wallet/identifier combination. Please note that in the current release, **no
 verification based on the *content* of the presented credential is yet
 supported**.
 
-See also the code snippets provided below of a Credible VP flow used to authenticate to another service.
+See also the code snippets provided in the CHAPI example for how Credible can
+authenticate to another service.
 
-*Future versions will be able to apply business logic to specify a subject DID,
+## Upcoming features 
+
+Future versions will be able to apply *business logic* to specify a subject DID,
 or a subject DID type (by method), or a date range of issuance, or an issuer,
 etc etc. Without such specification against which to validate a authenticating
 presentation, Credible's authentication should be considered "for testing
-purposes only" and not used to authenticate users to real-world systems.*
+purposes only" and **not** used to authenticate users to real-world systems.
 
-:::note
-
-## OIDC Considerations
-* v0.2? 
-  
-:::
+Spruce is watching closely as the standards around OIDC evolve, as well as the
+DIDComm protocol incubated across the DIF and Aries communities. We have every
+intention of supporting both these authentication mechanisms as they mature.
