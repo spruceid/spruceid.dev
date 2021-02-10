@@ -11,14 +11,16 @@ Links and qR codes for app stores coming soon (future releases).
 
 A manual build of this project has the following dependencies:
 
-* A nightly build of the rust compiler, most easily obtained using [rustup](https://www.rust-lang.org/tools/install). 
-  Once installed, nightly can be enabled globally using:
+* A nightly build of the rust compiler, most easily obtained using
+  [rustup](https://www.rust-lang.org/tools/install). Once installed, nightly can
+  be enabled globally using:
 
 ```bash
 $ rustup default nightly 
 ```
 
-Or on a per-project level by running the following in the root of the targeted cargo project:
+Or on a per-project level by running the following in the root of the targeted
+cargo project:
 
 ```bash
 $ rustup override set nightly
@@ -34,15 +36,22 @@ $ flutter channel dev
 $ flutter upgrade
 ```
 
-* [Android Studio](https://developer.android.com/studio/install) which must be installed, then opened for the first time to allow further dependencies to be installed.
+* [Android Studio](https://developer.android.com/studio/install) which must be
+  installed, then opened for the first time to allow further dependencies to be
+  installed.
 
-This project also depends on two other Spruce projects first, [DIDKit](https://github.com/spruceid/didkit), which depends on [ssi](https://github.com/spruceid/ssi).
+This project also depends on two other Spruce projects:
+[DIDKit](https://github.com/spruceid/didkit), which in turn depends on
+[ssi](https://github.com/spruceid/ssi).
 
-For now it's required to build DIDKit on the side before building this project. For more detailed instructions on how to set it up, please see the [DIDKit Installation Manual Installation](/docs/didkit/install#manual) and the [DIDKit Android Bindings](/docs/didkit/ffis#android) Sections.
+For now it's required to build DIDKit on the side before building this project.
+For more detailed instructions on how to set it up, please see the [DIDKit
+Installation Manual Installation](/docs/didkit/install#manual) and the [DIDKit
+Android Bindings](/docs/didkit/ffis#android) Sections.
 
-If all of the Spruce dependencies are in the same directory, the will correcltly resolve using relative paths, and the next two steps can be skipped
-
-Otherwise, point didkit to ssi by editing the didkit/lib/Cargo.toml:
+If all of the Spruce dependencies are in the same directory, they will correctly
+resolve using relative paths, and the next two steps can be skipped. Otherwise,
+point `didkit` to `ssi` by editing the didkit/lib/Cargo.toml:
 
 ```toml
 [dependencies]
@@ -52,7 +61,7 @@ did-tezos = { path = "path/to/ssi/did-tezos" }
 did-web = { path = "path/to/ssi/did-web", optional = true }
 ```
 
-And point Credible to didkit in the credible/pubspec.yaml:
+And point `Credible` to `didkit` in the credible/pubspec.yaml:
 
 ```yaml
 dependencies:
@@ -68,15 +77,16 @@ $ flutter build apk             # Android APK
 $ flutter build appbundle       # Android Appbundle
 ```
 
-Then [Android Studio](https://developer.android.com/studio/run/emulator) can be used to run the built application.
+Then [Android Studio](https://developer.android.com/studio/run/emulator) can be
+used to run the built application.
 
-Alternatively, 
+Alternatively, the command
 
 ```bash
 $ flutter run
 ```
 
-With a running emulator will work as well.
+Will work as well with a running emulator.
 
 ## Setup & Testing
 
