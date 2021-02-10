@@ -75,7 +75,7 @@ about who verifies it, or how often? This requires sophisticated indirection,
 and new ways of hiding sensitive information in shared, even public data
 registries.
 
-![Social Diagram](/img/did-core_social-roles.png)
+![Social Diagram](/assets/did-core_social-roles.png)
 
 Src: [DID specification](https://w3c.github.io/vc-data-model/#ecosystem-overview)
 
@@ -102,7 +102,7 @@ identifying and verifying each other.  Spruce's wallet is called Credible, and
 the engine Spruce uses to create and power agents is called DIDKit. Both are
 intended to work at many scales and in many contexts.
 
-![Architecture Diagram](/img/did-core_vc-lifecycle.png)
+![Architecture Diagram](/assets/did-core_vc-lifecycle.png)
 
 Src: [DID specification](https://www.w3.org/TR/vc-data-model/#lifecycle-details)
 
@@ -117,7 +117,7 @@ language, this means that a verifier would need to be able to get a
 cryptographic public key corresponding to that identifier, which might change or
 be deactivated over time.
 
-![Architecture Diagram](/img/did-core_architecture.png)
+![Architecture Diagram](/assets/did-core_architecture.png)
 
 Src: [DID specification](https://www.w3.org/TR/did-core/#architecture-overview)
 

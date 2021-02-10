@@ -7,7 +7,7 @@ DID Kit makes as accessible, simple, and portable as possible
 the core engine of any credentialing system built around W3C
  verifiable credentials: the issuance and verification mechanisms. 
 
-![core components of ssi and didkit](/img/didkit-core-components.png)
+![core components of ssi and didkit](/assets/didkit-core-components.png)
 
 ## High-level explanation of core logic
 

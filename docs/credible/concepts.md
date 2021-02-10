@@ -45,8 +45,8 @@ The flow of events and actions is thus:
 3. App receives and stores the new credential in app storage;
 4. User is redirect back to the wallet's homepage.
 
-![swimlane diagram](/img/credible_swimlane_issuance.png)
-[hi-rez swimlane here](/img/credible_swimlane_issuance.png)
+![swimlane diagram](/assets/credible_swimlane_issuance.png)
+[hi-rez swimlane here](/assets/credible_swimlane_issuance.png)
 
 ## Verifiable Presentation Request
 
@@ -83,8 +83,8 @@ The flow of events and actions is listed below:
 - App makes a POST request to the initial URL with the presentation;
 - User is redirect back to the wallet.
 
-![swimlane diagram](/img/credible_swimlane_vp_request.png)
-[hi-rez swimlane here](/img/credible_swimlane_vp_request.png)
+![swimlane diagram](/assets/credible_swimlane_vp_request.png)
+[hi-rez swimlane here](/assets/credible_swimlane_vp_request.png)
 
 ## Future Protocols
 

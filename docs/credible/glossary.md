@@ -19,7 +19,7 @@ There are, however, fiduciary, automated, and/or "custodial" wallets (by analogy
 
 ### VC Nomenclature & Life-Cycle
 
-![Architecture Diagram](/img/did-core_vc-lifecycle.png)
+![Architecture Diagram](/assets/did-core_vc-lifecycle.png)
 
 Src: [DID specification](https://www.w3.org/TR/vc-data-model/#lifecycle-details)
 
@@ -32,7 +32,7 @@ A record returned by a query for a DID, containing information on how to verify 
 
 ### DID Taxonomy & Architecture
 
-![Architecture Diagram](/img/did-core_architecture.png)
+![Architecture Diagram](/assets/did-core_architecture.png)
 
 Src: [DID specification](https://www.w3.org/TR/did-core/#architecture-overview)
 

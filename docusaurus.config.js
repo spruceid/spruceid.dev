@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo.png',
+  favicon: 'assets/logo.png',
   organizationName: 'spruceid', // Usually your GitHub org/user name.
   projectName: 'spruceid.dev', // Usually your repo name.
   themeConfig: {
@@ -14,7 +14,7 @@ module.exports = {
       logo: {
         alt: 'Spruce Site Logo',
         href: "https://spruceid.com/",
-        src: 'img/logo.png',
+        src: 'assets/logo.png',
       },
       items: [
         {
