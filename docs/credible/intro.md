@@ -23,7 +23,7 @@ form. Over time, we expect to integrate many DID methods and presentation
 protocols to make this the wallet fully-featured without being ledger-bound or
 vendor-favoring.
 
-![core components of ssi and didkit](/assets/didkit-core-components.png)
+![credible architecture](/assets/credible-architecture.png)
 
 ## Features
 
