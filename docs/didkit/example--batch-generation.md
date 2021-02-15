@@ -1,6 +1,6 @@
 ---
 id: "example--batch-generation"
-title: Bash Script - Batch Generation & Verification
+title: Batch Generation & Verification
 ---
 
 ### Introduction

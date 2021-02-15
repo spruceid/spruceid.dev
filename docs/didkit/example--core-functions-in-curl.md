@@ -1,9 +1,9 @@
 ---
 id: example--core-functions-in-curl
-title: Bash Script - Core Functions (HTTP)
+title: Core Functions (HTTP)
 ---
 
-### Introduction
+## Introduction
 
 This is an example shell script using all the core functions of DIDKit-CLI: key generation, credential/presentation issuance and verification.
 

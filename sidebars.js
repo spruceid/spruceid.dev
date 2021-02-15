@@ -22,6 +22,8 @@ module.exports = {
       'didkit/example--core-functions-in-bash', 
       'didkit/example--core-functions-in-curl', 
       'didkit/example--batch-generation',
+      'didkit/example--java-springboot',
+      'didkit/example--svelte-chapi'
     ],
     'Credible': [
       'credible/intro', 
