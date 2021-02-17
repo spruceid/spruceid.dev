@@ -11,6 +11,14 @@ Links and qR codes for app stores coming soon (future releases).
 Regardless of target platform manual build of this project has the 
 following dependencies:
 
+
+* Two other Spruce projects, `didkit` and `ssi`.
+  [DIDKit](https://github.com/spruceid/didkit) depends on
+  [ssi](https://github.com/spruceid/ssi), so clone and build install the latter
+  first. To work with build scripts depending on relative paths, created a
+  directory named something like `spruceid` and clone `credible`, `didkit`, and
+  `ssi` next to eachother. thereafter, work from the `credible` directory.
+
 * A nightly build of the rust compiler, most easily obtained using
   [rustup](https://www.rust-lang.org/tools/install). Once installed, 
   nightly can be enabled globally using:
@@ -34,15 +42,6 @@ $ rustup override set nightly
 $ flutter channel dev
 $ flutter upgrade
 ```
-
-This project also depends on two other Spruce projects, `didkit` and `ssi`.
-[DIDKit](https://github.com/spruceid/didkit), which in turn depends on
-[ssi](https://github.com/spruceid/ssi). 
-
-To work with build scripts depending on relative paths, created a 
-directory named something like `spruceid` and clone `credible`, `didkit`, 
-and `ssi` next to eachother.
-
 
 ### Android Specific Instructions: 
 Android builds have the additional requirement of:
