@@ -33,7 +33,8 @@ targeted cargo project:
 ```bash
 $ rustup override set nightly
 ```
-* Java 7 or higher
+* Java 7 or higher (path to SDK's /bin/ folder must be set in environmental
+  variables for `make` calls to `javac`)
 
 * [Flutter](https://flutter.dev/docs/get-started/install) set to the 
   dev channel. This is done on *nix type systems after installation 
