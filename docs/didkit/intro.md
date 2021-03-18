@@ -106,6 +106,7 @@ Proof types verifiable so far:
 - RSASignature2018
 - Ed25519VerificationKeys
 - EcdsaSecp256k1Signature2019
+- EcdsaSecp256r1Signature2019
 - EcdsaSecp256k1RecoverySignature2020
 - Eip712Signature2021
 - SolanaSignature2021
