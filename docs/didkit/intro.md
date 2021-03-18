@@ -99,7 +99,7 @@ DID Methods supported so far:
 * did-key
 * did-web
 * did-tezos
-* did-ethr
+* did-ethr (implicit only)
 * did-sol
 
 Proof types verifiable so far:
