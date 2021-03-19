@@ -98,11 +98,19 @@ DIDKit currently supports the following features:
 DID Methods supported so far: 
 * did-key
 * did-web
-* did-tezos (tz1 and resolution layer 1)
+* did-tezos
+* did-ethr (implicit only)
+* did-sol
 
 Proof types verifiable so far:
 - RSASignature2018
 - Ed25519VerificationKeys
+- EcdsaSecp256k1Signature2019
+- EcdsaSecp256r1Signature2019
+- EcdsaSecp256k1RecoverySignature2020
+- Eip712Signature2021
+- SolanaSignature2021
+- JsonWebSignature2020
 
 ## Roadmap
 
@@ -111,8 +119,7 @@ The following tools and features are high priority for subsequent releases:
 2. JSON-LD context editor
 3. Registration of several new LD signature suites and support for new
    cryptography
-4. Further DID method support: did-tezos (tz2/tz3 and resolution layers 2 and
-   3), did-btcr, did-onion
+4. Further DID method support: did-btcr, did-onion
 5. BBS+ signatures
 6. DIDComm support
 7. Aries interoperability profile support
