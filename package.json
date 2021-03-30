@@ -18,7 +18,8 @@
     "clsx": "^1.1.1",
     "docusaurus": "^1.14.6",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "remark-import-partial": "^0.0.2"
   },
   "browserslist": {
     "production": [

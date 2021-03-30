@@ -1,3 +1,5 @@
+const remarkImportPartial = require('remark-import-partial');
+
 module.exports = {
   title: 'Spruce Developer Portal',
   tagline: '$sudo grok spruce --asap',
@@ -96,6 +98,7 @@ module.exports = {
           // Please change this to your repo.
           editUrl:
             'https://github.com/spruceid/',
+          remarkPlugins: [remarkImportPartial],
         },
         blog: {
           blogSidebarTitle: 'Titles',
