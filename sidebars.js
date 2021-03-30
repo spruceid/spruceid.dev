@@ -16,6 +16,7 @@ module.exports = {
       'didkit/cli_commands', 
       'didkit/http_syntax', 
       'didkit/ffis', 
+      'didkit/changelog',
     ], 
     'DIDKit Examples': [
       'didkit/examples', 

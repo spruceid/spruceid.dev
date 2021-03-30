@@ -17,6 +17,7 @@ jobs:
           node-version: '12.x'
       - name: Test Build
         run: |
+          git clone https://github.com/spruceid/didkit --depth 1 ../didkit
           if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
           elif [ -e package-lock.json ]; then
@@ -53,6 +54,7 @@ jobs:
         run: |
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
+          git clone https://github.com/spruceid/didkit --depth 1 ../didkit
           if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
           elif [ -e package-lock.json ]; then
