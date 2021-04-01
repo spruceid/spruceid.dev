@@ -3,6 +3,8 @@ id: example--svelte-chapi
 title: Svelte CHAPI 
 ---
 
+Source: https://github.com/spruceid/didkit/tree/main/examples/svelte-chapi-wallet
+
 ## Introduction
 
 This project demonstrates how to implement a [CHAPI][]-conformant Wallet using
