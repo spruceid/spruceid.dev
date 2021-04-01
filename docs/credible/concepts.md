@@ -16,6 +16,8 @@ All QRCode interactions start as listed below:
 Then, depending on the type of message, one of the following protocols will be
 executed.
 
+If this all sounds a little esoteric, watch the [example video](example--qr-issuance.md) first. 
+
 ## CredentialOffer
 
 If the wallet manages multiple keypairs/subject identifiers, the user will be
@@ -31,7 +33,7 @@ a "DID:Key" object (See glossary), which is derived deterministically from the
 keypair stored in the `FlutterSecureStorage`, which is backed by [KeyStore][] on
 Android and [Keychain][] on iOS.
 
-### Flow
+### Offer Flow
 
 **Note: some features in this flow are current unstable and may not work as documented.**
 
@@ -70,7 +72,7 @@ Here are some of the parameters used to generate a presentation:
 - `key` is the credential's stored private key;
 
 
-###  Flow
+### VP Request Flow
 
 The flow of events and actions is listed below:
 - User is presented a presentation request to review and make a decision;
