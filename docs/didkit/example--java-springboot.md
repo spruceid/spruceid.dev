@@ -189,7 +189,7 @@ And you should expect to see a version string in the response.
 4. Issue yourself a credential to use for login instead of username and
    password. You can receive credentials in the example [CHAPI wallet](#) or
    using the QR code workflow and
-   [Credible[] mobile wallet.
+   [Credible][] mobile wallet.
 
 [Credible]: https://github.com/spruceid/credible
 [examples]: https://github.com/spruceid/didkit/tree/main/examples/

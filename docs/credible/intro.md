@@ -16,7 +16,7 @@ slug: /credible/
 
 
 Credible is a lightweight wallet for individuals to manage DIDs and VCs from
-their mobile phones. It is white-label friendly, open-source, and build on our
+their mobile phones. It is white-label friendly, open-source, and built on our
 core SSI libraries.  As soon as it is feature-complete and ready for external
 review, it will even be downloadable from the appstore in its basic, unextended
 form. Over time, we expect to integrate many DID methods and presentation
@@ -37,5 +37,5 @@ vendor-favoring.
 ## Coming soon
 
 The following features have been tentatively roadmapped for the next major release:
-1. Better support (and code snippets) for passing OIDC tokens back to service
+1. Better support (and code snippets) for passing OIDC tokens back to services
    authenticated with Credible
