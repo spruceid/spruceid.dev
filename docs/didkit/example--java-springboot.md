@@ -3,6 +3,8 @@ id: example--java-springboot
 title: Spring Boot Java AuthN Service
 ---
 
+Source: https://github.com/spruceid/didkit/tree/main/examples/java-springboot
+
 ## Introduction
 
 This project demonstrates use of verifiable credentials and presentations to
