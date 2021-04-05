@@ -19,5 +19,5 @@ Concepts](concepts.md#offer-flow) page.  Note that:
   in this demo, they are mocked up graphically by a few manual overrides in the
   folder /lib/app/pages/credentials/widget/document/
 
-![Credible header](/assets/credible-vc-vp.gif)
+![credible-vc-vp-half](https://user-images.githubusercontent.com/95347/113591505-f422ff00-9601-11eb-9e16-4d0c45ab8ef9.gif)
 
