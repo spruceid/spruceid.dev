@@ -59,7 +59,7 @@ Prerequisites:
 
 Building `didkit` (we are working on crate packaging):
 ```sh
-$ git clone https://github.com/spruceid/ssi
+$ git clone https://github.com/spruceid/ssi --recurse-submodules
 $ git clone https://github.com/spruceid/didkit
 $ cd didkit/
 $ cargo build
