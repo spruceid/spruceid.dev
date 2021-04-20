@@ -13,9 +13,9 @@ slug: /
   [glossary](glossary.md) to go deeper into corner-cases and specifications.
 
 *Please note: this site documents two different v0.1 products that have not yet
-undergone substantial external review. They are presented as function alphas for
-experimentation and to show the direction of the projects (inviting proposals
-for changes of direction, even!). They are not, however, intended for
+undergone substantial external review. They are presented as functional alphas
+for experimentation and to show the direction of the projects (inviting
+proposals for changes of direction, even!). They are not, however, intended for
 transacting real-world business just yet.*
 
 ## About Spruce Systems

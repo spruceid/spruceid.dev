@@ -42,15 +42,20 @@ printf 'verificationMethod: %s\n\n' "$verification_method"
 In this example credential, the issuance date, id, and credential subject id are arbitrary, but in real-world usage these are diverse and critical properties. For more info about what these properties mean, see the Verifiable Credentials Data Model [specification](https://w3c.github.io/vc-data-model/)
 
 ```bash
+SUBJECTDID='did:example:d23dd687a7dc6787646f2eb98d0'
+ISSUERDID='did:web:issuance.example.com'
+DATE=`date --utc +%FT%TZ` 
+CREDID=`uuidgen`
+
 cat > credential-unsigned.jsonld <<EOF
 {
 	"@context": "https://www.w3.org/2018/credentials/v1",
-	"id": "http://example.org/credentials/3731",
+	"id": "$CREDID",
 	"type": ["VerifiableCredential"],
-	"issuer": "$did",
-	"issuanceDate": "2020-08-19T21:41:50Z",
+	"issuer": "$ISSUERDID",
+	"issuanceDate": "$DATE",
 	"credentialSubject": {
-		"id": "did:example:d23dd687a7dc6787646f2eb98d0"
+		"id": "$CREDID"
 	}
 }
 EOF
