@@ -30,6 +30,7 @@ upgrade, open an issue! All of these are hosted on git for this very purpose.
 
 ## When in doubt, call a referee
 
-Our Open Source Manager prioritizes these questions and dispute resolution
-generally, so feel free to [reach out](mailto:oss@spruceid.com) early and often
-if you see a dispute or a conflict coming.
+Our Open Source Manager (aka our "OS Yenta") prioritizes these questions and 
+dispute resolution generally, so feel free to 
+[reach out](mailto:oss@spruceid.com) early and often if you see a dispute or a
+conflict coming.
