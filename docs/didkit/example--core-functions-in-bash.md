@@ -44,7 +44,7 @@ printf 'verificationMethod: %s\n\n' "$verification_method"
 
 ### Prepare credential for issuing.
 
-In this example credential, the issuance date, id, and credential subject id are arbitrary, but in real-world usage these are diverse and critical properties. For more info about what these properties mean, see the Verifiable Credentials Data Model [specification](https://w3c.github.io/vc-data-model/)
+Here, we'll issue an example credential (unsigned) and save it to a file. In this credential, the issuance date, id, and credential subject id are arbitrary, but in real-world usage these are diverse and critical properties. For more info about what these properties mean, see the Verifiable Credentials Data Model [specification](https://w3c.github.io/vc-data-model/).
 
 ```bash
 SUBJECTDID='did:example:d23dd687a7dc6787646f2eb98d0'
@@ -68,8 +68,9 @@ EOF
 
 ### Issue the verifiable credential.
 
-1. Ask didkit to issue a verifiable credential using the given keypair file, verification method, and proof purpose, passing the unsigned credential on standard input.
-2. DIDKit creates a linked data proof to add to the credential, and outputs the resulting newly-issued verifiable credential on standard output, which we save to a file.
+- We ask DIDKit to issue a verifiable credential using the given keypair file, verification method, and proof purpose, passing the unsigned credential on standard input.
+
+- DIDKit creates a linked data proof to add to the unsigned credential, and outputs the resulting newly-issued (signed) verifiable credential on standard output, which we save to a file.
 
 ```bash
 didkit vc-issue-credential \
@@ -85,9 +86,9 @@ echo
 
 ### Verify a verifiable credential.
 
-- We pass the newly-issued verifiable credential back to didkit for verification using the given verification method and proof purpose.
-- DIDKit outputs the verification result as JSON.
-- If verification is successful, the command completes successfully (returns exit code 0).
+- We pass the newly-issued signed verifiable credential back to didkit for verification using the given verification method and proof purpose.
+
+- DIDKit then outputs the verification result as JSON and saves it. If verification is successful, the command completes successfully (returns exit code 0).
 
 ```bash
 if ! didkit vc-verify-credential \
@@ -105,9 +106,10 @@ print_json credential-verify-result.json
 echo
 ```
 
-### Create presentation embedding verifiable credential.
+### Create a verifiable presentation that embeds the verifiable credential.
 
-- Prepare to present the verifiable credential by wrapping it in a Verifiable Presentation.
+- Prepare to present the verifiable credential by wrapping it in a verifiable presentation (VP).
+
 - The id here is an arbitrary URL for example purposes; VPs are often but not always uniquely identified, whether by identifiers, URLs, or URIs.
 
 ```bash
@@ -145,10 +147,9 @@ print_json presentation-signed.jsonld
 echo
 ```
 
-### Verify verifiable presentation.
+### Verify the verifiable presentation.
 
-- Pass the verifiable presentation back to didkit for verification.
-- Examine the verification result JSON.
+- We pass the verifiable presentation we created back to DIDKit for verification, and save the results in a JSON.
 
 ```bash
 if ! didkit vc-verify-presentation \
