@@ -69,16 +69,16 @@ $ cd didkit/
 $ cargo build
 ```
 
-Using `didkit` CLI
-([documentation](https://github.com/spruceid/didkit/tree/main/cli)):
+Using `didkit` CLI ([Github documentation](https://github.com/spruceid/didkit/tree/main/cli)) <br/>
+Read more about CLI Commands [here](/docs/didkit/cli_commands)
 
 ```sh
 $ ./target/debug/didkit -h
 $ ./target/debug/didkit generate-ed25519-key > key.jwk
 ```
 
-Using `didkit` HTTP server
-([documentation](https://github.com/spruceid/didkit/tree/main/http)):
+Using `didkit` HTTP server ([Github documentation](https://github.com/spruceid/didkit/tree/main/http)) <br/>
+Read more about HTTP Commands [here](/docs/didkit/http_syntax)
 
 ```sh
 $ ./target/debug/didkit-http -k key.jwk
