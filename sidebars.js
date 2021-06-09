@@ -5,6 +5,7 @@ module.exports = {
       'primer',
       'contributing',
       'code-of-conduct', 
+      'privacy-policy',
     ],
     'DIDKit': [
       'didkit/intro', 
