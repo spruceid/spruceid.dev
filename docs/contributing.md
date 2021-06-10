@@ -2,10 +2,9 @@
 id: contributing
 title: Contributing
 hide_title: true
-
 ---
 
-## How to Contribute
+## How do I contribute?
 
 We'd love to accept your patches, feature upgrades, and adapters that can make
 DIDKit, Credible, and/or ssi compatible with other SSI systems and legacy
@@ -21,7 +20,7 @@ requests, those are not licensed the same way as our software releases).
 By signing a "CLA", you (and/or your employer) retain all copyrights to your
 contribution; this simply gives us permission to use and redistribute your
 contributions as part of the project and, if necessary, update the project's
-licensing without having to track down all contributors for explicit consent. 
+licensing without having to track down all contributors for explicit consent.
 
 Please note that there are two distinct contributor agreements: a [Corporate
 CLA][] and an [Individual CLA][]. If your employment contract gives blanket or
@@ -67,6 +66,6 @@ but review by Spruce is still the condition of acceptance.
 
 All our OS projects follows Spruce's overall [Code of Conduct][].
 
-[Corporate CLA]: /assets/spruce-corporate-cla.pdf
-[Individual CLA]: /assets/spruce-individual-cla.pdf
-[Code of Conduct]: https://spruceid.dev/docs/code-of-conduct
+[corporate cla]: /assets/spruce-corporate-cla.pdf
+[individual cla]: /assets/spruce-individual-cla.pdf
+[code of conduct]: https://spruceid.dev/docs/code-of-conduct
