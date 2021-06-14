@@ -5,24 +5,22 @@ title: What is Decentralized Identity?
 
 ## Today's Centralized Identity Systems
 
-Identifying users securely with minimum invasion of privacy or risk
-of leakage is a core problem with essentially all software systems.
-Since the great boom of personal computing,
-this has created a whole sub-industry of identity and access-management (IAM)
-technologies, which overwhelmingly improve the mousetrap of mapping users to
-"accounts".
+Identifying users securely with minimum invasion of privacy or risk of leakage
+is a core problem in essentially all software systems. Since the great boom of
+personal computing, this has created a whole sub-industry of identity and
+access-management (IAM) technologies, which overwhelmingly improve the mousetrap
+of mapping users to "accounts".
 
 > **Centralized databases concentrate not just informational power, but also risk
 > and liability.**
 
 As more and more real-world value get digitized over the decades, "identity
 data" has become a chokepoint for virtually all other digital value systems.
-Furthermore, every central repository of personal
-information has become a target of opportunistic
-business models, many of them illegal and based on exfiltration and interception of personal data.
-The legal spheres of so-called "ad-tech" and data
-brokerages and the illegal spheres of espionage, identity theft, and
-industrialized computer fraud share many characteristics.
+Furthermore, every central repository of personal information has become a
+target of opportunistic business models, many of them illegal and based on
+exfiltration and interception of personal data. The legal spheres of so-called
+"ad-tech" and data brokerages and the illegal spheres of espionage, identity
+theft, and industrialized computer fraud share many characteristics.
 
 > Both legal and illegal industries devoted to non-consentual data sharing are
 > growing every year. Both are largely impervious to regulation, and both are
@@ -31,12 +29,14 @@ industrialized computer fraud share many characteristics.
 ## How Decentralization Helps
 
 In recent years, however, we have seen a wave of identity technologies emerge
-that strive to re-architect this whole landscape defensively, giving fine-grained control over all personal data back to you, the user.
-Decentralization of data systems, in the sense of bottoms-up governance of infrastructure and alternatives to monopolistic platform economics, tends to fit hand in glove
-with decentralized identity technologies. Center stage among this web of
-human-centric technologies is increasingly given to so-called "self-sovereign
-identity," which apply decentralized identity technologies to management of
-individuals' personal data.
+that strive to re-architect this whole landscape defensively, giving
+fine-grained control over all personal data back to you, the user.
+Decentralization of data systems, in the sense of bottoms-up governance of
+infrastructure and alternatives to monopolistic platform economics, tends to fit
+hand in glove with decentralized identity technologies. Center stage among this
+web of human-centric technologies is increasingly given to so-called
+"self-sovereign identity," which apply decentralized identity technologies to
+management of individuals' personal data.
 
 ## What Spruce is About
 
