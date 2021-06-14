@@ -3,14 +3,17 @@ id: primer
 title: What is Decentralized Identity?
 ---
 
-## The Centralized World We Live In
+## Today's Centralized Identity Systems
 
 Identifying users securely with minimum invasion of privacy or risk
 of leakage is a core problem with essentially all software systems.
 Since the great boom of personal computing,
 this has created a whole sub-industry of identity and access-management (IAM)
 technologies, which overwhelmingly improve the mousetrap of mapping users to
-"accounts" - **centralized databases that concentrate not just informational power, but also risk and liability**.
+"accounts".
+
+> **Centralized databases concentrate not just informational power, but also risk
+> and liability.**
 
 As more and more real-world value get digitized over the decades, "identity
 data" has become a chokepoint for virtually all other digital value systems.
@@ -19,9 +22,11 @@ information has become a target of opportunistic
 business models, many of them illegal and based on exfiltration and interception of personal data.
 The legal spheres of so-called "ad-tech" and data
 brokerages and the illegal spheres of espionage, identity theft, and
-industrialized computer fraud share many characteristics: ** they are both growing
-every year, they are largely impervious to regulation, and they are deeply
-demoralizing and disempowering to the average end-user.**
+industrialized computer fraud share many characteristics.
+
+> Both legal and illegal industries devoted to non-consentual data sharing are
+> growing every year. Both are largely impervious to regulation, and both are
+> deeply **demoralizing and disempowering to the average end-user**.
 
 ## How Decentralization Helps
 
