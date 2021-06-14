@@ -29,7 +29,7 @@ echo
 This document gets wrapped around the keypair generated (or passed) in the previous step. For more context on the DID:key method, see the [specification](https://w3c-ccg.github.io/did-method-key/).
 
 ```bash
-did=$(didkit key-to-did key -k issuer_key.jwk)
+did=$(didkit key-to-did -k issuer_key.jwk)
 printf 'DID: %s\n\n' "$did"
 ```
 
