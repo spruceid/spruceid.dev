@@ -15,7 +15,7 @@ Welcome! Here's how you can get started building with our open-source projects:
   how DIDKit can be built into a native mobile app.
 
 Want to learn more about verifiable credentials? Start
-with our [primer](primer.md), or use the
+with our primer, ["What is Decentralized Identity?"](primer.md), or use the
 [glossary](glossary.md) to go deeper into corner-cases and specifications.
 
 ## Our Vision at Spruce
