@@ -11,7 +11,8 @@ Welcome! Here's how you can get started building with our open-source projects:
 
 - [DIDKit](/docs/didkit) - our cross-platform toolkit for W3C
   Decentralized Identifiers and Verifiable Credentials.
-- [Credible](/docs/credible) - our lightweight credential wallet.
+- [Credible](/docs/credible) - our lightweight credential wallet, demonstrating
+  how DIDKit can be built into a native mobile app.
 
 Want to learn more about verifiable credentials? Start
 with our [primer](primer.md), or use the
@@ -24,17 +25,16 @@ documents digitally? Have you ever been shocked at how much an online platform
 knows about you and wish you had more control over your identity? As a business,
 do your customers feel any of the above when they’re doing business with you?
 
-**Spruce is reimagining trusted interactions for enterprises and governments — the
-stewards of the most foundational and impactful layers of infrastructure shaping
-our lives.** We believe that in any organization you can find people who wish
-public and private institutions respected an individual’s control over their own
-information and privacy.
-
-We are also pragmatists who understand that these
-principles are most likely to be implemented at scale when they also make
-commercial and operational sense. We firmly believe that there are paths
-striking a balance that both respects individual liberty and allows for
-enterprise success.
+> **Spruce is reimagining trusted interactions for enterprises and governments — the
+> stewards of the most foundational and impactful layers of infrastructure shaping
+> our lives.**
+ 
+We believe that in any organization you can find people working to build
+institutions that honor individual’s control over their own information and
+privacy.  We are also pragmatists who understand that these principles are most
+likely to be implemented at scale when they also make commercial and operational
+sense. We firmly believe that there are paths striking a balance that both
+respects individual liberty and allows for enterprise success.
 
 We are creating open-source software products that help our customers go from
 untrusted data to verifiable information that can be shared privately and with
