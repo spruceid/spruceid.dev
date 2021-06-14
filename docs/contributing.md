@@ -1,10 +1,9 @@
 ---
 id: contributing
 title: Contributing
-hide_title: true
 ---
 
-## How do I contribute?
+## Getting Started
 
 We'd love to accept your patches, feature upgrades, and adapters that can make
 DIDKit, Credible, and/or ssi compatible with other SSI systems and legacy
