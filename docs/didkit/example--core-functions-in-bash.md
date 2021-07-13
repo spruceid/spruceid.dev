@@ -44,7 +44,15 @@ printf 'verificationMethod: %s\n\n' "$verification_method"
 
 ### Prepare credential for issuing.
 
-Here, we'll issue an example credential (unsigned) and save it to a file. In this credential, the issuance date, id, and credential subject id are arbitrary, but in real-world usage these are diverse and critical properties. For more info about what these properties mean, see the Verifiable Credentials Data Model [specification](https://w3c.github.io/vc-data-model/).
+Here, we'll issue an example credential (unsigned) and save it to a file. In
+this credential, the issuance date, id, and credential subject id are arbitrary,
+but in real-world usage these are diverse and critical properties. For more info
+about what these properties mean, see the Verifiable Credentials Data Model
+[specification](https://w3c.github.io/vc-data-model/).  Note that SUBJECTDID and
+ISSUERDID fields need to be URIs, so if you are using non-DID identifiers such
+as certificates or UUIDs, they need to be prefixed with the approriate [URN
+prefix](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml),
+i.e., "urn:uuid:", etc.
 
 ```bash
 SUBJECTDID='did:example:d23dd687a7dc6787646f2eb98d0'
@@ -60,7 +68,7 @@ cat > credential-unsigned.jsonld <<EOF
 	"issuer": "$ISSUERDID",
 	"issuanceDate": "$DATE",
 	"credentialSubject": {
-		"id": "$CREDID"
+		"id": "$SUBJECTID"
 	}
 }
 EOF
