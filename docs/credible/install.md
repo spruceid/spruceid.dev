@@ -126,7 +126,8 @@ appropriate Android NDK (often not the newest) in Android Studio can be
 accomplished by going to Settings > Appearance & Behavior > System Settings >
 Android SDK and selecting to install the "NDK (Side by Side)". An alternative
 method of installing SDK and NDK without Android Studio can be found in the
-optional [install_android_dependencies.sh](install_android_dependencies.sh)
+optional
+[install_android_dependencies.sh](https://github.com/spruceid/credible/blob/main/install_android_dependencies.sh)
 script included here.
 
 If your Android SDK doesn't live at `$HOME/Android/Sdk` you will need to set
