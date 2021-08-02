@@ -137,14 +137,14 @@ If your Android SDK doesn't live at `$HOME/Android/Sdk` you will need to set
 $ export ANDROID_SDK_ROOT=/path/to/Android/Sdk
 ```
 
-:::note Some users have experienced difficulties with cross-compilation
+*Note: Some users have experienced difficulties with expected cross-compilation
 artefacts missing from the newest NDK, which is downloaded by default in the
 installation process.  If you experience errors of this kind, you may have to
 manually downgrade or install multiple NDK versions as [shown
 here])(img/ndk_downgrade.png) in the Android Studio installer (screengrabbed
 from an Ubuntu installation). Alternately, running all or parts of the
 [install_android_dependencies.sh](install_android_dependencies.sh) script may be
-helpful.
+helpful.*
 
 If your `build-tools` and/or `NDK`  live in different locations than the default ones inside /SDK/, or if you want to specify a specific NDK or build-tools version, you can manually configure the following two environment variables:
 
