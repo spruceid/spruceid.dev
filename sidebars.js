@@ -37,6 +37,7 @@ module.exports = {
     'Credible Examples': [
       'credible/examples',
       'credible/example--qr-issuance',
+      'credible/example--vc-display',
     ]
     ,
     'References': [
