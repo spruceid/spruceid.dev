@@ -38,6 +38,7 @@ module.exports = {
       'credible/examples',
       'credible/example--qr-issuance',
       'credible/example--vc-display',
+      'credible/example--did-tz-deploy',
     ]
     ,
     'References': [
