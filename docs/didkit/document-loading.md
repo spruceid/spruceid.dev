@@ -51,15 +51,21 @@ the interaction.
 ## Different modes of document loading
 
 In a nutshell, there are three options for loading contexts into an
-issuer/verifier, i.e., four different ways an instance of DIDKit can
-dereference a URL pointing to a document. Technically, these are "resources" in the classical sense, but DIDKit is configured to build and maintain a local reference table to avoid fetching remote resources, which is disabled by default.
+issuer/verifier, i.e., four different ways an instance of DIDKit can dereference
+a URL pointing to a document. Technically, these are "resources" in the
+classical sense, but DIDKit is configured to build and maintain a local
+reference table to avoid fetching remote resources, which is disabled by
+default.
 
-Ranked by their simplicity and security, the four ways of loading a document for issuance or verification purposes are:
+Ranked by their simplicity and security, the four ways of loading a document for
+issuance or verification purposes are:
 
 1. Package a resource into DIDKit at build time.
 2. Load a context resource locally at run time. (Coming soon)
-3. Periodically reload a context resource "remotely" from a remote trusted source. (Coming soon)
-4. Load a context resource remotely at time of verification (*Strongly discouraged and not supported or endorsed by Spruce*)
+3. Periodically reload a context resource "remotely" from a remote trusted
+   source. (Coming soon)
+4. Load a context resource remotely at time of verification (*Strongly
+   discouraged and not supported or endorsed by Spruce*)
 
 The security advantages of 1 over 2 and 2 over 3 should be clear, but it is also
 worth mentioning that option #4 has major privacy/data-leakage implications
@@ -70,19 +76,31 @@ mitigations and performance for implementing #3.
 
 ## Pre-loading a document resource at build time
 
-Any context file can be added to the directory, `ssi/contexts/`, which DIDKit queries for contexts.  A few considerations, though:
+Any context file can be added to the directory, `ssi/contexts/`, which DIDKit
+queries for contexts.  A few considerations, though:
 
-1. Context files are intellectual property, and as such should be covered by licenses if upstreamed or otherwise distributed. Add licensing information about any new context file to `ssi/contexts/LICENSES.md` and `ssi/contexts/README.md` as needed.
-   - If it's a W3C context file you are adding, simply add the name and URL in `ssi/contexts/README.md` with the other W3C documents (they are already covered by W3C license statements).
-   - If the new context is covered by neither W3C's license, or an Apache-2.0 or CC-BY-SA-3.0 license, you will also need to update the license property in `ssi/contexts/Cargo.toml`.
-2. Add a line in `contexts/src/lib.rs` using `include_str` to load the JSON-LD file and export it as a **constant variable**.
+1. Context files are intellectual property, and as such should be covered by
+   licenses if upstreamed or otherwise distributed. Add licensing information
+   about any new context file to `ssi/contexts/LICENSES.md` and
+   `ssi/contexts/README.md` as needed.
+   - If it's a W3C context file you are adding, simply add the name and URL in
+     `ssi/contexts/README.md` with the other W3C documents (they are already
+     covered by W3C license statements).
+   - If the new context is covered by neither W3C's license, or an Apache-2.0 or
+     CC-BY-SA-3.0 license, you will also need to update the license property in
+     `ssi/contexts/Cargo.toml`.
+2. Add a line in `contexts/src/lib.rs` using `include_str` to load the JSON-LD
+   file and export it as a **constant variable**.
    - Optionally, you may want to add the URL in a rustdoc comment.
 3. In `ssi/src/jsonld.rs`:
   - Declare and export a constant for the context file's canonical URL.
-  - In the `lazy_static` block, define the context document as a `RemoteDocument`, referencing the context file variable defined in contexts/src/lib.rs and the constant defined for the URL.
+  - In the `lazy_static` block, define the context document as a
+    `RemoteDocument`, referencing the context file variable defined in
+    contexts/src/lib.rs and the constant defined for the URL.
   - In `StaticLoader`, match the context file's URL(s) to the context document.
 
-After that, you are ready to follow the steps in didkit to build didkit-cli or didkit-http, using the locally-modified ssi repo.
+After that, you are ready to follow the steps in didkit to build didkit-cli or
+didkit-http, using the locally-modified ssi repo.
 
 ## Loading a document resource locally at run-time
 
@@ -94,4 +112,5 @@ Coming soon!
 
 ## Loading remote document at run-time
 
-Coming never! See above for reasons why we will never support this feature out of the box.  Builder beware!
+Coming never! See above for reasons why we do not support this feature out of
+the box.  Builder beware!
