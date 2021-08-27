@@ -9,15 +9,21 @@ module.exports = {
     ],
     'DIDKit': [
       'didkit/intro', 
-      'didkit/terminology',
-      'didkit/concepts',
-      'didkit/specs_and_deps', 
-      'didkit/rust',
       'didkit/install', 
+
+
       'didkit/cli_commands', 
       'didkit/http_syntax', 
       'didkit/ffis', 
+      'didkit/rust',
+
+      'didkit/document-loading',
+
+      'didkit/terminology',
+      'didkit/concepts',
+
       'didkit/changelog',
+      'didkit/specs_and_deps', 
     ], 
     'DIDKit Examples': [
       'didkit/examples', 
