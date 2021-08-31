@@ -1,6 +1,6 @@
 ---
 id: devhome
-title: Welcome to the Spruce Developer Portal
+title: Welcome to the Spruce ID Developer Portal
 hide_title: true
 sidebar_label: Home
 slug: /
