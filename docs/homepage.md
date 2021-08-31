@@ -1,18 +1,20 @@
 ---
 id: devhome
 title: Welcome to the Spruce Developer Portal
+hide_title: true
 sidebar_label: Home
 slug: /
 ---
 
-## Get Started
+## Spruce ID Overview
 
-Welcome! Here's how you can get started building with our open-source projects:
+Welcome! This portal offers many ways of getting started with Spruce ID libraries and projects.  At a high level, the core components in our modular framework are:
 
-- [DIDKit](/docs/didkit) - our cross-platform toolkit for W3C
-  Decentralized Identifiers and Verifiable Credentials.
-- [Credible](/docs/credible) - our lightweight credential wallet, demonstrating
-  how DIDKit can be built into a native mobile app.
+- [**DIDKit**](/docs/didkit) - our cross-platform toolkit for signing and verifying W3C
+  Verifiable Credentials and using W3C Decentralized Identifiers ("DIDs"), configurable across many interfaces and installable from various major package managers
+- [**Credible**](/docs/credible) - our lightweight credential wallet, demonstrating
+  how DIDKit can be built into a native mobile app or web wallet and ready to be whitelabeled for a use-case-specific client application
+- **Rebase** - our 
 
 Want to learn more about verifiable credentials? Start
 with our primer, ["What is Decentralized Identity?"](primer.md), or use the
@@ -53,8 +55,9 @@ user’s control within a data supply chain.
 Have any questions about Spruce's development efforts? Reach us via email at
 hello@spruceid.com.
 
-_Please note: this site documents two different v0.1 products that have not yet
-undergone substantial external review. They are presented as functional alphas
-for experimentation and to show the direction of the projects (inviting
-proposals for changes of direction, even!). They are not, however, intended for
-transacting real-world business just yet._
+_Please note: this site documents two early-stage open-source products, and we
+are still incorporating feedback from our first comprehensive third-party code
+audit. These artefacts are presented as functional "betas" for experimentation
+and to show the direction of the projects (inviting proposals for changes of
+direction, even!). They are not, however, intended for transacting real-world
+business yet._
