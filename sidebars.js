@@ -17,18 +17,18 @@ module.exports = {
       'didkit/specs_and_deps', 
     ], 
     'DIDKit Interfaces': [
-      'didkit/cli_commands', 
-      'didkit/http_syntax', 
-      'didkit/ffis', 
-      'didkit/rust',
+      'didkit-interfaces/cli_commands', 
+      'didkit-interfaces/http_syntax', 
+      'didkit-interfaces/ffis', 
+      'didkit-interfaces/rust',
     ],  
     'DIDKit Examples': [
-      'didkit/examples', 
-      'didkit/example--core-functions-in-bash', 
-      'didkit/example--core-functions-in-curl', 
-      'didkit/example--batch-generation',
-      'didkit/example--java-springboot',
-      'didkit/example--svelte-chapi'
+      'didkit-examples/overview', 
+      'didkit-examples/core-functions-in-bash', 
+      'didkit-examples/core-functions-in-curl', 
+      'didkit-examples/batch-generation',
+      'didkit-examples/java-springboot',
+      'didkit-examples/svelte-chapi'
     ],
     'Credible': [
       'credible/intro', 
