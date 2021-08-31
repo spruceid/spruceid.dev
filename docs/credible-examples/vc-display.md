@@ -1,5 +1,5 @@
 ---
-id: example--vc-display
+id: vc-display
 title: VC Display
 ---
 

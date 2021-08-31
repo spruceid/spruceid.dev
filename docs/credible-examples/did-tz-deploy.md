@@ -1,5 +1,5 @@
 ---
-id: example--did-tz-deploy
+id: did-tz-deploy
 title: Deploying a DID:tz to Tezos Mainnet
 ---
 

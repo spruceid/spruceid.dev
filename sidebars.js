@@ -39,10 +39,10 @@ module.exports = {
       'credible/authn', 
     ],
     'Credible Examples': [
-      'credible/examples',
-      'credible/example--qr-issuance',
-      'credible/example--vc-display',
-      'credible/example--did-tz-deploy',
+      'credible-examples/overview',
+      'credible-examples/qr-issuance',
+      'credible-examples/vc-display',
+      'credible-examples/did-tz-deploy',
     ]
     ,
     'References': [

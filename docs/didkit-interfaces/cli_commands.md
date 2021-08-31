@@ -175,7 +175,7 @@ Options and output format are the same as for
 
 ## Examples
 
-See the included [examples](examples) in the DIDKit Examples section. Demonstration of the CLI can be found [here](example--core-functions-in-bash/)
+See the included [examples](didkit-examples/overview) in the DIDKit Examples section. Demonstration of the CLI can be found [here](didkit-examples//core-functions-in-bash/)
 
 [jwk]: https://tools.ietf.org/html/rfc7517
 [ld-proofs]: https://w3c-ccg.github.io/ld-proofs/
