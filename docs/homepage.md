@@ -55,9 +55,9 @@ user’s control within a data supply chain.
 Have any questions about Spruce's development efforts? Reach us via email at
 hello@spruceid.com.
 
-_Please note: this site documents two early-stage open-source products, and we
-are still incorporating feedback from our first comprehensive third-party code
-audit. These artefacts are presented as functional "betas" for experimentation
-and to show the direction of the projects (inviting proposals for changes of
-direction, even!). They are not, however, intended for transacting real-world
-business yet._
+_Please note: this site documents multiple early-stage open-source products, and
+we are still incorporating feedback from our first comprehensive third-party
+code audit. These artefacts are presented as functional "betas" for
+experimentation and to show the direction of the projects (inviting proposals
+for changes of direction, even!). They are not, however, intended for
+transacting real-world business yet._
