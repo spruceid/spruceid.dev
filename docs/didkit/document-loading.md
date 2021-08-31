@@ -17,7 +17,7 @@ or stored locally, to be checked at time of verification.
 ## Document types 
 
 The most common Linked-Data documents used to make Verifiable Contexts more
-portable are "context files", which are linked in the mandatory `@Context` field
+portable are "context files", which are linked in the mandatory `@context` field
 of all verifiable credentials.  These contain all the additional the vocabulary
 references needed to [semantically disambiguate](concepts#semantics) the keys
 and values that make up a credential. I say "additional" because there is a
