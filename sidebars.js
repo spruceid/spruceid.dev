@@ -1,11 +1,8 @@
 module.exports = {
   docs: {
-    '.dev Portal': [
+    '.dev Portal' : [
       'devhome',
-      'primer',
-      'contributing',
-      'code-of-conduct', 
-      'privacy-policy',
+      'primer'
     ],
     'DIDKit': [
       'didkit/intro', 
@@ -46,6 +43,9 @@ module.exports = {
     ]
     ,
     'References': [
+        'contributing',
+        'code-of-conduct', 
+        'privacy-policy',
         'glossary',
         'further-reading',
     ],

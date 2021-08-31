@@ -10,19 +10,22 @@ slug: /
 
 Welcome! This portal offers many ways of getting started with Spruce ID libraries and projects.  At a high level, the core components in our modular framework are:
 
-- [**DIDKit**](/docs/didkit) - our cross-platform toolkit for signing and verifying W3C
-  Verifiable Credentials and using W3C Decentralized Identifiers ("DIDs"), configurable across many interfaces and installable from various major package managers
+- [**DIDKit**](/docs/didkit) - our cross-platform toolkit for signing and
+  verifying W3C Verifiable Credentials with or without W3C Decentralized
+  Identifiers ("DIDs"), configurable across many interfaces and installable from most major package managers
 - [**Credible**](/docs/credible) - our lightweight credential wallet, demonstrating
   how DIDKit can be built into a native mobile app or web wallet and ready to be whitelabeled for a use-case-specific client application
-- **Rebase** - our 
+- **Rebase** - our reputation framework for lightweight, self-service verifications and control-proofs across platforms and systems. (*Documentation coming soon*)
+- **Intake** - a form-builder optimized for Verifiable Credentials and Linked Data to create truly portable datasets from self-sovereign users. (*Documentation coming soon*)
 
-Want to learn more about verifiable credentials? Start
-with our primer, ["What is Decentralized Identity?"](primer.md), or use the
-[glossary](glossary.md) to go deeper into corner-cases and specifications.
+Don't quite grok what all these building blocks add up to? Start with our
+primer, ["What is Decentralized Identity?"](primer.md), or use the
+[glossary](glossary.md) to go deeper into the technological foundations and
+pre-standards specifications that inspire this next-generation tooling.
 
-## Our Vision at Spruce
+## Spruce's Company Vision
 
-When’s the last time you felt comfortable sending or receiving important
+When was the last time you felt comfortable sending or receiving important
 documents digitally? Have you ever been shocked at how much an online platform
 knows about you and wish you had more control over your identity? As a business,
 do your customers feel any of the above when they’re doing business with you?
@@ -53,7 +56,7 @@ user’s control within a data supply chain.
 ## Contact
 
 Have any questions about Spruce's development efforts? Reach us via email at
-hello@spruceid.com.
+oss@spruceid.com.
 
 _Please note: this site documents multiple early-stage open-source products, and
 we are still incorporating feedback from our first comprehensive third-party

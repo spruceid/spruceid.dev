@@ -2,7 +2,7 @@
 id: install
 title: Installation
 ---
-
+[install_android_dependencies.sh]: https://github.com/spruceid/credible/blob/main/install_android_dependencies.sh
 ## App stores
 
 We are also in the process of listing Credible on the iOS TestFlight and Android
@@ -127,7 +127,7 @@ accomplished by going to Settings > Appearance & Behavior > System Settings >
 Android SDK and selecting to install the "NDK (Side by Side)". An alternative
 method of installing SDK and NDK without Android Studio can be found in the
 optional
-[install_android_dependencies.sh](https://github.com/spruceid/credible/blob/main/install_android_dependencies.sh)
+[install_android_dependencies.sh][]
 script included here.
 
 If your Android SDK doesn't live at `$HOME/Android/Sdk` you will need to set
@@ -143,7 +143,7 @@ installation process.  If you experience errors of this kind, you may have to
 manually downgrade or install multiple NDK versions as [shown
 here])(img/ndk_downgrade.png) in the Android Studio installer (screengrabbed
 from an Ubuntu installation). Alternately, running all or parts of the
-[install_android_dependencies.sh](install_android_dependencies.sh) script may be
+[install_android_dependencies.sh][] script may be
 helpful.*
 
 If your `build-tools` and/or `NDK`  live in different locations than the default ones inside /SDK/, or if you want to specify a specific NDK or build-tools version, you can manually configure the following two environment variables:
@@ -375,7 +375,7 @@ For instance, on Flutter, you can delete build files to start over by running:
 $ flutter clean
 ```
 Also, reviewing the
-[install_android_dependencies.sh](install_android_dependencies.sh) script line
+[install_android_dependencies.sh][] script line
 by line or even rerunning it line by line may be helpful.
 
 ### Opaque Makefile error messages
