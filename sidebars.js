@@ -19,8 +19,9 @@ module.exports = {
     'DIDKit Interfaces': [
       'didkit-interfaces/cli_commands', 
       'didkit-interfaces/http_syntax', 
-      'didkit-interfaces/ffis', 
       'didkit-interfaces/rust',
+      'didkit-interfaces/python',
+      'didkit-interfaces/ffis', 
     ],  
     'DIDKit Examples': [
       'didkit-examples/overview', 
