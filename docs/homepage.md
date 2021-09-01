@@ -6,9 +6,9 @@ sidebar_label: Home
 slug: /
 ---
 
-## Spruce ID Overview
+## SpruceID Overview
 
-Welcome! This portal offers many ways of getting started with Spruce ID libraries and projects.  At a high level, the core components in our modular framework are:
+Welcome! This portal offers many ways of getting started with SpruceID libraries and projects.  At a high level, the core components in our modular framework are:
 
 - [**DIDKit**](/docs/didkit) - our cross-platform toolkit for signing and
   verifying W3C Verifiable Credentials with or without W3C Decentralized
@@ -28,7 +28,7 @@ Welcome! This portal offers many ways of getting started with Spruce ID librarie
   and localization controls, and other next-generation features that Web3
   developers will soon forget how hard it not to have yet.
 
-Our goal is to make Spruce ID useful, open, and versatile, which drives our design of each component to be modular and just complex enough to do the heavy lifting for a wide range of use cases.  For example:
+Our goal is to make SpruceID useful, open, and versatile, which drives our design of each component to be modular and just complex enough to do the heavy lifting for a wide range of use cases.  For example:
 
 #### Authenticity for NFT Creators
 Rebase contains a wide range of verification flows that authenticate users and

@@ -18,8 +18,10 @@ module.exports = {
       'didkit-interfaces/cli_commands', 
       'didkit-interfaces/http_syntax', 
       'didkit-interfaces/rust',
-      'didkit-interfaces/python',
-      'didkit-interfaces/ffis', 
+      'didkit-interfaces/C', 
+      'didkit-interfaces/java', 
+      'didkit-interfaces/python', 
+      'didkit-interfaces/node',
     ],  
     'DIDKit Examples': [
       'didkit-examples/overview', 

@@ -1,47 +1,17 @@
 ---
-id: ffis
-title: Foreign Function Interfaces
+id: java
+title: Java
 ---
 [path-packages]: https://dart.dev/tools/pub/dependencies#path-packages
 [packages-plugins]: https://flutter.dev/developing-packages/
+[JAR]: https://en.wikipedia.org/wiki/JAR_(file_format)
+[JNI]: https://en.wikipedia.org/wiki/Java_Native_Interface
 
-DIDKit has bindings for various languages and environments. Each corresponding directory contains a README with additional info particular to it. The Makefile used to build all the libraries requires [GNU Make](https://www.gnu.org/software/make/).
-
-Building and testing each library requires tools for the corresponding environment:
-
-* C: C compiler and linker
-* Java: JDK and JRE
-* Android: [Android NDK](https://developer.android.com/ndk/), [SDK tools](https://developer.android.com/studio/), and Rust Android targets
-* Flutter: [Flutter](https://github.com/flutter/flutter)
-Build
-
-To build all the libraries, run `make` in the `/lib/` directory of the DIDKit repo.
-
-To build and test a particular library, see the instructions below.
-
-## C
-
-### Build
-
-```sh
-# from DIDKit root directory:
-$ make -C lib ../target/release/libdidkit.so
-```
-
-### Test
-
-```sh
-# from DIDKit root directory:
-$ make -C lib ../target/test/c.stamp
-```
-
-### + Android
-
-To build the C shared library for Android targets, build the [DIDKit Android library](#android).
+DIDKit exposes a straightforward set of Java bindings, using the Java Native Interface ([JNI][]).  
 
 ## Java
 
-Java bindings for DIDKit, using [JNI][]. The [JAR][] file includes Java class files. To use this in an application, you must also include the shared library (`libdidkit.so`) in your application in your Java Library Path.
+The [JAR][] file includes Java class files. To use this in an application, you must also include the shared library (`libdidkit.so`) in your application in your Java Library Path.
 
 ### Build
 
@@ -67,10 +37,6 @@ $ make -C lib ../target/tests/java.stamp
 ### + Android
 
 For Android, build the separate [Android library (AAR file)](#android) which includes the Java class files and shared libraries for all Android targets.
-
-[JAR]: https://en.wikipedia.org/wiki/JAR_(file_format)
-[JNI]: https://en.wikipedia.org/wiki/Java_Native_Interface
-
 
 ## Android
 
@@ -120,3 +86,12 @@ To do that for Android, trigger building the AAR file:
 make -C lib ../target/didkit.aar
 ```
 
+
+
+
+
+## Examples
+
+|Tool|Example|
+|---|---|
+| |[JSP]()|
