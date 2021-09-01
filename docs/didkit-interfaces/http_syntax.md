@@ -52,3 +52,10 @@ Verify a verifiable presentation using the given proof options. Returns a verifi
 
 [vc-http-api]: https://w3c-ccg.github.io/vc-http-api/
 [vc-http-api-0.0.1]: https://github.com/w3c-ccg/vc-http-api/pull/72
+
+
+
+## Examples
+
+- link to uni resolver (uses HTTP docker image)
+- 
