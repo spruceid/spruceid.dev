@@ -3,7 +3,6 @@ id: did-methods
 title: DID Methods Supported
 hide_title: true
 sidebar_label: DID Methods
-slug: /didkit/
 ---
 
 ## DID Methods supported today:

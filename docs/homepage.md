@@ -12,16 +12,63 @@ Welcome! This portal offers many ways of getting started with Spruce ID librarie
 
 - [**DIDKit**](/docs/didkit) - our cross-platform toolkit for signing and
   verifying W3C Verifiable Credentials with or without W3C Decentralized
-  Identifiers ("DIDs"), configurable across many interfaces and installable from most major package managers
-- [**Credible**](/docs/credible) - our lightweight credential wallet, demonstrating
-  how DIDKit can be built into a native mobile app or web wallet and ready to be whitelabeled for a use-case-specific client application
-- **Rebase** - our reputation framework for lightweight, self-service verifications and control-proofs across platforms and systems. (*Documentation coming soon*)
-- **Intake** - a form-builder optimized for Verifiable Credentials and Linked Data to create truly portable datasets from self-sovereign users. (*Documentation coming soon*)
+  Identifiers ("DIDs"), configurable across many interfaces and installable from
+  most major package managers
+- [**Credible**](/docs/credible) - our lightweight credential wallet,
+  demonstrating how DIDKit can be built into a native mobile app or web wallet
+  and ready to be whitelabeled for a use-case-specific client application
+- **Rebase** - our reputation framework for lightweight, self-service
+  verifications and control-proofs across platforms and systems. (*Documentation
+  coming soon*)
+- **Intake** - a form-builder optimized for Verifiable Credentials and Linked
+  Data to create truly portable datasets from self-sovereign users.
+  (*Documentation coming soon*)
+- **Kepler** - a key-governed solution for self-sovereign storage (the new S3!),
+  providing a granular and decentralized Authorization model, robust replication
+  and localization controls, and other next-generation features that Web3
+  developers will soon forget how hard it not to have yet.
 
-Don't quite grok what all these building blocks add up to? Start with our
+Our goal is to make Spruce ID useful, open, and versatile, which drives our design of each component to be modular and just complex enough to do the heavy lifting for a wide range of use cases.  For example:
+
+#### Authenticity for NFT Creators
+Rebase contains a wide range of verification flows that authenticate users and
+guide them through a proof-of-control and produce a receipt in the form of a
+Verifiable Credential (DIDKit under the hood). These can be mixed and matched to
+create a self-service reputation-system portal like
+[TzProfiles.com](https://tzprofiles.com).
+
+#### Decentralized backup and recovery of a decentralized identity
+It takes less than a minute for any user to install a stock-model Credible
+mobile wallet from a Big Name App Store, generate a unique, private DID, receive
+their first VC, and backup the wallet's contents to a self-registered Kepler
+account. In case of catastrophe, that same DID can be reconstituted in a new
+wallet from a seed recovery phase, and the wallet contents restored from
+Kepler-- you can't ask for a more censorship-resistant or decentralized account
+system.
+
+#### Decentralized On-boarding for Private DeFi Pools
+These Rebase credentials can be mixed and matched with other Verifiable
+Credentials from other dApps (on-chain history checks, fresh proofs of staking,
+or even an "employment history" from a decentralized marketplace like
+[gitcoin](https://gitcoin.co)) to gate access in a decentralized, secure, and
+impartial way to DeFi applications that need to reduce spam, sybils, and/or
+looky-loos.
+
+#### Decentralized dApp hosting
+Just as Rebase bootstraps reputation and history from centralized systems to
+identify a blockchain address, so too can DIDKit bootstrap a github account to
+sign and verify trustworthy and tamperproof packages. This allows dApps to be
+distributed as packages and hosted privately from a Kepler orbit or other
+privacy-preserving decentralized storage system.
+
+#### Further reading
+Still can't quite grok what all these building blocks add up to? Start with our
 primer, ["What is Decentralized Identity?"](primer.md), or use the
 [glossary](glossary.md) to go deeper into the technological foundations and
 pre-standards specifications that inspire this next-generation tooling.
+
+Or, get started by [building DIDKit locally](didkit/intro.md#getting-started)
+and learn as you buidl! 
 
 ## Spruce's Company Vision
 

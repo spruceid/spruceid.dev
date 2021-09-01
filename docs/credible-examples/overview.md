@@ -9,5 +9,3 @@ example, we have heavily commented some snippets and examples.
 |Tool|Example|
 |---|---|
 |QR codes, Issuance|[video and description](qr-issuance))|
-|VP request|coming soon|
-|VP-AuthN|coming soon|
