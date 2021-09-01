@@ -5,7 +5,7 @@ hide_title: true
 custom_edit_url: https://github.com/spruceid/didkit/blob/main/CHANGELOG.md
 ---
 
-## DIDKit changelog
+# DIDKit changelog
 
 *Note: the core library `/ssi/` also keeps its own, distinct changelog, where
 low-level functions get added to be wrapped/exposed by DIDKit's various
@@ -16,6 +16,6 @@ versions.*
 
 {@import ../../../didkit/CHANGELOG.md}
 
-## SSI changelog
+# SSI changelog
 
 {@import ../../../ssi/CHANGELOG.md}

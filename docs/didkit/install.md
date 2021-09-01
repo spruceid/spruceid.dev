@@ -7,7 +7,7 @@ title: Installation
 [rustup]: https://rustup.rs/
 [Cargo]: https://doc.rust-lang.org/cargo/
 [ssi]: https://github.com/spruceid/ssi
-[installing-rust]: https://doc.rust-lang.org/nightly/edition-guide/rust-2018/rustup-for-managing-rust-versions.html
+[installing-rust]: https://rust-lang.github.io/rustup/installation/index.html
 
 
 
@@ -74,5 +74,5 @@ And to use them, replace `ghcr.io/spruceid/didkit-(cli|http):latest` with `didki
 
 While many of the DIDKit interfaces can be installed as libraries via each
 language's dedicated package manager, they can also be built manually.  For
-instructions, see the "Installation" section of each interface's page in the
-section to the left.
+instructions, see the "Installation" section of each interface's dedicated page
+in the section to the left.
