@@ -15,8 +15,8 @@ module.exports = {
       'didkit/specs_and_deps', 
     ], 
     'DIDKit Interfaces': [
-      'didkit-interfaces/cli_commands', 
-      'didkit-interfaces/http_syntax', 
+      'didkit-interfaces/cli', 
+      'didkit-interfaces/http', 
       'didkit-interfaces/rust',
       'didkit-interfaces/C', 
       'didkit-interfaces/java', 

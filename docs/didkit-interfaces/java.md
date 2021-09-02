@@ -2,16 +2,29 @@
 id: java
 title: Java
 ---
+
 [path-packages]: https://dart.dev/tools/pub/dependencies#path-packages
 [packages-plugins]: https://flutter.dev/developing-packages/
 [JAR]: https://en.wikipedia.org/wiki/JAR_(file_format)
 [JNI]: https://en.wikipedia.org/wiki/Java_Native_Interface
 
-DIDKit exposes a straightforward set of Java bindings, using the Java Native Interface ([JNI][]).  
 
-## Java
+## At a Glance
 
-The [JAR][] file includes Java class files. To use this in an application, you must also include the shared library (`libdidkit.so`) in your application in your Java Library Path.
+- DIDKit exposes a straightforward set of Java bindings, using the Java Native Interface ([JNI][]).  
+- The [JAR][] file includes all of DIDKit's Java class files. To use this in an
+  application, you must also include the shared library (`libdidkit.so`) in your
+  application in the Java library path
+- For a quick function & type reference, you can study the [DIDKitTest.java
+  file](https://github.com/spruceid/didkit/lib/java/test/com/spruceid/DIDKitTest.java). 
+- All the low-level calls that the Rust library exposes to JNI are documented in the
+  [JNI section](https://rust.didkit.dev/didkit/jni/index.html) of the [Rust
+  documentation](https://rust.didkit.dev/didkit). 
+
+
+## Installation
+
+Install Rust and DIDKit [as usual](didkit/install#manual) and then: 
 
 ### Build
 
@@ -68,30 +81,9 @@ $ make -C lib ../target/test/aar.stamp
 [AAR]: https://developer.android.com/studio/projects/android-library.html#aar-contents
 [JNI]: https://en.wikipedia.org/wiki/Java_Native_Interface
 
-## Flutter
-
-[Flutter plugin][packages-plugins] for the DIDKit library. Includes Dart bindings, and functionality for Android and iOS (WIP).
-
-Flutter Doctor and CLI tools are also required.
-
-## Usage
-
-You can depend on this plugin as a [path dependency][path-packages].
-
-You will also need to build the DIDKit library for your target platforms.
-To do that for Android, trigger building the AAR file:
-
-```sh
-# from DIDKit root directory:
-make -C lib ../target/didkit.aar
-```
-
-
-
-
-
 ## Examples
 
 |Tool|Example|
 |---|---|
-| |[JSP]()|
+|Authentication, Tomcat, CHAPI|[Github](https://github.com/spruceid/didkit/examples/java-jsp/readme.md)|
+|Authentication, Maven, MySQL, Redis|[Github](https://github.com/spruceid/didkit/examples/java-springboot/readme.md)|
