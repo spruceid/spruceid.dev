@@ -15,8 +15,8 @@ and the version numbers of the two libraries are not "in lockstep"; hotfixes or
 minor, "nightly" features are often pulled into DIDKit from ssi between major
 versions.*
 
-{@import ../../didkit/CHANGELOG.md}
+[DIDKit Changelog](https://github.com/spruceid/didkit/CHANGELOG.md)
 
 # SSI changelog
 
-{@import ../../ssi/CHANGELOG.md}
+[DIDKit Changelog](https://github.com/spruceid/ssi/CHANGELOG.md)
