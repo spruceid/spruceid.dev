@@ -2,21 +2,15 @@
 id: node
 title: Node.JS
 ---
-[path-packages]: https://dart.dev/tools/pub/dependencies#path-packages
-[packages-plugins]: https://flutter.dev/developing-packages/
-[neon]: https://github.com/neon-bindings/neon
-[wasm-pack]: https://github.com/rustwasm/wasm-pack/
-[didkit-node]: https://www.npmjs.com/package/@spruceid/didkit
-[didkit-wasm]: https://www.npmjs.com/package/didkit-wasm
 
 ## At a Glance
 
 - Two slightly different versions of the DIDKit binary can be installed via `npm install`, both vendored under the heading "@spruceid":
-  - **`[didkit-node][]`** is optimized for Javascript/Node.JS environments, with bindings generated with `[neon][]`
-  - **`[didkit-wasm][]`** is packed to operate in browser and blockchain contexts via `[wasm-pack][]` and `[ring][]`
+  - **`[didkit-node](https://www.npmjs.com/package/@spruceid/didkit)`** is optimized for Javascript/Node.JS environments, with bindings generated with `[neon](https://github.com/neon-bindings/neon)`
+  - **`[didkit-wasm](https://www.npmjs.com/package/didkit-wasm)`** is packed to operate in browser and blockchain contexts via `[wasm-pack](https://github.com/rustwasm/wasm-pack/)`
 - For a quick function & type reference, you can check out the [Issuing a Credential](https://github.com/spruceid/didkit/lib/node/README.md#Issuing-a-Credential) and [Options](https://github.com/spruceid/didkit/lib/node/README.md#Options) sections of the `/lib/node/README.md` file in the DIDKit repo. Better yet, install it and run the commands yourself!
 - To test your installation or just to see examples of calls and returns with valid DID-key test vectors, see the provided [test script](https://github.com/spruceid/didkit/lib/node/test/index.spec.js) 
-- An experimental ASM.JS implementation is [provided for reference]() but not maintained or recommended for the casual developer.
+- An experimental ASM.JS implementation is [provided for reference](https://www.npmjs.com/package/didkit-wasm#ASM-target) but not maintained or recommended for the casual developer.
 
 ## Installation
 
