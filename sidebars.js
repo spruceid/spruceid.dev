@@ -8,11 +8,11 @@ module.exports = {
       'didkit/intro', 
       'didkit/install', 
       'didkit/did-methods',
-      'didkit/terminology',
       'didkit/concepts',
       'didkit/document-loading',
       'didkit/changelog',
       'didkit/specs_and_deps', 
+      'didkit/glossary',
     ], 
     'DIDKit Interfaces': [
       'didkit-interfaces/cli', 
@@ -35,8 +35,8 @@ module.exports = {
       'credible/intro', 
       'credible/install', 
       'credible/concepts', 
-      'credible/terminology',
       'credible/authn', 
+      'credible/glossary',
     ],
     'Credible Examples': [
       'credible-examples/overview',
