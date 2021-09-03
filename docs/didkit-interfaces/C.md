@@ -1,5 +1,5 @@
 ---
-id: C-android
+id: C
 title: C & Android
 ---
 
