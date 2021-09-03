@@ -59,5 +59,5 @@ project](https://github.com/spruceid/didkit/blob/main/examples/python-flask/issu
 
 |Tool|Example|
 |---|---|
-|DIDKit-Python, [Django web framework](https://www.djangoproject.com/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python_django)|
-|DIDKit-Python, [Flask web microframework](https://flask.palletsprojects.com/en/2.0.x/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python-flask/)|
+|[Django web framework](https://www.djangoproject.com/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python_django)|
+|[Flask web microframework](https://flask.palletsprojects.com/en/2.0.x/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python-flask/)|
