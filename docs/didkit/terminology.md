@@ -1,6 +1,7 @@
 ---
-id: terminology
-title: Core DIDKit Terminology
+id: glossary
+title: Core DIDKit Glossary
+sidebar_label: Glossary
 ---
 
 *For more detailed explanations and references to core specifications, see the

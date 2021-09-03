@@ -1,7 +1,6 @@
 ---
 id: rust
 title: Rust Crate
-hide_title: true
 sidebar_label: Rust Crate
 ---
 

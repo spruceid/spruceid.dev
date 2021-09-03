@@ -1,7 +1,6 @@
 ---
 id: python
 title: Python
-hide_title: true
 sidebar_label: Python
 ---
 

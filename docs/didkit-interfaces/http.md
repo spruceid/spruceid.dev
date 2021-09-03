@@ -1,9 +1,9 @@
 ---
-id: http
+id: http 
 title: HTTP Server
 ---
 
-[Service](https://docs.rs/tower-service/0.3.0/tower_service/trait.Service.html).
+[Service]: https://docs.rs/tower-service/0.3.0/tower_service/trait.Service.html
 [vc-http-api]: https://w3c-ccg.github.io/vc-http-api/
 [vc-http-api-0.0.1]: https://github.com/w3c-ccg/vc-http-api/pull/72
 [use cases document]: https://github.com/w3c-ccg/vc-http-api-use-cases/
