@@ -1,11 +1,16 @@
 ---
 id: python
 title: Python
-hide_title: true
 sidebar_label: Python
 ---
 
-# Installation
+## At a Glance
+
+- DIDKit's Python binaries can be installed directly from `pip`/`pypi` (instructions below); for manual/custom builds, see the sub-repo [README.md file](https://github.com/spruceid/didkit/lib/python/README.md#Building).  
+- For a few clear examples see the [Syntax](#Syntax) section below.
+- The syntax is quite similar to the Rust library, so for a more systematic reference, you can read the [Rust documentation](https://rust.didkit.dev/didkit/).
+
+## Installation
 
 Make sure you have the latest versions of pip and PyPA’s build installed:
 
@@ -29,7 +34,7 @@ Install the package using the provided [**setup.cfg file**](https://github.com/s
 python3 -m pip install dist/didkit-`cat setup.cfg | grep version | cut -d' ' -f3`-*.whl
 ```
 
-# Syntax
+## Syntax
 
 To use DIDKit in Python, import the didkit library and manipulate the `didkit`
 object as you would any other.  It contains all the same methods and properties
@@ -54,5 +59,5 @@ project](https://github.com/spruceid/didkit/blob/main/examples/python-flask/issu
 
 |Tool|Example|
 |---|---|
-|DIDKit-Python, [Django web framework](https://www.djangoproject.com/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python_django)|
-|DIDKit-Python, [Flask web microframework](https://flask.palletsprojects.com/en/2.0.x/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python-flask/)|
+|[Django web framework](https://www.djangoproject.com/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python_django)|
+|[Flask web microframework](https://flask.palletsprojects.com/en/2.0.x/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python-flask/)|

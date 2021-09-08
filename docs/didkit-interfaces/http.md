@@ -1,9 +1,35 @@
 ---
-id: http_syntax
-title: HTTP Syntax
+id: http 
+title: HTTP Server
 ---
 
-DIDKit exposes its functionality as an HTTP server.
+[Service]: https://docs.rs/tower-service/0.3.0/tower_service/trait.Service.html
+[vc-http-api]: https://w3c-ccg.github.io/vc-http-api/
+[vc-http-api-0.0.1]: https://github.com/w3c-ccg/vc-http-api/pull/72
+[use cases document]: https://github.com/w3c-ccg/vc-http-api-use-cases/
+
+## At a Glance
+
+- For setting up an HTTP server, whether for internal use, over the open internet, or both, we recommend using our dockerized HTTP server. Instructions [below](#Docker)
+- Instructions for building manually can be found on the main [Installation page](/docs/didkit/install)
+- Rather than design our own API, we have opted to adopt (and contribute to) the W3C Credentials Community Group's neutral, open standard for VC-handling APIs, the [vc-http-api][]; we invite you to consider doing the same for your projects, if it is a reasonable fit for your needs.  For details, see that project's documentation and its separate [use cases document][].
+- The server is run as a Rust "Tower" [Service][], which can be spun up with a [single line](#Options) upon installation.
+
+## Installation
+
+### Docker
+
+The HTTP server is containerised and available under
+`ghcr.io/spruceid/didkit-http`.
+
+You can use the images as a CLI:
+```bash
+$ docker run --init -p 8080 ghcr.io/spruceid/didkit-http:latest --port 8080
+```
+
+> Note: You can pass JWKs either by sharing a volume with `docker run --volume`, or by passing the JWK directly with `docker run -e JWK=$MY_JWK` or `docker run didkit-http --jwk $MY_JWK`.
+
+See the repo's [Dockerfile](https://github.com/spruceid/didkit/Dockerfile-http) for further details.
 
 ## CLI
 
@@ -28,7 +54,6 @@ Provide issuer keys using the `-k`/`--key-path` or `-j`/`--jwk` options. If none
 Rust crate `didkit-http` contains DIDKit's HTTP server implementation as a Rust
 library. Struct `didkit_http::DIDKitHTTPMakeSvc` implements a Tower
 ([hyper](https://hyper.rs/))
-[Service](https://docs.rs/tower-service/0.3.0/tower_service/trait.Service.html).
 
 ## API
 
@@ -50,12 +75,8 @@ Create a verifiable presentation. Given a presentation and linked data proof opt
 
 Verify a verifiable presentation using the given proof options. Returns a verification result. HTTP status 200 indicates successful verification.
 
-[vc-http-api]: https://w3c-ccg.github.io/vc-http-api/
-[vc-http-api-0.0.1]: https://github.com/w3c-ccg/vc-http-api/pull/72
-
-
-
 ## Examples
 
-- link to uni resolver (uses HTTP docker image)
-- 
+|Tool|Example|
+|---|---|
+|DIF Universal Resolver Driver, Dockerized HTTP server|[DIF Universal Resolver repo](https://github.com/decentralized-identity/universal-resolver#drivers)|

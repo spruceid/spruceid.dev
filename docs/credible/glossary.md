@@ -1,6 +1,7 @@
 ---
-id: terminology
-title: Terminology
+id: glossary
+title: Credible Glossary
+sidebar_label: Glossary
 ---
 
 ## Terminology

@@ -1,23 +1,51 @@
 ---
-id: cli_commands
-title: CLI Commands
+id: cli
+title: Command Line Interface
+sidebar_title: CLI
 ---
 
-DIDKit offers its functionality in a command-line program, `didkit`. Run these commands in the root directory.
+[jwk]: https://tools.ietf.org/html/rfc7517
+[ld-proofs]: https://w3c-ccg.github.io/ld-proofs/
+[vc-http-api]: https://w3c-ccg.github.io/vc-http-api/
+[rsasignature2018]: https://w3c-ccg.github.io/lds-rsa2018/
+[ed25519verificationkey2018]: https://w3c-ccg.github.io/lds-ed25519-2018/
+[did:key]: https://w3c-ccg.github.io/did-method-key/
+[proof options]: https://w3c-ccg.github.io/ld-proofs/#dfn-proof-options
+[ld-proofs-overview]: https://w3c-ccg.github.io/ld-proofs/#linked-data-proof-overview
+[created]: https://w3c-ccg.github.io/security-vocab/#created
+[proofpurpose]: https://w3c-ccg.github.io/security-vocab/#proofPurpose
+[created]: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/created/
+[challenge]: https://w3c-ccg.github.io/security-vocab/#challenge
+[domain]: https://w3c-ccg.github.io/security-vocab/#domain
+[verificationmethod]: https://w3c-ccg.github.io/security-vocab/#verificationMethod
+[kty]: https://tools.ietf.org/html/rfc7517#section-4.1
+[kid]: https://tools.ietf.org/html/rfc7517#section-4.5
+[alg]: https://tools.ietf.org/html/rfc7517#section-4.4
 
-## Build
+## At a Glance
 
-```sh
-$ cargo build
+- For setting up an HTTP server, whether for internal use, over the open internet, or both, we recommend using our dockerized HTTP server. Instructions [below](#Docker)
+- Instructions for building manually can be found on the main [Installation page](/docs/didkit/install)
+- See the [Examples](#Examples) section below for automation and testing building blocks.
+
+## Installation
+
+### Docker
+
+The HTTP server is containerised and available under
+`ghcr.io/spruceid/didkit-cli`.
+
+You can use the Docker image as a CLI:
+```bash
+$ docker run ghcr.io/spruceid/didkit-cli:latest --help
 ```
 
-## Install
+> Note: You can pass JWKs either by sharing a volume with `docker run --volume`, or by passing the JWK directly with `docker run -e JWK=$MY_JWK` or `docker run didkit-http --jwk $MY_JWK`.
 
-```sh
-$ cargo install --path cli
-```
+See the repo's [Dockerfile](https://github.com/spruceid/didkit/Dockerfile-cli) for further details.
 
-## Commands
+
+## Syntax
 
 Each command is called in the form:
 `didkit help`, `didkit generate-ed25519-key`, etc.
@@ -175,22 +203,8 @@ Options and output format are the same as for
 
 ## Examples
 
-See the included [examples](/docs/didkit-examples/overview) in the DIDKit Examples section. Demonstration of the CLI can be found [here](/docs/didkit-examples/core-functions-in-bash/)
+|Tool|Example|
+|---|---|
+|Core CLI syntax|[Example script](/docs/didkit-examples/core-functions-in-bash/)|
+|Batching, Automation|[Example automation script](/docs/didkit-examples/batch-generation/)|
 
-[jwk]: https://tools.ietf.org/html/rfc7517
-[ld-proofs]: https://w3c-ccg.github.io/ld-proofs/
-[vc-http-api]: https://w3c-ccg.github.io/vc-http-api/
-[rsasignature2018]: https://w3c-ccg.github.io/lds-rsa2018/
-[ed25519verificationkey2018]: https://w3c-ccg.github.io/lds-ed25519-2018/
-[did:key]: https://w3c-ccg.github.io/did-method-key/
-[proof options]: https://w3c-ccg.github.io/ld-proofs/#dfn-proof-options
-[ld-proofs-overview]: https://w3c-ccg.github.io/ld-proofs/#linked-data-proof-overview
-[created]: https://w3c-ccg.github.io/security-vocab/#created
-[proofpurpose]: https://w3c-ccg.github.io/security-vocab/#proofPurpose
-[created]: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/created/
-[challenge]: https://w3c-ccg.github.io/security-vocab/#challenge
-[domain]: https://w3c-ccg.github.io/security-vocab/#domain
-[verificationmethod]: https://w3c-ccg.github.io/security-vocab/#verificationMethod
-[kty]: https://tools.ietf.org/html/rfc7517#section-4.1
-[kid]: https://tools.ietf.org/html/rfc7517#section-4.5
-[alg]: https://tools.ietf.org/html/rfc7517#section-4.4

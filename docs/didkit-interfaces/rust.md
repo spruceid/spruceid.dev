@@ -1,20 +1,23 @@
 ---
 id: rust
 title: Rust Crate
-hide_title: true
 sidebar_label: Rust Crate
 ---
+
+## At a Glance
+
+- Our core libraries are built in [Rust](#Why-Rust) and we are active members of the growing Rust community.
+- Our code comments inside the core libraries auto-generate an authoritative and
+  comprehensive [**Rust Documentation site**](https://rust.didkit.dev/) at each
+  versioned release through the [crates.io](https://crates.io) package manager. 
+- Installation via the [crates.io](https://crates.io) package manager is the easiest way to get started.
+- Instructions for building manually can be found on the main [Installation page](/docs/didkit/install)
 
 # Why Rust 
 
 Spruce is very proud to have built these core products to date using
 the Rust language, which offers a secure, performant, and memory-safe
 alternative to the dominant web development languages of today. 
-
-If you are planning to interact with DIDKit directly in Rust from a broader Rust
-project, you may find useful to go directly to our separate [**Rust
-Documentation**](https://rust.didkit.dev/), which is updated at each versioned
-release through the [crates.io](https://crates.io) package manager. 
 
 ## Crates.io
 
