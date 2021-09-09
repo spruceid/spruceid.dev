@@ -173,6 +173,13 @@ in [vc-http-api][].
 Options and output format are the same as for
 [vc-verify-credential](#vc-verify-credential).
 
+## Addition configuration
+
+### Outbound Proxy
+
+You can set the environment variable `HTTP_PROXY` to have DIDKit use a proxy.
+Both HTTP and SOCKS protocols are supported.
+
 ## Examples
 
 See the included [examples](examples) in the DIDKit Examples section. Demonstration of the CLI can be found [here](example--core-functions-in-bash/)
