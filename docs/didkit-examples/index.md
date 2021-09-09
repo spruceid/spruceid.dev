@@ -10,8 +10,8 @@ Coding is hard, and learning new tools is harder.  For those who learn best by e
 |DIDKit-CLI|[Core DID, VC, and VP functions (CLI)][]|
 |DIDKit-CLI|[Batch generation/verification][]|
 |DIDKit-HTTP|[Core DID, VC, and VP functions (HTTP)][]|
-|DIDKit-Java, Authentication, Tomcat, CHAPI|[Github](https://github.com/spruceid/didkit/examples/java-jsp/readme.md)|
-|DIDKit-Java, Authentication, Maven, MySQL, Redis|[Github](https://github.com/spruceid/didkit/examples/java-springboot/readme.md)|
+|DIDKit-Java, Authentication, Tomcat, CHAPI|[Github](https://github.com/spruceid/didkit/tree/main/examples/java-jsp#readme)|
+|DIDKit-Java, Authentication, Maven, MySQL, Redis|[Github](https://github.com/spruceid/didkit/tree/main/examples/java-springboot#readme)|
 |DIDKit-Node (Wasm), Blockchain Indexer|[JS Code](https://github.com/spruceid/tzprofiles/blob/main/api/service/index.js)|
 |DIDKit-Node (Neon), Web Application, dApp|[JS Code](https://github.com/spruceid/tzprofiles/tree/main/dapp)|
 |DIDKit-Python, [Django web framework](https://www.djangoproject.com/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python_django)|
