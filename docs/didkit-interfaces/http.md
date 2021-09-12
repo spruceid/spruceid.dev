@@ -49,6 +49,13 @@ Run a DIDKit HTTP server. The command outputs the URL it is listening on, and ru
 
 Provide issuer keys using the `-k`/`--key-path` or `-j`/`--jwk` options. If none are provided, issuance functionality will be unavailable. If one is provided, that one will be used to sign all credentials and presentations, regardless of the proof options in the issuance request. If more than one key is provided, the issuance request may identify which key to use for signing by its DID in the `verificationMethod` property of the proof options; if none is identified in that property, the first key is used.
 
+#### Addition configuration
+
+##### Outbound Proxy
+
+You can set the environment variable `HTTP_PROXY` to have DIDKit use a proxy.
+Both HTTP and SOCKS protocols are supported.
+
 ## Rust library
 
 Rust crate `didkit-http` contains DIDKit's HTTP server implementation as a Rust
