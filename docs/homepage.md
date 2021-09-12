@@ -19,13 +19,10 @@ are:
 - [**Credible**](/docs/credible) - our lightweight credential wallet,
   demonstrating how DIDKit can be built into a native mobile app or web wallet
   and ready to be whitelabeled for a use-case-specific client application
-- **Rebase** - our reputation framework for lightweight, self-service
-  verifications and control-proofs across platforms and systems. (*Documentation
-  coming soon*)
 - **Kepler** - a key-governed solution for self-sovereign storage (the new S3!),
   providing a granular and decentralized Authorization model, robust replication
   and localization controls, and other next-generation features that Web3
-  developers will soon forget how hard it not to have yet.
+  developers will soon forget how hard it not to have yet. (*Separate documentation site coming soon*)
 
 Our goal is to make SpruceID useful, open, and versatile, which drives our
 design of each component to be modular and just complex enough to do the heavy
