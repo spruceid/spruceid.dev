@@ -31,8 +31,8 @@ manage your Rust installation.
 On Ubuntu you could run:
 
 ```bash
-# apt update
-# apt install openjdk-8-jdk
+$ sudo apt update
+$ sudo apt install openjdk-8-jdk
 ```
 
 For more information, please refer to the documentation of your favorite flavour
