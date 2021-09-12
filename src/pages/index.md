@@ -25,26 +25,25 @@ list:
 
 <div class="dropdown">
   <ul id="my-dropdown2">
-    {[]}
     <li><a href="/docs/didkit-interfaces/rust">Rust</a></li>
     <li><a href="/docs/didkit-interfaces/C">C</a></li>
     <li><a href="/docs/didkit-interfaces/java">Java</a></li>
     <li><a href="/docs/didkit-interfaces/python">Python</a></li>
     <li><a href="/docs/didkit-interfaces/node">Node/JS</a></li>
-    ul>
+  </ul>
   <a href="#my-dropdown2"
      aria-controls="my-dropdown2"
      role="button"
      data-toggle="dropdown"
      id="my-dropdown2-btn">
-  Select an option...
+    Select an option...
   </a>
   <a href="#my-dropdown2-btn"
      aria-controls="my-dropdown2"
      role="button"
      data-toggle="dropdown"
      class="close">
-  Close dropdown
+    Close dropdown
   </a>
 </div>
 
