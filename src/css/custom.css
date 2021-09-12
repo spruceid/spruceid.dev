@@ -141,7 +141,7 @@
  * Notice the chained .language-ts class name to .prism-code
  * You can chain more languages in order to add line numbers
  */
-.prism-code.language-bash .token-line::before {
+.prism-code.language-sh .token-line::before {
   counter-increment: line-number;
   content: '$';
   margin-right: 7px;
