@@ -19,6 +19,7 @@
     "docusaurus": "^1.14.6",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-highlight.js": "^1.0.7",
     "remark-import-partial": "^0.0.2"
   },
   "browserslist": {
