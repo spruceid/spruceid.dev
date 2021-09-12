@@ -1,5 +1,5 @@
 ---
-id: examples
+id: overview
 title: Overview of Examples
 ---
 
@@ -8,6 +8,4 @@ example, we have heavily commented some snippets and examples.
 
 |Tool|Example|
 |---|---|
-|Issuance|coming soon|
-|VP request|coming soon|
-|VP-AuthN|coming soon|
+|QR codes, Issuance|[video and description](qr-issuance))|

@@ -1,5 +1,5 @@
 ---
-id: example--svelte-chapi
+id: svelte-chapi
 title: Svelte CHAPI 
 ---
 

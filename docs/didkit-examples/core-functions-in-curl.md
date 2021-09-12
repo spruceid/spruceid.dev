@@ -1,5 +1,5 @@
 ---
-id: example--core-functions-in-curl
+id: core-functions-in-curl
 title: Core Functions (HTTP)
 ---
 

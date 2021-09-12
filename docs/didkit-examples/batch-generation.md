@@ -1,5 +1,5 @@
 ---
-id: "example--batch-generation"
+id: "batch-generation"
 title: Batch Generation & Verification
 ---
 
