@@ -22,7 +22,7 @@ are:
 - **Kepler** - a key-governed solution for self-sovereign storage (the new S3!),
   providing a granular and decentralized Authorization model, robust replication
   and localization controls, and other next-generation features that Web3
-  developers will soon forget how hard it not to have yet. (*Separate documentation site coming soon*)
+  developers need stat. (*Separate documentation site coming soon*)
 
 Our goal is to make SpruceID useful, open, and versatile, which drives our
 design of each component to be modular and just complex enough to do the heavy
