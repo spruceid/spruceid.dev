@@ -16,7 +16,7 @@ This website exists for two complementary purposes:
    Identifier scheme](/docs/did-methods) for your project, and generally just
    get you from "curious🤔" to "wizard🧙‍♂️" as fast as we can.
 
-We put quick "crash course" here on this page for people who want to jump right
+We put a quick "crash course" here on this page for people who want to jump right
 in and get their hands dirty using the command-line interface. If that sounds a
 little scary, click around on those links above and then come back for a tour!
 Or, if you already know what DIDKit is and does, and just want a reference page
