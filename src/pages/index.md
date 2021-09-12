@@ -211,8 +211,8 @@ that can be used to verify signatures out there in the world.  Having resolved
 the issuer's DID, you now have the "verification method" needed to verify a
 credential.
 
-This might sound like a lot of work described step by step, but don't worry-- DID resolution happens automatically once everything is up and running.  For example, you can fetch a DID with a single DIDKit command:
+This might sound like a lot of work described step by step, but don't worry-- DID resolution happens automatically once everything is up and running.  For example, you can fetch a DID Document with a single DIDKit command, in any context with web access:
 
 ```bash
-
+didkit did-dereference did:web:demo.spruceid.com:2021:vc-faucet
 ```
