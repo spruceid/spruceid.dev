@@ -53,7 +53,7 @@ These examples will walk you through installing DIDKit and using it on a Linux
 command-line environment-- Linux on a Mac or WSL2 on a Windows machine should
 work fine (but run `sudo apt install build-essential` just in case).
 
-```bash
+```sh
 git clone https://github.com/spruceid/didkit
 cd didkit
 git clone https://github.com/spruceid/ssi ../ssi
@@ -62,7 +62,7 @@ cargo build
 
 Or, if you prefer, the Docker version: 
 
-```bash
+```sh
 docker run ghcr.io/spruceid/didkit-cli:latest --help
 ```
 
@@ -80,7 +80,7 @@ So what do you need to get started with VCs?  Basically just a private key and
 DIDKit! The simplest way to issue a test credential is to use DIDKit to generate
 one, which is pretty easy. From the DIDKit root directory:
 
-```bash
+```sh
 didkit generate-ed25519-key > issuer_key.jwk
 ```
 
