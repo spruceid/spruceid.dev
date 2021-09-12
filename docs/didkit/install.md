@@ -25,14 +25,12 @@ Spruce's [ssi][] library must be cloned alongside the `didkit` repository in a p
 $ mkdir didkit
 $ cd didkit
 $ git clone https://github.com/spruceid/didkit
-# from root directory of DIDKit project
 $ git clone https://github.com/spruceid/ssi ../ssi --recurse-submodules
 ```
 
-Build DIDKit using [Cargo][]:
+Build DIDKit using [Cargo][], from root directory of DIDKit project:
 
 ```sh
-# from root directory of DIDKit project
 $ cargo build
 ```
 
