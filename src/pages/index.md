@@ -16,7 +16,7 @@ This website exists for two complementary purposes:
    Identifier scheme](/docs/did-methods) for your project, and generally just
    get you from "curious🤔" to "wizard🧙‍♂️" as fast as we can.
 
-We put quick "crash course" here on this page for people who want to jump right
+We put a quick "crash course" here on this page for people who want to jump right
 in and get their hands dirty using the command-line interface. If that sounds a
 little scary, click around on those links above and then come back for a tour!
 Or, if you already know what DIDKit is and does, and just want a reference page
@@ -25,26 +25,25 @@ list:
 
 <div class="dropdown">
   <ul id="my-dropdown2">
-    {[]}
     <li><a href="/docs/didkit-interfaces/rust">Rust</a></li>
     <li><a href="/docs/didkit-interfaces/C">C</a></li>
     <li><a href="/docs/didkit-interfaces/java">Java</a></li>
     <li><a href="/docs/didkit-interfaces/python">Python</a></li>
     <li><a href="/docs/didkit-interfaces/node">Node/JS</a></li>
-    ul>
+  </ul>
   <a href="#my-dropdown2"
      aria-controls="my-dropdown2"
      role="button"
      data-toggle="dropdown"
      id="my-dropdown2-btn">
-  Select an option...
+    Select an option...
   </a>
   <a href="#my-dropdown2-btn"
      aria-controls="my-dropdown2"
      role="button"
      data-toggle="dropdown"
      class="close">
-  Close dropdown
+    Close dropdown
   </a>
 </div>
 
