@@ -1,8 +1,7 @@
 --- 
-hide_table_of_contents: true
-id: index
+id: Quickstart
 slug: /
-title: Getting Started with DIDKit
+title: Quickstart Guide to working with DIDKit
 ---
 
 # Getting Started with Spruce ID
@@ -17,51 +16,35 @@ This website exists for two complementary purposes:
    Identifier scheme](/docs/did-methods) for your project, and generally just
    get you from "curious🤔" to "wizard🧙‍♂️" as fast as we can.
 
-This page is devoted to #1 for the do-first crowd. If jumping straight into a command line sounds little scary, feel free to choose your own adventure and click around on those links above first.  Then come back for ther tour!
+The quickstart guide that follows describes how to perform credential issuance and verification with DIDKit's command line tool. Documentation for use with other platforms can be found in the navigation bar on the [DIDKit Packages](/docs/didkit-packages/rust) section.
 
 ## Step 0: install DIDKit 
 
-These examples will walk you through installing DIDKit and using it on a Linux
-command-line environment-- Linux on a Mac or WSL2 on a Windows machine should
-work fine (but run `sudo apt install build-essential` just in case).
+To install the DIDKit command line tool from crates.io on GNU/Linux, MacOS,
+Windows+WSL with
+[cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html) and
+`build-essential` tools already installed, run:
 
 ```sh
-git clone https://github.com/spruceid/didkit
-cd didkit
-git clone https://github.com/spruceid/ssi ../ssi
-cargo build
+cargo install didkit-cli
 ```
 
-Or, if you prefer, the Docker version: 
-
-```sh
-docker run ghcr.io/spruceid/didkit-cli:latest --help
-```
-
-That's it! You have DIDKit now.
+If you prefer to build manually from source or via docker, instructions are in our docs.
 
 ## Step 1: Issue your first Verifiable Credential
 
-If you're not familiar with Verifiable Credentials, they're a low-level data
-format designed to be Very Portable, as in: anyone can authenticate this data,
-and if they understand who it was that "issued" (i.e. minted) that unique,
-signed, data object, they can trust it as much as they trust the issuer. More
-info in the [primer](/docs/primer).
+W3C Verifiable Credentials are a standard data format for claims expressed in
+JSON, also known as digital attestations. They contain the claim being made,
+data schema references, and a digital signature to be verified and consumed by
+unknown future parties. More info in the [primer](/docs/primer).
 
-So what do you need to get started with VCs?  Basically just DIDKit and a dream!
-The first ingredient is DIDKit, the second is a signing key, which DIDKit can
-generate for you once it's installed. From the DIDKit root directory:
+So what do you need to get started with VCs? The first ingredient is DIDKit, and the second is a signing key, which DIDKit can generate automatically:
 
 ```sh
 didkit generate-ed25519-key > issuer_key.jwk
 ```
 
-Or, if you want to BYO a private key you already have (Ed25519 for now, to keep
-the examples simple), you can just copy it into the folder like so:
-
-```bash
-cp /path/to/privkey.jwk issuer_key.jwk
-```
+Or, if you want to use pre-existing key material, it can be accessed from a filepath; a Ed25519 key in JWK format can be linked or copied to the DIDKit root.
 
 Once this key is on hand, you have to structure some data to be the payload of
 this VC you want to issue. For simplicity, let's throw this into a JSON file to
@@ -86,17 +69,10 @@ EOF
 
 Now you're ready to mint the thing by signing it with that private key, which has to be passed in two different ways: as a key, and as a "verification method" (a transformation of the key which we'll explain later).
 
-```bash
+```sh
 verification_method=$(didkit key-to-verification-method -k issuer_key.jwk)
-didkit vc-issue-credential \
-    -k issuer_key.jwk \
-    -v "$verification_method" \
-    -p assertionMethod \
-    < payload.json \
-    > credential-signed.jsonld
-echo 'Issued verifiable credential:'
-print_json credential-signed.jsonld
-echo
+didkit vc-issue-credential -k issuer_key.jwk -v "$verification_method" -p assertionMethod <payload.json >credential-signed.jsonld
+cat credential-signed.jsonld
 ```
 
 And that's it! Wherever this signed blob ends up, it can be handled by standard
@@ -115,10 +91,9 @@ Let's take a real-life VC issued by our testing faucet and drop it into your DID
     <div><i>Note: to get a fresher version of this credential issued to a 
     real-world DID, you might want to install the Credible mobile wallet on
     a mobile device, whether from <a href="https://github.com/spruceid/credible">source code</a>,
-    from the <a href="https://testflight.apple.com/join/CPZON8Ho">Apple test flight</a>, 
-    or from <a href="https://play.google.com/store/apps/details?id=com.spruceid.app.credible&hl=de&gl=US">the Google Play store</a>, then navigate to <a href="https://demo.spruceid.com">our demo faucet</a></i>.
+    from <a href="https://testflight.apple.com/join/CPZON8Ho">Apple Test Flight</a>, 
+    or from <a href="https://play.google.com/store/apps/details?id=com.spruceid.app.credible&hl=de&gl=US">the Google Play store</a>. Once you have Credible installed, it will automatically generate an off-chain did-tz (it will resemble <code>did:tz:tz1aTuW7578MTt3ZtWYCjX65nUXkzE1CMcAf</code>), and when you navigate to <a href="https://demo.spruceid.com">our demo faucet</a></i>, you can get a VC issued to you containing your unique, decentralized identifier. 
     </div>
-    <br/>
      <code>{`
 {
   "@context": [
@@ -129,7 +104,7 @@ Let's take a real-life VC issued by our testing faucet and drop it into your DID
   "type": "VerifiableCredential",
   "credentialSubject": {
     "id": "did:tz:tz1aTuW7578MTt3ZtWYCjX65nUXkzE1CMcAf"
-  },
+  }
   "issuer": "did:web:demo.spruceid.com:2021:vc-faucet",
   "issuanceDate": "2021-09-13T09:19:41Z",
   "proof": {
@@ -149,10 +124,13 @@ sample.vc
 
 </details>
 
-<br />You will notice that this VC looks much like the one you issued in the previous step, but with a "proof" section attached with contains the issuer's signature.  Verifying this signature is as simple as another single-line DIDKit call:
+<br />You will notice that this VC looks much like the one you issued in the
+previous step, but with a "proof" section attached with contains the issuer's
+signature and metadata for verifying it.  Verifying this signature is as simple
+as another single-line DIDKit call:
 
 ```bash
-didkit vc-verify-credential -p assertionMethod < example.vc > result.json
+didkit vc-verify-credential -p assertionMethod <example.vc >result.json
 ```
 
 That will spit out a verbose response as a JSON file listing the checks passed, warnings, and errors. If everything is set up properly, you should see this when you `nano result.json`:
