@@ -201,15 +201,17 @@ for now, as it is the easiest for young wizards to understand.
           
 A "did-web" is a DID which publishes its "DID Document" (a data file containing
 identity information and public keys) in a standardized location at the website
-it identifies. <a href="https://demo.spruceid.com/2021/vc-faucet/did.json">https://demo.spruceid.com/2021/vc-faucet/did.json</a> is, as a
-web-savvy user might expect, a JSON file that publishes resolution information
-about the DID <code>did:web:demo.spruceid.com:2021:vc-faucet</code>. A "did-web" tells you
-exactly where to go to "resolve" that DID into a DID document: you just tack
-<code>/.well-known/did.json</code> to the end of a root domain, or just <code>/did.json</code> for a
-qualified domain, and fetch that JSON blob.  Other DID methods have more complex
-resolution mechanisms, but take the same input (a DID string) which, if
-succesfully resolved, outputs the same kind of DID document, give or take a few
-optional properties specific to each DID method.
+it identifies. <a
+href="https://demo.spruceid.com/2021/vc-faucet/did.json">https://demo.spruceid.com/2021/vc-faucet/did.json</a>
+is, as a web-savvy user might expect, a JSON file that publishes resolution
+information about the DID <code>did:web:demo.spruceid.com:2021:vc-faucet</code>.
+A "did-web" tells you exactly where to go to "resolve" that DID into a DID
+document: you just tack <code>/.well-known/did.json</code> to the end of a root
+domain, or just <code>/did.json</code> for a qualified domain, and fetch that
+JSON blob.  Other DID methods have more complex resolution mechanisms, but take
+the same input (a DID string) which, if succesfully resolved, outputs the same
+kind of DID document, give or take a few optional properties specific to each
+DID method.
 
 The most basic and useful thing that a DID Document contains is a series of
 "verification methods", i.e., public keys used for specific purposes and which
@@ -218,7 +220,7 @@ signature on a VC, among other purposes. See, for example, this DID document
 from the demo app we use to test DIDKit and wallets:
 
 <details>
-  <summary>Behold! **a real-world DID Document**:</summary>
+  <summary><h3>Behold! A real-world DID Document!</h3></summary>
     <code>{`
 {
   "@context": [
