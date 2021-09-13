@@ -1,0 +1,21 @@
+{
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://schema.org/"
+    ],
+    "id": "urn:uuid:baef4793-ab07-4c17-a175-ec114b18245e",
+    "type": "VerifiableCredential",
+    "credentialSubject": {
+      "id": "did:tz:tz1aTuW7578MTt3ZtWYCjX65nUXkzE1CMcAf"
+    },
+    "issuer": "did:web:demo.spruceid.com:2021:vc-faucet",
+    "issuanceDate": "2021-09-13T09:19:41Z",
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:web:demo.spruceid.com:2021:vc-faucet#key-1",
+      "created": "2021-09-13T09:19:41.374Z",
+      "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..uwSzKxDeXk4nCd6EH6H-7GwaXNwgdoEBPNsrCbbcmJV9hJRrwZPJakXaK6c4uFkFoICGUikTBifmEdV_7BOCCg"
+    },
+    "expirationDate": "2021-10-13T09:19:41Z"
+}  
