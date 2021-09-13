@@ -47,7 +47,7 @@ module.exports = {
           position: "left",
         },
         {
-          href: "https://sprucesystems.medium.com/",
+          href: "https://blog.spruceid.com/",
           label: "Blog",
           useBaseUrl: "/blog/",
           position: "left",
