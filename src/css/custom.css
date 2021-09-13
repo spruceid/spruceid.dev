@@ -43,3 +43,14 @@
   position: sticky;
   left: var(--ifm-pre-padding);
 }
+
+/*
+  Docusaurus themes change all kinds of tags in weird ways.
+  In this case, they break headers used as the titles of dropdowns,
+  which we need for index.md. To fix this, we will instead use a div
+  made to look like an h3 via this fake-h3 class.
+*/
+.fake-h3 {
+  font-size: large;
+  color:#252b29;
+}
