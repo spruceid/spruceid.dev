@@ -128,7 +128,7 @@ as another single-line DIDKit call:
 didkit vc-verify-credential -p assertionMethod <example.vc >result.json
 ```
 
-That will spit out a verbose response as a JSON file listing the checks passed, warnings, and errors. If everything is set up properly, you should see this when you `nano result.json`:
+That will spit out a verbose response as a JSON file listing the checks passed, warnings, and errors. If everything is set up properly, you should see this when you `cat result.json`:
 
 ```json
 {"checks":["proof"],"warnings":[],"errors":[]}
