@@ -12,7 +12,7 @@ module.exports = {
   projectName: "spruceid.dev", // Usually your repo name.
   themeConfig: {
     colorMode: {
-      defaultMode: 'light',
+      defaultMode: 'dark',
     },
     navbar: {
       title: "Spruce",

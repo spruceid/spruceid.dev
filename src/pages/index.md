@@ -1,12 +1,13 @@
 --- 
 id: quickstart
 slug: /
+hide_table_of_contents: true
 title: Quickstart Guide to working with DIDKit
 ---
 
 # Getting Started with Spruce ID
-          
-This website exists for two complementary purposes: 
+
+This site exists for three complementary purposes: 
 1. To get you *using* DIDKit and other Spruce ID tooling as smoothly and quickly
    as possible
 2. To provide developer [docs](/docs/) and [references](/docs/glossary)
@@ -16,7 +17,7 @@ This website exists for two complementary purposes:
    Identifier scheme](/docs/did-methods) for your project, and generally just
    get you from "curious🤔" to "wizard🧙‍♂️" as fast as we can.
 
-The quickstart guide that follows describes how to perform credential issuance and verification with DIDKit's command line tool. Documentation for use with other platforms can be found in the navigation bar on the [DIDKit Packages](/docs/didkit-packages/rust) section.
+The quickstart guide below describes how to perform credential issuance and verification with DIDKit's CLI tool. Documentation for use with other platforms can be found in the navigation bar on the [DIDKit Packages](/docs/didkit-packages/rust) section.
 
 ## Step 0: install DIDKit 
 
@@ -29,7 +30,7 @@ Windows+WSL with
 cargo install didkit-cli
 ```
 
-If you prefer to build manually from source or via docker, instructions are in our docs.
+Or if you prefer, you can build manually [from source](/docs/didkit/install#manual) or [via docker](/docs/didkit/install#docker).
 
 ## Step 1: Issue your first Verifiable Credential
 
@@ -48,9 +49,7 @@ Or, if you want to use pre-existing key material, it can be accessed from a file
 
 Once this key is on hand, you have to structure some data to be the payload of
 this VC you want to issue. For simplicity, let's throw this into a JSON file to
-be signed over in the next step. Don't worry too much about the meaning or
-function of any specific property if this is your first Verifiable Credential--
-all things in time. You're not signing away your soul, don't worry-- these are the basic ingredients of a verified credential.
+be signed over in the next step.
           
 ```bash
 cat > payload.json <<EOF
@@ -67,7 +66,9 @@ cat > payload.json <<EOF
 EOF
 ```
 
-Now you're ready to mint the thing by signing it with that private key, which has to be passed in two different ways: as a key, and as a "verification method" (a transformation of the key which we'll explain later).
+If this is your first Verifiable Credential, don't worry for now about the exact meaning or function of any specific property.
+
+Now you're ready to sign it with the private key, which has to be passed in two different ways: as a key, and as a "verification method" (a transformation of the key which we'll explain later).
 
 ```sh
 verification_method=$(didkit key-to-verification-method -k issuer_key.jwk)
@@ -76,9 +77,9 @@ cat credential-signed.jsonld
 ```
 
 And that's it! Wherever this signed blob ends up, it can be handled by standard
-JSON tooling, and VC tooling can identity it as trustworthy information, or at
-least as trustworthy as 'yournamehere.com' was at the time in 'issuanceDate'.
-Notice that the 'issuer' field identified you by a website, and a "did:web:"
+JSON tooling, and VC tooling can confirm it as trustworthy (or at
+least, as trustworthy as `"yournamehere.com"` was at the time in `"issuanceDate"`).
+Notice that the `"issuer"` field identified you by a domain name, and a "did:web:"
 prefix. We'll explain this one in the next step.
 
 ## Step 2: Verifying a real VC
@@ -124,16 +125,18 @@ sample.vc
 
 </details>
 
-<br />You will notice that this VC looks much like the one you issued in the
-previous step, but with a "proof" section attached with contains the issuer's
-signature and metadata for verifying it.  Verifying this signature is as simple
-as another single-line DIDKit call:
+<br />
+This VC looks much like the one you issued in the
+previous step, but with a "proof" section attached which contains the issuer's
+signature and metadata for verifying it. 
+
+To verify this signature:
 
 ```bash
 didkit vc-verify-credential -p assertionMethod <example.vc >result.json
 ```
 
-That will spit out a verbose response as a JSON file listing the checks passed, warnings, and errors. If everything is set up properly, you should see this when you `nano result.json`:
+That will spit out a verbose response as a JSON file listing the checks passed, warnings, and errors. If everything is set up properly, you should see this when you `cat result.json`:
 
 ```json
 {"checks":["proof"],"warnings":[],"errors":[]}
@@ -141,30 +144,32 @@ That will spit out a verbose response as a JSON file listing the checks passed, 
 
 You might be asking yourself, though, how did DIDKit get from `"issuer": "did:web:demo.spruceid.com:2021:vc-faucet"` to having the public key (and knowing the *type* of the public key) to be able to verify the signature in the proof? This is the magic of DIDs!
 
-<details><summary>Detailed explanation of the ✨Magic of Step 1.5✨</summary>
-
-<h3>The [often implicit!] resolution step</h3>
-
+<details><summary>Details of ✨<strong>Magical Step 1.5</strong>✨ - the <em>(often implicit!)</em> resolution step</summary>
+<br />
 Let's take the simple example VC above, issued by <code>did:web:demo.spruceid.com:2021:vc-faucet</code>, i.e. our <a
 href="https://demo.spruceid.com/">VC faucet</a>). Information about this issuer
-has to be "resolved" in much the same way that a web address (like
-demo.spruceid.com) needs to be resolved to an IP address to establish a browser
-connection. There are many ways of resolving DIDs, but let's stick to DID-web
-for now, as it is the easiest for young wizards to understand.
+has to be "resolved" in much the same way that a domain name resolves to an IP address. 
+There are many ways of resolving DIDs, but let's stick to DID-web
+for now, as it is the easiest to understand.
           
 A "did-web" is a DID which publishes its "DID Document" (a data file containing
 identity information and public keys) in a standardized location at the website
 it identifies. <a
-href="https://demo.spruceid.com/2021/vc-faucet/did.json">https://demo.spruceid.com/2021/vc-faucet/did.json</a>
-is, as a web-savvy user might expect, a JSON file that publishes resolution
+href="https://demo.spruceid.com/2021/vc-faucet/did.json">https://demo.spruceid.com/2021/vc-faucet/did.json</a> publishes resolution
 information about the DID <code>did:web:demo.spruceid.com:2021:vc-faucet</code>.
-A "did-web" tells you exactly where to go to "resolve" that DID into a DID
-document: you just tack <code>/.well-known/did.json</code> to the end of a root
-domain, or just <code>/did.json</code> for a qualified domain, and fetch that
-JSON blob.  Other DID methods have more complex resolution mechanisms, but take
-the same input (a DID string) which, if succesfully resolved, outputs the same
-kind of DID document, give or take a few optional properties specific to each
-DID method.
+A "did-web" tells you exactly where to go to "resolve" a DID into a DID
+document: 
+
+* you tack <code>/.well-known/did.json</code> to the end of a root
+domain
+* or just <code>/did.json</code> if a path is already provided (as in `2021:vc-faucet`, 
+the path at the end of the did-web <code>did:web:demo.spruceid.com:2021:vc-faucet</code>)
+
+Then fetch that JSON blob. 
+
+Other DID methods have more complex resolution mechanisms, but take
+the same input (a DID string) which resolves to the same
+kind of DID document (except a few optional parameters specific to each DID method)
 
 The most basic and useful thing that a DID Document contains is a series of
 "verification methods", i.e., public keys used for specific purposes and which
@@ -173,7 +178,7 @@ signature on a VC, among other purposes. See, for example, this DID document
 from the demo app we use to test DIDKit and wallets:
 
 <details>
-  <summary><h3>Behold! A real-world DID Document!</h3></summary>
+  <summary class='fake-h3'>Behold! A real-world DID Document!</summary><br />
     <code>{`
 {
   "@context": [
@@ -212,22 +217,22 @@ that this is the key used to sign assertions about the world-- assertions that
 this public key makes verifiable.*
 
 </details>
+<br />
 
-While on the issuer side, a verification method can be deterministically derived
-from the private key, a verifier downstream does not have that option, which is
-why DID Documents exist in the first place: to publish annotated key material
-that can be used to verify signatures out there in the world.  Having resolved
+On the issuer side a verification method can be derived
+from the private key, that's not an option downstream. That's
+why DID Documents exist: to publish annotated key material
+that can be used to verify signatures in the world. Having resolved
 the issuer's DID, you now have the subset of its contents needed to verify a
 credential: the "verification method" for checking the signatures on a VC.
 
-This might sound like a lot of work described step by step, but don't worry--
-DID resolution happens automatically once everything is up and running, as you
-already saw above.  If you needed to do only the solution step for some reason,
+Spelled out step by step this sounds like a lot, but in practice DID resolution 
+happens automatically once everything is up and running, as you already saw above.  
+
+If you needed to do only the solution step for some reason,
 you could fetch a DID Document with a single DIDKit command as well, in any
 context with web access:
 
-<code>{`
-didkit did-dereference did:web:demo.spruceid.com:2021:vc-faucet
-`}</code>
+<code>{`didkit did-dereference did:web:demo.spruceid.com:2021:vc-faucet`}</code>
 
 </details>
