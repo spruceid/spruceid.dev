@@ -1,5 +1,5 @@
 --- 
-id: Quickstart
+id: quickstart
 slug: /
 title: Quickstart Guide to working with DIDKit
 ---
