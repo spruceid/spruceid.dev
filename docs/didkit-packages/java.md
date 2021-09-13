@@ -24,7 +24,7 @@ title: Java
 
 ## Installation
 
-Install Rust and DIDKit [as usual](/docs/didkit/install.md#manual) and then: 
+Install Rust and DIDKit [as usual](/docs/didkit/install/#manual) and then: 
 
 ### Build
 

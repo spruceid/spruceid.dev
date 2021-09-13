@@ -13,7 +13,7 @@ This website exists for two complementary purposes:
    that help you understand [DIDKit](/docs/didkit)
 3. To help you wrap your head around
    [Verifiable Credentials](/docs/primer/), find the right [Decentralized
-   Identifier scheme](/docs/did-methods) for your project, and generally just
+   Identifier scheme](/docs/didkit/did-methods) for your project, and generally just
    get you from "curious🤔" to "wizard🧙‍♂️" as fast as we can.
 
 The quickstart guide that follows describes how to perform credential issuance and verification with DIDKit's command line tool. Documentation for use with other platforms can be found in the navigation bar on the [DIDKit Packages](/docs/didkit-packages/rust) section.
