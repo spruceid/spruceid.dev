@@ -86,11 +86,11 @@ prefix. We'll explain this one in the next step.
 Let's take a real-life VC issued by our testing faucet and drop it into your DIDKit root directory as an example.  You can fetch it with a simple curl:
 
 ```sh
-curl https://demo.spruceid.com/get-vc
+curl https://demo.spruceid.com/get-vc >example.vc
 ```
 
 <details>
-  <summary>Click here for an example VC</summary>
+  <summary>What you get back should look something like this:</summary>
   <div>
      <code>{`
 {
