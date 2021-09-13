@@ -16,7 +16,7 @@ form of JSON-LD verifiable credentials, they are highly portable, in that the
 structure of their data can often be reconstructed years later and completely
 out of their original context. For more on JSON-LD and linked data, see the
 Semantics section of the [DIDKit Core
-Concepts](/docs/didkit/concepts.md#Semantics) entry.
+Concepts](didkit/concepts.md#Semantics) entry.
 
 ### Wallet
 The mental model of a "wallet" for storing directly and manually controlled

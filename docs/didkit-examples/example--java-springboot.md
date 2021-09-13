@@ -1,5 +1,5 @@
 ---
-id: example--java-springboot
+id: java-springboot
 title: Spring Boot Java AuthN Service
 ---
 

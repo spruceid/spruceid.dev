@@ -1,45 +1,54 @@
 module.exports = {
   docs: {
-    '.dev Portal': [
+    '.dev Portal' : [
       'devhome',
-      'primer',
-      'contributing',
-      'code-of-conduct', 
-      'privacy-policy',
+      'primer'
     ],
     'DIDKit': [
       'didkit/intro', 
-      'didkit/terminology',
-      'didkit/concepts',
-      'didkit/specs_and_deps', 
-      'didkit/rust',
       'didkit/install', 
-      'didkit/cli_commands', 
-      'didkit/http_syntax', 
-      'didkit/ffis', 
+      'didkit/did-methods',
+      'didkit/concepts',
+      'didkit/document-loading',
       'didkit/changelog',
+      'didkit/specs_and_deps', 
+      'didkit/glossary',
     ], 
+    'DIDKit Interfaces': [
+      'didkit-interfaces/cli', 
+      'didkit-interfaces/http', 
+      'didkit-interfaces/rust',
+      'didkit-interfaces/C', 
+      'didkit-interfaces/java', 
+      'didkit-interfaces/python', 
+      'didkit-interfaces/node',
+    ],  
     'DIDKit Examples': [
-      'didkit/examples', 
-      'didkit/example--core-functions-in-bash', 
-      'didkit/example--core-functions-in-curl', 
-      'didkit/example--batch-generation',
-      'didkit/example--java-springboot',
-      'didkit/example--svelte-chapi'
+      'didkit-examples/overview', 
+      'didkit-examples/core-functions-in-bash', 
+      'didkit-examples/core-functions-in-curl', 
+      'didkit-examples/batch-generation',
+      'didkit-examples/java-springboot',
+      'didkit-examples/svelte-chapi'
     ],
     'Credible': [
       'credible/intro', 
-      'credible/terminology',
-      'credible/concepts', 
       'credible/install', 
+      'credible/concepts', 
       'credible/authn', 
+      'credible/glossary',
     ],
     'Credible Examples': [
-      'credible/examples',
-      'credible/example--qr-issuance',
+      'credible-examples/overview',
+      'credible-examples/qr-issuance',
+      'credible-examples/vc-display',
+      'credible-examples/did-tz-deploy',
     ]
     ,
     'References': [
+        'contributing',
+        'code-of-conduct', 
+        'privacy-policy',
         'glossary',
         'further-reading',
     ],

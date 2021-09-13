@@ -44,6 +44,7 @@ To add a contributor (other than yourself, that's automatic), mark them one per
 line as follows:
 
 +@github_username
+
 If you added a contributor by mistake, you can remove them in a comment with:
 
 -@github_username
@@ -65,6 +66,6 @@ but review by Spruce is still the condition of acceptance.
 
 All our OS projects follows Spruce's overall [Code of Conduct][].
 
-[corporate cla]: /assets/spruce-corporate-cla.pdf
-[individual cla]: /assets/spruce-individual-cla.pdf
+[corporate cla]: https://spruceid.dev/assets/spruce-corporate-cla.pdf
+[individual cla]: https://spruceid.dev/assets/spruce-individual-cla.pdf
 [code of conduct]: https://spruceid.dev/docs/code-of-conduct

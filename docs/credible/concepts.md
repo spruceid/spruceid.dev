@@ -17,7 +17,7 @@ Then, depending on the type of message, one of the following protocols will be
 executed.
 
 If this all sounds a little esoteric, watch the [example
-video](example--qr-issuance.md) first. 
+video](credible-examples/qr-issuance.md) first. 
 
 ## CredentialOffer
 

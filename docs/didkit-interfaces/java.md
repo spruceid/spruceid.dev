@@ -1,47 +1,30 @@
 ---
-id: ffis
-title: Foreign Function Interfaces
+id: java
+title: Java
 ---
+
 [path-packages]: https://dart.dev/tools/pub/dependencies#path-packages
 [packages-plugins]: https://flutter.dev/developing-packages/
+[JAR]: https://en.wikipedia.org/wiki/JAR_(file_format)
+[JNI]: https://en.wikipedia.org/wiki/Java_Native_Interface
 
-DIDKit has bindings for various languages and environments. Each corresponding directory contains a README with additional info particular to it. The Makefile used to build all the libraries requires [GNU Make](https://www.gnu.org/software/make/).
 
-Building and testing each library requires tools for the corresponding environment:
+## At a Glance
 
-* C: C compiler and linker
-* Java: JDK and JRE
-* Android: [Android NDK](https://developer.android.com/ndk/), [SDK tools](https://developer.android.com/studio/), and Rust Android targets
-* Flutter: [Flutter](https://github.com/flutter/flutter)
-Build
+- DIDKit exposes a straightforward set of Java bindings, using the Java Native Interface ([JNI][]).  
+- The [JAR][] file includes all of DIDKit's Java class files. To use this in an
+  application, you must also include the shared library (`libdidkit.so`) in your
+  application in the Java library path
+- For a quick function & type reference, you can study the [DIDKitTest.java
+  file](https://github.com/spruceid/didkit/lib/java/test/com/spruceid/DIDKitTest.java). 
+- All the low-level calls that the Rust library exposes to JNI are documented in the
+  [JNI section](https://rust.didkit.dev/didkit/jni/index.html) of the [Rust
+  documentation](https://rust.didkit.dev/didkit). 
 
-To build all the libraries, run `make` in the `/lib/` directory of the DIDKit repo.
 
-To build and test a particular library, see the instructions below.
+## Installation
 
-## C
-
-### Build
-
-```sh
-# from DIDKit root directory:
-$ make -C lib ../target/release/libdidkit.so
-```
-
-### Test
-
-```sh
-# from DIDKit root directory:
-$ make -C lib ../target/test/c.stamp
-```
-
-### + Android
-
-To build the C shared library for Android targets, build the [DIDKit Android library](#android).
-
-## Java
-
-Java bindings for DIDKit, using [JNI][]. The [JAR][] file includes Java class files. To use this in an application, you must also include the shared library (`libdidkit.so`) in your application in your Java Library Path.
+Install Rust and DIDKit [as usual](/docs/didkit/install.md#manual) and then: 
 
 ### Build
 
@@ -67,10 +50,6 @@ $ make -C lib ../target/tests/java.stamp
 ### + Android
 
 For Android, build the separate [Android library (AAR file)](#android) which includes the Java class files and shared libraries for all Android targets.
-
-[JAR]: https://en.wikipedia.org/wiki/JAR_(file_format)
-[JNI]: https://en.wikipedia.org/wiki/Java_Native_Interface
-
 
 ## Android
 
@@ -102,21 +81,9 @@ $ make -C lib ../target/test/aar.stamp
 [AAR]: https://developer.android.com/studio/projects/android-library.html#aar-contents
 [JNI]: https://en.wikipedia.org/wiki/Java_Native_Interface
 
-## Flutter
+## Examples
 
-[Flutter plugin][packages-plugins] for the DIDKit library. Includes Dart bindings, and functionality for Android and iOS (WIP).
-
-Flutter Doctor and CLI tools are also required.
-
-## Usage
-
-You can depend on this plugin as a [path dependency][path-packages].
-
-You will also need to build the DIDKit library for your target platforms.
-To do that for Android, trigger building the AAR file:
-
-```sh
-# from DIDKit root directory:
-make -C lib ../target/didkit.aar
-```
-
+|Tool|Example|
+|---|---|
+|Authentication, Tomcat, CHAPI|[Github](https://github.com/spruceid/didkit/examples/java-jsp/readme.md)|
+|Authentication, Maven, MySQL, Redis|[Github](https://github.com/spruceid/didkit/examples/java-springboot/readme.md)|

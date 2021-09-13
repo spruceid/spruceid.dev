@@ -1,5 +1,5 @@
 ---
-id: example--core-functions-in-bash
+id: core-functions-in-bash
 title: Core Functions (CLI)
 ---
 

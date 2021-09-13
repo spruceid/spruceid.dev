@@ -7,7 +7,7 @@ title: Installation
 [rustup]: https://rustup.rs/
 [Cargo]: https://doc.rust-lang.org/cargo/
 [ssi]: https://github.com/spruceid/ssi
-[installing-rust]: https://doc.rust-lang.org/nightly/edition-guide/rust-2018/rustup-for-managing-rust-versions.html
+[installing-rust]: https://rust-lang.github.io/rustup/installation/index.html
 
 
 
@@ -17,21 +17,24 @@ DIDKit can be installed manually or in containerized form.
 
 DIDKit is written in [Rust][]. To get Rust, you can use [Rustup][].
 
-We depend on some Rust nightly features. When installing with Rustup, pick the nightly release channel. Or run `rustup default nightly` to switch to it.
-([More info][installing-rust])
+We do not depend on any Rust nightly features, so our installation instructions assume `stable` versions; be sure to [switch the installation defaults][installing-rust] to `nightly` if the calling application depends on them.
 
-Spruce's [ssi][] library must be cloned alongside the `didkit` repository:
+Spruce's [ssi][] library must be cloned alongside the `didkit` repository in a parallel directory between downloading didkit and building it.
+
 ```sh
-# from root directory of DIDKit project
-$ git clone https://github.com/spruceid/ssi ../ssi
+$ mkdir didkit
+$ cd didkit
+$ git clone https://github.com/spruceid/didkit
+$ git clone https://github.com/spruceid/ssi ../ssi --recurse-submodules
 ```
 
-Build DIDKit using [Cargo][]:
+Build DIDKit using [Cargo][], from root directory of DIDKit project:
+
 ```sh
-# from root directory of DIDKit project
 $ cargo build
 ```
-That will give you the DIDKit CLI and HTTP server executables located at
+
+This will give you the DIDKit CLI and HTTP server executables located at
 `target/debug/didkit` and `target/debug/didkit-http`, respectively. You can also build and install DIDKit's components separately. Building the FFI libraries will require additional dependencies. See the corresponding readmes linked below for more info.
 
 ## Container
@@ -64,3 +67,10 @@ $ docker build -f Dockerfile-http . -t didkit-http
 ```
 
 And to use them, replace `ghcr.io/spruceid/didkit-(cli|http):latest` with `didkit-(cli|http)`.
+
+### Building Interfaces
+
+While many of the DIDKit interfaces can be installed as libraries via each
+language's dedicated package manager, they can also be built manually.  For
+instructions, see the "Installation" section of each interface's dedicated page
+in the section to the left.
