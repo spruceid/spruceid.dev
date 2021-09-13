@@ -83,45 +83,40 @@ prefix. We'll explain this one in the next step.
 
 ## Step 2: Verifying a real VC
 
-Let's take a real-life VC issued by our testing faucet and drop it into your DIDKit root directory as an example.
+Let's take a real-life VC issued by our testing faucet and drop it into your DIDKit root directory as an example.  You can fetch it with a simple curl:
+
+```sh
+curl https://demo.spruceid.com/get-vc
+```
 
 <details>
   <summary>Click here for an example VC</summary>
   <div>
-    <div><i>Note: to get a fresher version of this credential issued to a 
-    real-world DID, you might want to install the Credible mobile wallet on
-    a mobile device, whether from <a href="https://github.com/spruceid/credible">source code</a>,
-    from <a href="https://testflight.apple.com/join/CPZON8Ho">Apple Test Flight</a>, 
-    or from <a href="https://play.google.com/store/apps/details?id=com.spruceid.app.credible&hl=de&gl=US">the Google Play store</a>. Once you have Credible installed, it will automatically generate an off-chain did-tz (it will resemble <code>did:tz:tz1aTuW7578MTt3ZtWYCjX65nUXkzE1CMcAf</code>), and when you navigate to <a href="https://demo.spruceid.com">our demo faucet</a></i>, you can get a VC issued to you containing your unique, decentralized identifier. 
-    </div>
      <code>{`
 {
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://schema.org/"
-  ],
-  "id": "urn:uuid:baef4793-ab07-4c17-a175-ec114b18245e",
-  "type": "VerifiableCredential",
-  "credentialSubject": {
-    "id": "did:tz:tz1aTuW7578MTt3ZtWYCjX65nUXkzE1CMcAf"
-  }
-  "issuer": "did:web:demo.spruceid.com:2021:vc-faucet",
-  "issuanceDate": "2021-09-13T09:19:41Z",
-  "proof": {
-    "type": "Ed25519Signature2018",
-    "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:web:demo.spruceid.com:2021:vc-faucet#key-1",
-    "created": "2021-09-13T09:19:41.374Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..uwSzKxDeXk4nCd6EH6H-7GwaXNwgdoEBPNsrCbbcmJV9hJRrwZPJakXaK6c4uFkFoICGUikTBifmEdV_7BOCCg"
+  "@context":["https://www.w3.org/2018/credentials/v1"],
+  "type":"VerifiableCredential",
+  "credentialSubject":{},
+  "issuer":"did:web:demo.spruceid.com",
+  "issuanceDate":"2021-09-13T18:23:56Z",
+  "proof":{
+    "type":"Ed25519Signature2018",
+    "proofPurpose":"assertionMethod",
+    "verificationMethod":"did:web:demo.spruceid.com#_t-v-Ep7AtkELhhvAzCCDzy1O5Bn_z1CVFv9yiRXdHY",
+    "created":"2021-09-13T18:23:56.483Z",
+    "jws":"eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..X5J2jI5j3TPqFO_g6XOlB730WlXJ8mDsfoyLQ4u60MelVosi1Et6V_pB7-zELDggdqZTsKQjSqDodv0m7ui1Bg"
   },
-  "expirationDate": "2021-10-13T09:19:41Z"
+  "expirationDate":"2021-10-13T18:23:56Z"
 }
 `.slice(1, -1)}</code>
   </div>
-<br />(You can cut and paste it into a <code>{`
-sample.vc
-`.slice(1, -1)}</code> file using a text editor or a bash command for simplicity's sake, or download it <a href="/assets/example_vc.json">here</a>).
-
+<br />
+  <div><i>Note: Another way to get a fresh example VC (issued to an actual
+    DID) is to first install the Credible mobile wallet on
+    a mobile device, whether from <a href="https://github.com/spruceid/credible">source code</a>,
+    from <a href="https://testflight.apple.com/join/CPZON8Ho">Apple Test Flight</a>, 
+    or from <a href="https://play.google.com/store/apps/details?id=com.spruceid.app.credible&hl=de&gl=US">the Google Play store</a>. This will automatically generate an off-chain did-tz (it will resemble <code>did:tz:tz1aTuW7578MTt3ZtWYCjX65nUXkzE1CMcAf</code>), and when you navigate to <a href="https://demo.spruceid.com">our demo faucet</a></i> on a computer, you can use the QR issuance to get a VC issued into the wallet, identifying its subject by its unique, decentralized identifier. 
+  </div>
 </details>
 
 <br />You will notice that this VC looks much like the one you issued in the
