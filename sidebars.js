@@ -2,7 +2,7 @@ module.exports = {
   docs: {
     '.dev Portal' : [
       'devhome',
-      'primer'
+      'primer',
     ],
     'DIDKit': [
       'didkit/intro', 
@@ -14,14 +14,14 @@ module.exports = {
       'didkit/specs_and_deps', 
       'didkit/glossary',
     ], 
-    'DIDKit Interfaces': [
-      'didkit-interfaces/cli', 
-      'didkit-interfaces/http', 
-      'didkit-interfaces/rust',
-      'didkit-interfaces/C', 
-      'didkit-interfaces/java', 
-      'didkit-interfaces/python', 
-      'didkit-interfaces/node',
+    'DIDKit Packages': [
+      'didkit-packages/cli', 
+      'didkit-packages/http', 
+      'didkit-packages/rust',
+      'didkit-packages/C', 
+      'didkit-packages/java', 
+      'didkit-packages/python', 
+      'didkit-packages/node',
     ],  
     'DIDKit Examples': [
       'didkit-examples/overview', 

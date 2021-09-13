@@ -23,3 +23,23 @@
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
+
+.prism-code {
+  counter-reset: line-number;
+}
+
+/*
+ * Notice the chained .language-ts class name to .prism-code
+ * You can chain more languages in order to add line numbers
+ */
+.prism-code.language-sh .token-line::before {
+  counter-increment: line-number;
+  content: '$';
+  margin-right: 7px;
+  text-align: right;
+  min-width: 0.0rem;
+  display: inline-block;
+  opacity: .5;
+  position: sticky;
+  left: var(--ifm-pre-padding);
+}
