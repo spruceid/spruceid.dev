@@ -11,6 +11,9 @@ module.exports = {
   organizationName: "spruceid", // Usually your GitHub org/user name.
   projectName: "spruceid.dev", // Usually your repo name.
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+    },
     navbar: {
       title: "Spruce",
       logo: {
