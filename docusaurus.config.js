@@ -23,7 +23,13 @@ module.exports = {
       },
       items: [
         {
-          label: ".dev Portal",
+          label: "Quickstart",
+          to: "/",
+          useBaseUrl: "/",
+          position: "left",
+        },
+        {
+          label: "Docs",
           to: "/docs/",
           useBaseUrl: "/docs/",
           position: "left",
