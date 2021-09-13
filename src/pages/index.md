@@ -17,32 +17,7 @@ This website exists for two complementary purposes:
    Identifier scheme](/docs/did-methods) for your project, and generally just
    get you from "curious🤔" to "wizard🧙‍♂️" as fast as we can.
 
-This page is devoted to #1 for the do-first crowd. If jumping straight into a command line sounds little scary, feel free to choose your own adventure and click around on those links above first.  Then come back for ther tour! Similarly, if you already know what DIDKit is and does, and just want a reference page specific to the interface you'll be using, jump straight to that page from this
-list:
-
-<div class="dropdown">
-  <ul id="my-dropdown2">
-    <li><a href="/docs/didkit-interfaces/rust">Rust</a></li>
-    <li><a href="/docs/didkit-interfaces/C">C</a></li>
-    <li><a href="/docs/didkit-interfaces/java">Java</a></li>
-    <li><a href="/docs/didkit-interfaces/python">Python</a></li>
-    <li><a href="/docs/didkit-interfaces/node">Node/JS</a></li>
-  </ul>
-  <a href="#my-dropdown2"
-     aria-controls="my-dropdown2"
-     role="button"
-     data-toggle="dropdown"
-     id="my-dropdown2-btn">
-    Select an option...
-  </a>
-  <a href="#my-dropdown2-btn"
-     aria-controls="my-dropdown2"
-     role="button"
-     data-toggle="dropdown"
-     class="close">
-    Close dropdown
-  </a>
-</div>
+This page is devoted to #1 for the do-first crowd. If jumping straight into a command line sounds little scary, feel free to choose your own adventure and click around on those links above first.  Then come back for ther tour!
 
 ## Step 0: install DIDKit 
 
