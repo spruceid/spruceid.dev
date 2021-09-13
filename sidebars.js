@@ -2,7 +2,6 @@ module.exports = {
   docs: {
     '.dev Portal' : [
       'devhome',
-      'quickstart',
       'primer',
     ],
     'DIDKit': [
