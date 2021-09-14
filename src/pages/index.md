@@ -71,7 +71,7 @@ If this is your first Verifiable Credential, don't worry for now about the exact
 Now you're ready to sign it with the private key, which has to be passed in two different ways: as a key, and as a "verification method" 
 (a transformation of the key which we'll explain later). Since our purpose is to assert the authenticity of our credential 
 (rather than authentication or some other DID functionality), we'll want to specify that our "proof purpose" is assertion, which we can do
-by passing the `-p` flag with the value `assertionMethod` below. (For more info on proof purpose and assertion, check out the [W3C docs](https://www.w3.org/TR/did-core/#assertion))
+by passing the `-p` flag with `assertionMethod`. (For more info on proof purpose and assertion, check out the [W3C docs](https://www.w3.org/TR/did-core/#assertion))
 
 ```sh
 verification_method=$(didkit key-to-verification-method --key-path issuer_key.jwk)
