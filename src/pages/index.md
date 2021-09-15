@@ -68,10 +68,15 @@ EOF
 
 If this is your first Verifiable Credential, don't worry for now about the exact meaning or function of any specific property.
 
-Now you're ready to sign it with the private key, which has to be passed in two different ways: as a key, and as a "verification method" 
-(a transformation of the key which we'll explain later). Since our purpose is to assert the authenticity of our credential 
-(rather than authentication or some other DID functionality), we'll want to specify that our "proof purpose" is assertion, which we can do
-by passing the `-p` flag with `assertionMethod`. (For more info on proof purpose and assertion, check out the [W3C docs](https://www.w3.org/TR/did-core/#assertion))
+Now you're ready to sign it with the private key, which has to be passed in two
+different ways: as a key, and as a "verification method" (basically, public key
+with a little metadata and a purpose scope attached, which will get encoded
+alongside the signature). Since our purpose is to assert the authenticity of our
+credential (rather than authentication or some other DID functionality), we'll
+want to specify that our "proof purpose" is signing assertions, which we can do
+by passing the `-p` flag with `assertionMethod`. (For more info on proof purpose
+and assertion, check out the [W3C
+docs](https://www.w3.org/TR/did-core/#assertion))
 
 ```sh
 verification_method=$(didkit key-to-verification-method --key-path issuer_key.jwk)
@@ -170,9 +175,9 @@ the same input (a DID string) which resolves to the same
 kind of DID document (except a few optional parameters specific to each DID method)
 
 The most basic and useful thing that a DID Document contains is a series of
-**"verification methods"**, which are public keys used for specific purposes, like checking the signature on a VC, and which
-can be referenced by specific relative references. See, for example, this DID document
-from the demo app we use to test DIDKit and wallets:
+**"verification methods"**, which are public keys with type metadata and scoped
+to a specific purpose. See, for example, this DID document from the demo app we
+use to test DIDKit and wallets:
 
 <details>
   <summary class='fake-h3'>Behold! A real-world DID Document!</summary><br />
@@ -216,15 +221,17 @@ this public key makes verifiable.*
 </details>
 <br />
 
-On the issuer side a verification method can be derived
-from the private key, that's not an option downstream. That's
-why DID Documents exist: to publish annotated key material
-that can be used to verify signatures in the world. Having resolved
-the issuer's DID, you now have the subset of its contents needed to verify a
-credential: the "verification method" for checking the signatures on a VC.
+On the issuer side a verification method can be derived from the private key,
+since all the metadata and purpose context is on hand.  Downstream, this has be
+to made available somehow, to make sure the key fetched is the one needed to
+verify the signature on a given credential. That's what DID Documents are for.
+Having resolved the issuer's DID, you now have the subset of its contents needed
+to verify a credential: the "verification method" for checking the signatures on
+a VC.
 
-Spelled out step by step this sounds like a lot, but in practice DID resolution 
-happens automatically once everything is up and running, as you already saw above.  
+Spelled out step by step this sounds like a lot, but in practice DID resolution
+happens automatically once everything is up and running, as you already saw
+above.  
 
 If you needed to do only the solution step for some reason,
 you could fetch a DID Document with a single DIDKit command as well, in any
