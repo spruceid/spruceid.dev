@@ -68,12 +68,15 @@ EOF
 
 If this is your first Verifiable Credential, don't worry for now about the exact meaning or function of any specific property.
 
-Now you're ready to sign it with the private key, which has to be passed in two different ways: as a key, and as a "verification method" (a transformation of the key which we'll explain later).
+Now you're ready to sign it with the private key, which has to be passed in two different ways: as a key, and as a "verification method" 
+(a transformation of the key which we'll explain later). Since our purpose is to assert the authenticity of our credential 
+(rather than authentication or some other DID functionality), we'll want to specify that our "proof purpose" is assertion, which we can do
+by passing the `-p` flag with `assertionMethod`. (For more info on proof purpose and assertion, check out the [W3C docs](https://www.w3.org/TR/did-core/#assertion))
 
 ```sh
-verification_method=$(didkit key-to-verification-method -k issuer_key.jwk)
-didkit vc-issue-credential -k issuer_key.jwk -v "$verification_method" -p assertionMethod <payload.json >credential-signed.jsonld
-cat credential-signed.jsonld
+verification_method=$(didkit key-to-verification-method --key-path issuer_key.jwk)
+didkit vc-issue-credential --key-path issuer_key.jwk -v "$verification_method" -p assertionMethod <payload.json >credential-signed.json
+cat credential-signed.json
 ```
 
 And that's it! Wherever this signed blob ends up, it can be handled by standard
@@ -87,7 +90,7 @@ prefix. We'll explain this one in the next step.
 Let's take a real-life VC issued by our testing faucet and drop it into your DIDKit root directory as an example.  You can fetch it with a simple curl:
 
 ```sh
-curl https://demo.spruceid.com/get-vc >example.vc
+curl https://demo.spruceid.com/get-vc > verified-credential.json
 ```
 
 <details>
@@ -127,8 +130,8 @@ signature and metadata for verifying it.
 
 To verify this signature:
 
-```bash
-didkit vc-verify-credential -p assertionMethod <example.vc >result.json
+```sh
+didkit vc-verify-credential -p assertionMethod <verified-credential.json >result.json
 ```
 
 That will spit out a verbose response as a JSON file listing the checks passed, warnings, and errors. If everything is set up properly, you should see this when you `cat result.json`:
@@ -167,9 +170,8 @@ the same input (a DID string) which resolves to the same
 kind of DID document (except a few optional parameters specific to each DID method)
 
 The most basic and useful thing that a DID Document contains is a series of
-"verification methods", i.e., public keys used for specific purposes and which
-can be referenced by specific relative references. These are used to check the
-signature on a VC, among other purposes. See, for example, this DID document
+**"verification methods"**, which are public keys used for specific purposes, like checking the signature on a VC, and which
+can be referenced by specific relative references. See, for example, this DID document
 from the demo app we use to test DIDKit and wallets:
 
 <details>
