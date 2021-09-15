@@ -36,12 +36,12 @@ Android and [Keychain][] on iOS.
 
 ### Offer Flow
 
-**Note: some features in this flow are current unstable and may not work as documented.**
+**Note: some features in this flow are currently unstable and may not work as documented.**
 
 The flow of events and actions is thus:
-1. User is presented a credential preview to review and make their decision
-   whether or not receive it (coming soon: option to select subject DID if
-   wallet holds multiple)
+1. User is presented a credential preview to review, and decides whether or not
+   to accept it (coming soon: option to select subject DID if wallet holds
+   multiple)
 2. App makes a POST request to the initial URL with `subject_id` set to this
    DID;
 3. App receives and stores the new credential in app storage;
@@ -54,7 +54,9 @@ The flow of events and actions is thus:
 
 After receiving a `VerifiablePresentationRequest` from a trusted host, the
 wallet app calls the requestor's POST API with the `presentation` value set in
-the body. This value is a stringified JSON-LD presentation object generated
+the body (check out these [W3C docs](https://www.w3.org/TR/vc-data-model/#dfn-verifiable-presentations) 
+for an explanation of presentations and verifiable presentations in VC lingo).
+This value is a stringified JSON-LD presentation object generated
 from the selected credential and signed with the credential's private key using
 `DIDKit.issuePresentation`.
 
