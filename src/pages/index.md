@@ -8,98 +8,126 @@ title: Quickstart Guide to working with DIDKit
 # Getting Started with Spruce ID
 
 This site exists for three complementary purposes: 
-1. To get you *using* DIDKit and other Spruce ID tooling as smoothly and quickly
-   as possible
-2. To provide developer [docs](/docs/) and [references](/docs/glossary)
-   that help you understand [DIDKit](/docs/didkit)
-3. To help you wrap your head around
-   [Verifiable Credentials](/docs/primer/), find the right [Decentralized
-   Identifier scheme](/docs/didkit/did-methods) for your project, and generally just
-   get you from "curious🤔" to "wizard🧙‍♂️" as fast as we can.
+1. To quickly demonstrate DIDKit and other SpruceID tooling.
+2. To provide developer [documentation](/docs/) and [references](/docs/glossary)
+   for more details about [DIDKit](/docs/didkit).
+3. To introduce the concepts of [W3C Verifiable Credentials
+   (VCs)](/docs/primer/) and [W3C Decentralized Identifiers
+   (DIDs)](/docs/didkit/did-methods).
 
-The quickstart guide below describes how to perform credential issuance and verification with DIDKit's CLI tool. Documentation for use with other platforms can be found in the navigation bar on the [DIDKit Packages](/docs/didkit-packages/rust) section.
+This guide describes how to perform credential issuance and verification with
+DIDKit's CLI program. For other packaging, such as HTTP endpoints and SDK
+integration, see the [DIDKit Packages](/docs/didkit-packages) page.
 
 ## Step 0: install DIDKit 
 
-To install the DIDKit command line tool from crates.io on GNU/Linux, MacOS,
-Windows+WSL with
-[cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html) and
-`build-essential` tools already installed, run:
+To install the DIDKit command line program on GNU/Linux, MacOS,
+or Windows+WSL, first install
+[cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html).
+With [`build-essential`](https://packages.debian.org/sid/build-essential) or
+equivalent tools also installed, run:
 
 ```sh
 cargo install didkit-cli
 ```
 
-Or if you prefer, you can build manually [from source](/docs/didkit/install#manual) or [via docker](/docs/didkit/install#docker).
+This will add the binary `didkit` to your Cargo installation (typically
+`~/.cargo/bin`), which can be added to your system's PATH for ease of use.
 
-## Step 1: Issue your first Verifiable Credential
+You can also build DIDKit CLI [from source](/docs/didkit/install#manual) or
+[install via Docker](/docs/didkit/install#docker).
+
+## Step 1: Issue and verify your first VC using a DID
 
 W3C Verifiable Credentials are a standard data format for claims expressed in
 JSON, also known as digital attestations. They contain the claim being made,
 data schema references, and a digital signature to be verified and consumed by
-unknown future parties. More info in the [primer](/docs/primer).
+unknown future parties. More info can be found in the [primer](/docs/primer).
 
-So what do you need to get started with VCs? The first ingredient is DIDKit, and the second is a signing key, which DIDKit can generate automatically:
+### Generating a `did-key` DID
+
+To issue your first credential, you will need a signing key. We will use this
+key to generate a DID using the
+[`did-key`](https://w3c-ccg.github.io/did-method-key/) DID method. DIDKit can
+generate a signing key with the `generate-ed25519-key` subcommand to create an
+[Ed25519](https://ed25519.cr.yp.to/) private key in the
+[JWK](https://tools.ietf.org/html/rfc7517) format. Existing JWKs can also be
+loaded via filepath.
 
 ```sh
 didkit generate-ed25519-key > issuer_key.jwk
+issuer_did=$(didkit key-to-did key -k key.jwk)
+echo $issuer_did
 ```
 
-Or, if you want to use pre-existing key material, it can be accessed from a filepath; a Ed25519 key in JWK format can be linked or copied to the DIDKit root.
-
-Once this key is on hand, you have to structure some data to be the payload of
-this VC you want to issue. For simplicity, let's throw this into a JSON file to
-be signed over in the next step.
-          
+With the signing key prepared and its representation as a did-key known,
+specify the JSON of the Verifiable Credential to be signed. You can use
+the following example for this tutorial.
 ```bash
-cat > payload.json <<EOF
+cat > unsigned-vc.json <<EOF
 {
     "@context": "https://www.w3.org/2018/credentials/v1",
     "id": "urn:uuid:`uuidgen`",
     "type": ["VerifiableCredential"],
-    "issuer": "did:web:issuance.yournamehere.com",
-    "issuanceDate": "`date --utc +%FT%TZ`",
+    "issuer": "${issuer_did}",
+    "issuanceDate": "$(date -u +%FT%TZ)",
     "credentialSubject": {
-        "id": "did:example:0x1234someguywetalkinabout"
+        "id": "did:example:my-data-subject-identifier"
     }
 }
 EOF
 ```
 
-If this is your first Verifiable Credential, don't worry for now about the exact meaning or function of any specific property.
+The `@context` property flags this JSON object as a W3C Verifiable Credential,
+and can be optionally interpreted as [JSON-LD](https://json-ld.org/), which is
+out of scope of this tutorial. The `id` property is the identifier for the VC,
+which may be unique and ultimately depends on the system design. The `type`
+property identifies this VC as a base data model, with no additions. The
+`issuer` property contains a URI referring to the issuer of the VC (the did-key
+generated previously), with `issuanceDate` denoting when the VC was issued
+(now, in UTC).  Finally, the `credentialSubject` contains the claim itself,
+which for this dummy example, contains no information other than the data
+subject in `credentialSubject.id`, which happens to be an example Decentralized
+Identifier. A full listing of the required or suggested properties for a VC can
+be found in the [VC Data Model](https://www.w3.org/TR/vc-data-model/)
+specification.
 
-Now you're ready to sign it with the private key, which has to be passed in two
-different ways: as a key, and as a "verification method" (basically, public key
-with a little metadata and a purpose scope attached, which will get encoded
-alongside the signature). Since our purpose is to assert the authenticity of our
-credential (rather than authentication or some other DID functionality), we'll
-want to specify that our "proof purpose" is signing assertions, which we can do
-by passing the `-p` flag with `assertionMethod`. (For more info on proof purpose
-and assertion, check out the [W3C
-docs](https://www.w3.org/TR/did-core/#assertion))
+To sign the VC using DIDKit CLI with Decentralized Identifiers, input the path
+to the signing key, a verification method (`-v`), a proof purpose (`-p`), and
+the unsigned credential (`stdin`). Verification methods describe how to
+interpret the signature and check for validity. Proof purposes add the scope
+and intent of the signing, and in this example we will use the proof purpose
+value of `assertionMethod`, which asserts the authenticity of the credential.
+For more information verification methods and proof purposes, refer to the [DID
+Core specification](https://www.w3.org/TR/did-core/#assertion)).
 
 ```sh
-verification_method=$(didkit key-to-verification-method --key-path issuer_key.jwk)
-didkit vc-issue-credential --key-path issuer_key.jwk -v "$verification_method" -p assertionMethod <payload.json >credential-signed.json
-cat credential-signed.json
+vm=$(didkit key-to-verification-method key --key-path issuer_key.jwk)
+didkit vc-issue-credential --key-path issuer_key.jwk \
+                           -v "${vm}" -p assertionMethod \
+                           <unsigned-vc.json > signed-vc.json
+cat signed-vc.json
 ```
 
-And that's it! Wherever this signed blob ends up, it can be handled by standard
-JSON tooling, and VC tooling can confirm it as trustworthy (or at
-least, as trustworthy as `"yournamehere.com"` was at the time in `"issuanceDate"`).
-Notice that the `"issuer"` field identified you by a domain name, and a "did:web:"
-prefix. We'll explain this one in the next step.
-
-## Step 2: Verifying a real VC
-
-Let's take a real-life VC issued by our testing faucet and drop it into your DIDKit root directory as an example.  You can fetch it with a simple curl:
+This produces a signed VC, which we will now verify.
 
 ```sh
-curl https://demo.spruceid.com/get-vc > verified-credential.json
+didkit vc-verify-credential < signed-vc.json
+```
+
+You should see that no checks, warnings, nor errors. For good measure, try
+modifying the contents of `signed-vc.json` and ensuring that it no longer
+verifies successfully.
+
+## Step 2: Verifying a `did-web` issued VC
+
+In this example, we will verify a VC generated from Spruce's demo server.
+```sh
+curl https://demo.spruceid.com/get-example-vc > example-vc.json
 ```
 
 <details>
-  <summary>What you get back should look something like this:</summary>
+  <summary>`example-vc.json` should resemble the following content:</summary>
   <div>
      <code>{`
 {
@@ -120,123 +148,26 @@ curl https://demo.spruceid.com/get-vc > verified-credential.json
 `.slice(1, -1)}</code>
   </div>
 <br />
-  <div><i>Note: Another way to get a fresh example VC (issued to an actual
-    DID) is to first install the Credible mobile wallet on
-    a mobile device, whether from <a href="https://github.com/spruceid/credible">source code</a>,
-    from <a href="https://testflight.apple.com/join/CPZON8Ho">Apple Test Flight</a>, 
-    or from <a href="https://play.google.com/store/apps/details?id=com.spruceid.app.credible&hl=de&gl=US">the Google Play store</a>. This will automatically generate an off-chain did-tz (it will resemble <code>did:tz:tz1aTuW7578MTt3ZtWYCjX65nUXkzE1CMcAf</code>), and when you navigate to <a href="https://demo.spruceid.com">our demo faucet</a></i> on a computer, you can use the QR issuance to get a VC issued into the wallet, identifying its subject by its unique, decentralized identifier. 
-  </div>
 </details>
 
 <br />
-This VC looks much like the one you issued in the
-previous step, but with a "proof" section attached which contains the issuer's
-signature and metadata for verifying it. 
 
-To verify this signature:
+To verify the VC, run:
 
 ```sh
-didkit vc-verify-credential -p assertionMethod <verified-credential.json >result.json
+didkit vc-verify-credential -p assertionMethod < example-vc.json
 ```
 
-That will spit out a verbose response as a JSON file listing the checks passed, warnings, and errors. If everything is set up properly, you should see this when you `cat result.json`:
+You should see that no checks, warnings, nor errors. For good measure, try
+modifying the contents of `example-vc.json` and ensuring that it no longer
+verifies successfully. Under the hood, DIDKit will resolve the
+[`did-web`](https://w3c-ccg.github.io/did-method-web/) DID into a DID Document
+containing public keys and supported verification methods.
 
-```json
-{"checks":["proof"],"warnings":[],"errors":[]}
+You can resolve a `did-web` DID directly by running the following:
+```sh
+didkit did-resolve did:web:demo.spruceid.com
 ```
 
-You might be asking yourself, though, how did DIDKit get from `"issuer": "did:web:demo.spruceid.com:2021:vc-faucet"` to having the public key (and knowing the *type* of the public key) to be able to verify the signature in the proof? This is the magic of DIDs!
-
-<details><summary>Details of ✨<strong>Magical Step 1.5</strong>✨ - the <em>(often implicit!)</em> resolution step</summary>
-<br />
-Let's take the simple example VC above, issued by <code>did:web:demo.spruceid.com:2021:vc-faucet</code>, i.e. our <a
-href="https://demo.spruceid.com/">VC faucet</a>). Information about this issuer
-has to be "resolved" in much the same way that a domain name resolves to an IP address. 
-There are many ways of resolving DIDs, but let's stick to DID-web
-for now, as it is the easiest to understand.
-          
-A "did-web" is a DID which publishes its "DID Document" (a data file containing
-identity information and public keys) in a standardized location at the website
-it identifies. <a
-href="https://demo.spruceid.com/2021/vc-faucet/did.json">https://demo.spruceid.com/2021/vc-faucet/did.json</a> publishes resolution
-information about the DID <code>did:web:demo.spruceid.com:2021:vc-faucet</code>.
-A "did-web" tells you exactly where to go to "resolve" a DID into a DID
-document: 
-
-* you tack <code>/.well-known/did.json</code> to the end of a root
-domain
-* or just <code>/did.json</code> if a path is already provided (as in `2021:vc-faucet`, 
-the path at the end of the did-web <code>did:web:demo.spruceid.com:2021:vc-faucet</code>)
-
-Then fetch that JSON blob. 
-
-Other DID methods have more complex resolution mechanisms, but take
-the same input (a DID string) which resolves to the same
-kind of DID document (except a few optional parameters specific to each DID method)
-
-The most basic and useful thing that a DID Document contains is a series of
-**"verification methods"**, which are public keys with type metadata and scoped
-to a specific purpose. See, for example, this DID document from the demo app we
-use to test DIDKit and wallets:
-
-<details>
-  <summary class='fake-h3'>Behold! A real-world DID Document!</summary><br />
-    <code>{`
-{
-  "@context": [
-    "https://www.w3.org/ns/did/v1",
-    {
-      "@id": "https://w3id.org/security#publicKeyJwk",
-      "@type": "@json"
-    }
-  ],
-  "id": "did:web:demo.spruceid.com:2021:vc-faucet",
-  "verificationMethod": [
-    {
-      "id": "did:web:demo.spruceid.com:2021:vc-faucet#key-1",
-      "type": "Ed25519VerificationKey2018",
-      "controller": "did:web:demo.spruceid.com:2021:vc-faucet",
-      "publicKeyJwk": {
-        "kty": "OKP",
-        "crv": "Ed25519",
-        "x": "ZMKSD7bKSOg_4IQhZUd-2VCoBTCrEB8L2tql4oRNDUg"
-      }
-    }
-  ],
-  "authentication": [
-    "did:web:demo.spruceid.com:2021:vc-faucet#key-1"
-  ],
-  "assertionMethod": [
-    "did:web:demo.spruceid.com:2021:vc-faucet#key-1"
-  ]
-}
-`.slice(1, -1)}</code>
-
-<br />*Note: this DID Document has an Ed25519 key as its "key-1" (default key)
-that is the designated key for <code>`authentication`</code> and
-<code>`assertionMethod`</code> purposes. The latter alias signals to wallets
-that this is the key used to sign assertions about the world-- assertions that
-this public key makes verifiable.*
-
-</details>
-<br />
-
-On the issuer side a verification method can be derived from the private key,
-since all the metadata and purpose context is on hand.  Downstream, this has be
-to made available somehow, to make sure the key fetched is the one needed to
-verify the signature on a given credential. That's what DID Documents are for.
-Having resolved the issuer's DID, you now have the subset of its contents needed
-to verify a credential: the "verification method" for checking the signatures on
-a VC.
-
-Spelled out step by step this sounds like a lot, but in practice DID resolution
-happens automatically once everything is up and running, as you already saw
-above.  
-
-If you needed to do only the solution step for some reason,
-you could fetch a DID Document with a single DIDKit command as well, in any
-context with web access:
-
-<code>{`didkit did-dereference did:web:demo.spruceid.com:2021:vc-faucet`}</code>
-
-</details>
+Congratulations, you have issued a VC using a `did-key` DID, verified it, and
+also verified a VC issued by a `did-web` DID.
