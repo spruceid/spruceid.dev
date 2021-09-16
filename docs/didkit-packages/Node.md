@@ -1,6 +1,7 @@
 ---
 id: node
 title: Javascript
+sidebar_title: JavaScript
 ---
 
 ## At a Glance

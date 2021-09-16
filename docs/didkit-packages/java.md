@@ -1,6 +1,7 @@
 ---
 id: java
-title: Java
+title: Java & Android
+sidebar_title: JVM
 ---
 
 [path-packages]: https://dart.dev/tools/pub/dependencies#path-packages
@@ -8,6 +9,7 @@ title: Java
 [JAR]: https://en.wikipedia.org/wiki/JAR_(file_format)
 [JNI]: https://en.wikipedia.org/wiki/Java_Native_Interface
 
+Both Java and Android developers access DIDKit through the Java bindings.
 
 ## At a Glance
 
