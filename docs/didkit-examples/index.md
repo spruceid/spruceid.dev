@@ -1,7 +1,6 @@
 ---
 id: overview
 title: Overview of Examples
-slug: /didkit-examples/
 ---
 
 Coding is hard, and learning new tools is harder.  For those who learn best by example, we have heavily commented some snippets and examples.

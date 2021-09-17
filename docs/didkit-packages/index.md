@@ -1,7 +1,6 @@
 ---
 id: overview
 title: Overview of DIDKit Packages
-slug: /didkit-packages/ 
 ---
 
 DIDKit can be accessed across many environments, and is available as a binary in many package managers as well.  These are grouped into families of environments below:
