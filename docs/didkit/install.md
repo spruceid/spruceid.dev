@@ -23,8 +23,7 @@ Spruce's [ssi][] library must be cloned alongside the `didkit` repository in a p
 
 ```sh
 mkdir didkit
-git clone https://github.com/spruceid/didkit
-cd didkit
+git clone https://github.com/spruceid/didkit && cd didkit
 git clone https://github.com/spruceid/ssi ../ssi --recurse-submodules
 ```
 
