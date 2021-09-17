@@ -22,16 +22,16 @@ We do not depend on any Rust nightly features, so our installation instructions 
 Spruce's [ssi][] library must be cloned alongside the `didkit` repository in a parallel directory between downloading didkit and building it.
 
 ```sh
-$ mkdir didkit
-$ cd didkit
-$ git clone https://github.com/spruceid/didkit
-$ git clone https://github.com/spruceid/ssi ../ssi --recurse-submodules
+mkdir didkit
+git clone https://github.com/spruceid/didkit
+cd didkit
+git clone https://github.com/spruceid/ssi ../ssi --recurse-submodules
 ```
 
 Build DIDKit using [Cargo][], from root directory of DIDKit project:
 
 ```sh
-$ cargo build
+cargo build
 ```
 
 This will give you the DIDKit CLI and HTTP server executables located at
