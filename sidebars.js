@@ -15,6 +15,7 @@ module.exports = {
       'didkit/glossary',
     ], 
     'DIDKit Packages': [
+      'didkit-packages/overview', 
       'didkit-packages/cli', 
       'didkit-packages/http', 
       'didkit-packages/rust',
