@@ -42,22 +42,22 @@ Prerequisites:
 Building `didkit` :
 
 ```sh
-$ git clone https://github.com/spruceid/ssi --recurse-submodules
-$ git clone https://github.com/spruceid/didkit
-$ cd didkit/
-$ cargo build
+git clone https://github.com/spruceid/ssi --recurse-submodules
+git clone https://github.com/spruceid/didkit
+cd didkit/
+cargo build
 ```
 
 That's it-- you're not ready to use `didkit`'s CLI. For comprehensive documentation of CLI commands, see [Github](https://github.com/spruceid/didkit/tree/main/cli), and for a more skimmable overview, see the [CLI page](/docs/didkit-packages/cli_commands)) here.  For example, these basic commands should confirm the installation was succesful:
 
 ```sh
-$ ./target/debug/didkit -h
-$ ./target/debug/didkit generate-ed25519-key > key.jwk
+./target/debug/didkit -h
+./target/debug/didkit generate-ed25519-key > key.jwk
 ```
 
 You're also ready to spin up a `didkit`-powered HTTP server for internal or external use, depending on your context. For comprehensive documentation of the HTTP commands, see [Github ](https://github.com/spruceid/didkit/tree/main/http), and for a more skimmable overview, see the [HTTP page](/docs/didkit-packages/http_syntax) here. The HTTP server can be spun up with a single command if passed a key and some flags, and will respond with the port on which it will listen for valid calls:
 
-```sh
+```bash
 $ ./target/debug/didkit-http -k key.jwk
 Listening on http://127.0.0.1:51467/
 ```
