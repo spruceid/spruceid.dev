@@ -7,8 +7,8 @@ module.exports = {
     'DIDKit': [
       'didkit/intro', 
       'didkit/install', 
-      'didkit/did-methods',
       'didkit/concepts',
+      'didkit/did-methods',
       'didkit/document-loading',
       'didkit/changelog',
       'didkit/specs_and_deps', 
@@ -36,6 +36,7 @@ module.exports = {
       'credible/intro', 
       'credible/install', 
       'credible/concepts', 
+      'credible/native', 
       'credible/authn', 
       'credible/glossary',
     ],

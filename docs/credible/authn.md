@@ -23,9 +23,9 @@ forms:
    against  records of enrolled users from above. Anyone who has previously been
    enrolled using the above mechanism can be authenticated by this mechanism.
 3. **Specified VP Request for authentication**: if the relying party retained
-   the wallet/identifier pair used in an interactive enrolment, they can simply
-   specify the same identifier in a VP request-- only that identifier and a
-   valid VP signature from it will pass.
+   the wallet-identifier/credential-identifer pair used in an interactive
+   enrolment, they can simply specify the same identifier in a VP request-- only
+   that identifier and a valid VP signature from it will pass.
 
 It is presently only possible to verify that a verifiable presentation is valid,
 i.e. that the signature is valid and corresponds to the public key & identifier
@@ -33,20 +33,24 @@ i.e. that the signature is valid and corresponds to the public key & identifier
 stable user identifier between sessions on the basis that a valid VC-holding
 wallet will consistently prove the same private key for the life of the
 wallet/identifier combination. Please note that in the current release, **no
-verification based on the *content* of the presented credential is yet
-supported**.
+validation or verification of the presented *credentials* within the
+presentation is yet supported**.
 
-See also the code snippets provided in the CHAPI example for how Credible can
-authenticate to another service.
+See also the code snippets provided in the [CHAPI
+example](/docs/didkit-examples/svelte-chapi/) for how Credible can authenticate
+to another service.
 
-## Upcoming features 
+## Extensibility
 
-Future versions will be able to apply *business logic* to specify a subject DID,
-or a subject DID type (by method), or a date range of issuance, or an issuer,
-etc etc. Without such specification against which to validate a authenticating
-presentation, Credible's authentication should be considered "for testing
-purposes only" and **not** used to authenticate users to real-world systems.
+We tried hard to make Credible easy to extend, while also staying within our
+narrow scope. It is up to developers to add their use case's *business logic*
+for constraints like validation of a subject DID, or a subject DID type (by
+method), or a date range of issuance, or an issuer, etc etc. Without such
+specification against which to validate a authenticating presentation,
+Credible's authentication should be considered "for testing purposes only" and
+**not** used to authenticate users to real-world systems.
 
 Spruce is watching closely as the standards around OIDC evolve, as well as the
-DIDComm protocol incubated across the DIF and Aries communities. We have every
-intention of supporting both these authentication mechanisms as they mature.
+DIDComm protocol incubated across the DIF and Aries communities. Both of these
+are promising to deliver much in the way of recyclable and adaptable patterns
+for slotting SSI wallets into real-world value flows and ecosystems.
