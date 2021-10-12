@@ -24,7 +24,7 @@ forms:
    enrolled using the above mechanism can be authenticated by this mechanism.
 3. **Specified VP Request for authentication**: if the relying party retained
    the wallet-identifier/credential-identifer pair used in an interactive
-   enrolment, they can simply specify the same identifier in a VP request-- only
+   enrollment, they can simply specify the same identifier in a VP request-- only
    that identifier and a valid VP signature from it will pass.
 
 It is presently only possible to verify that a verifiable presentation is valid,
