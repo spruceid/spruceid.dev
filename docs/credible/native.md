@@ -30,7 +30,7 @@ development, these have to be built from source for now, and instructions for
 doing so can be found in the repos (see below). At a later stage of maturity, we
 expect to distribute binaries through the respective package managers.
 
-![diagram of native versus cross-platform development dependencies](assets/credible_native_sdk.png)
+![diagram of native versus cross-platform development dependencies](/assets/credible_native_sdk.png)
 
 ## Installation
 
