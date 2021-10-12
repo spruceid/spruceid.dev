@@ -51,6 +51,6 @@ Credible's authentication should be considered "for testing purposes only" and
 **not** used to authenticate users to real-world systems.
 
 Spruce is watching closely as the standards around OIDC evolve, as well as the
-DIDComm protocol incubated across the DIF and Aries communities. Both of these
+[DIDComm](https://identity.foundation/didcomm-messaging/spec/) protocol incubated across the [DIF](https://identity.foundation/) and [Aries](https://www.hyperledger.org/use/aries) communities. Both of these
 are promising to deliver much in the way of recyclable and adaptable patterns
 for slotting SSI wallets into real-world value flows and ecosystems.
