@@ -15,27 +15,39 @@ slug: /credible/
 [![](https://img.shields.io/twitter/follow/sprucesystems?label=Follow&style=social)](https://twitter.com/sprucesystems)
 
 
-Credible is a lightweight wallet for individuals to manage DIDs and VCs from
-their mobile phones. It is white-label friendly, open-source, and built on our
-core SSI libraries.  As soon as it is feature-complete and ready for external
-review, it will even be downloadable from the appstore in its basic, unextended
-form. Over time, we expect to integrate many DID methods and presentation
-protocols to make this the wallet fully-featured without being ledger-bound or
-vendor-favoring.
+Credible is a reference implementation of a native mobile wallet that supports
+W3C Verifiable Credentials and Decentralized Identifiers built on DIDKit and
+Flutter. We packaged the DIDKit library written in Rust into a Flutter
+application that can be rendered equally to both Android and iOS, using C
+bindings and Dart’s FFI capabilities respectively. This is the wallet
+counterpart to the rich, growing issuance/verification toolkit supplied by
+DIDKit, the two pillars of a reference architecture for creating trusted
+interactions at scale using verifiable [credentials](concepts).
 
 ![credible architecture](/assets/credible-architecture.png)
 
-## Features
+## Core Features
 
 * QR support to initiate and execute issuance and presentation of verifiable
   credentials
-* Handy interface for generating multiple DIDs (and coming soon, multiple DIDs
-  across multiple ledgers)
-* Official decentralized-identity wallet of DID Method Tezos (DID:tz)
-* Built in Flutter, for leaner, faster builds and less dependencies
+* Official decentralized-identity wallet of [DID Method Tezos](https://did-tezos-draft.spruceid.com/), i.e. "did-tz"
+* Changing only a few lines of code, Credible can be rebuilt from source to natively handle any of [the DID methods supported by DIDKit](/docs/didkit/did-methods) instead of did-tz: did-key, did-ethr, did-onion...
+* Built in the Flutter native framework, for leaner, faster builds and less dependencies, but also available through the top package manager of both ecosystems for more involved integrations (see the [Native Development](native) page)
+* Demonstration-build installable from Apple Test Flight and [Google Play Store](https://play.google.com/store/apps/details?id=com.spruceid.app.credible) (Early Access)
 
-## Coming soon
+## Extensibility
 
-The following features have been tentatively roadmapped for the next major release:
-1. Better support (and code snippets) for passing OIDC tokens back to services
-   authenticated with Credible
+We built Credible to be solid on the foundations and light on the
+context-specific details, meaning that it handles DIDs and VCs to an exceptional
+degree of conformance with the core specifications for each. We feel, however,
+that the protocols, semantics, and higher-order decisions taken by anyone
+integrating a wallet into one or more credential ecosystems should not be
+constrained, much less taken, by a reference implementation: those choices are
+up to Credible's white-labelers and forkers.  
+
+Credible is end-to-end open source, however, so do [open an
+issue](https://github.com/spruceid/credible/issues) if you have thoughts on how
+to better support the protocols you are implementing for authentication,
+authorization, VC exchange, etc. Or, if you want to contribute code, we are open
+to  PRs on Credible and its Spruce-governed dependencies, with the appropriate
+[contributor agreements](/docs/contributing) and review!
