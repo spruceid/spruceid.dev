@@ -19,7 +19,7 @@ For all network requests, DIDKit relies on the upstream
 [`reqwest`](https://docs.rs/reqwest/0.11.6/reqwest/) library. `reqwest` checks
 the environmental variables in DIDKit's environment for the variables
 `HTTP_PROXY`/`http_proxy` and `HTTPS_PROXY`/`https_proxy` to route http and
-https trafffic respectively. If you have set up such a proxy, including a
+https traffic respectively. If you have set up such a proxy, including a
 reverse proxy or SOCKS service, you can set the appropriate environmental
 variable(s) and assume `reqwest` will route appropriately.  
 
