@@ -206,7 +206,9 @@ Options and output format are the same as for
 ### Outbound Proxy
 
 You can set the environment variable `HTTP_PROXY` to have DIDKit use a proxy.
-Both HTTP and SOCKS protocols are supported.
+Both HTTP and SOCKS protocols are supported. See the
+["proxies"](/docs/didkit/runtime-config#proxies) section of the DIDKit docs
+for more details.
 
 ## Examples
 

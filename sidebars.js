@@ -9,6 +9,7 @@ module.exports = {
       'didkit/install', 
       'didkit/concepts',
       'didkit/did-methods',
+      'didkit/runtime-config',
       'didkit/document-loading',
       'didkit/changelog',
       'didkit/specs_and_deps', 
