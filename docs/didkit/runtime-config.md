@@ -15,7 +15,7 @@ variables or objects.
 
 ## Network configuration
 
-For all network requests, DIDKit relies on the upstream
+For all outbound HTTP requests, DIDKit relies on the upstream
 [`reqwest`](https://docs.rs/reqwest/0.11.6/reqwest/) library. `reqwest` checks
 the environmental variables in DIDKit's environment for the variables
 `HTTP_PROXY`/`http_proxy` and `HTTPS_PROXY`/`https_proxy` to route http and
