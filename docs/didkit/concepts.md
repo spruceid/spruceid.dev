@@ -53,7 +53,7 @@ The third element in the above explanation can be the hardest for
 DIDKit was built for LD data structures, and currently requires 
 VC semantics to be expressed in JSON-LD, but support for static 
 structures in "vanilla" JSON VC/VP representations (aka "JWT"s)
- is forthcoming in the next version. 
+ is forthcoming. 
 :::
 
 For a good introduction to the Semantic Web and JSON-LD as a 
@@ -61,3 +61,43 @@ data format and as a novel approach to web engineering, see
 these articles by [Nader Helmy](
     https://medium.com/mattr-global/learn-concepts-semantic-web-250784d6a49f)
      and [Orie Steele](https://medium.com/transmute-techtalk/on-json-ld-and-the-semantics-of-identity-42d051d3ce14).
+
+## Verification Methods
+
+DID Documents are signed and verifiable data objects containing key material,
+metadata, and routing/addressing information to support cross-context
+identification and verification. As such, they can be queried or qualifed by
+"verificationMethod", i.e. by purpose, in case they contain multiple keys (or
+multiple representations of the same key) for different purposes. In a typical
+`did:key` document like this:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/did/v1",
+  "id": "did:key:z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW",
+  "verificationMethod": [
+    {
+      "id": "did:key:z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW#z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW", 
+      "type": "Ed25519VerificationKey2018",
+      "controller": "did:key:z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW",
+      "publicKeyJwk": {
+        "kty": "OKP",
+        "crv": "Ed25519",
+        "x": "-kMHp5nohaFOK5E9Jch4ErdgwMFYFUc4Lt_wYlAGy8s"
+      }
+    }
+  ],
+  "authentication": [
+    "did:key:z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW#z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW"
+  ],
+  "assertionMethod": [
+    "did:key:z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW#z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW"
+  ]
+}
+```
+
+The verification methods `#authentication` and `#assertionMethod`, two of the
+most commonly used methods (for authentication and for signing verifiable
+credentials or other assertion formats) are simply aliases for the main key,
+which is simply the entire DID itself (without the prefix `did:key`) after the
+`#` symbol.
