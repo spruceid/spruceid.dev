@@ -25,14 +25,18 @@ resolvable URL containing another unique per-credential identifier)
 
 ### Wallet
 Wallets are specialized pieces of software that store credentials, usually
-secured access to the cryptographic keys associated with a specific identifiers.
-It may store other kinds of credentials as well, such as unsigned credentials,
-self-attested/self-issued credentials, or credentials with subjects whose keys
-it does not control, but its primary function is signing to receive and present
-its "own" credentials.  DIDKit is unopinionated and easy to extend, but DIDKit
-is also primary designed to work with Credible, and both are built around
-Spruce's core `ssi` library.  *For a more introductory explanation and
-specification, see the [glossary
+secured by also holding the cryptographic keys associated with specific
+identifiers, accounts, and/or addresses. They may also store other kinds of
+credentials as well, such as unsigned credentials, self-attested/self-issued
+credentials, or credentials with subjects whose keys the wallet does not
+control. Its primary function, however, is managing keys for receiving and
+presenting credentials corresponding to those keys. 
+
+DIDKit handles the signatures and verifications of verifiable credentials as
+well as the relationship between DIDs and signing keys; Credible is a wallet
+with a mobile-native version of the DIDKit library under the hood. Both are
+built around Spruce's core `ssi` library. *For a more introductory explanation
+and specification, see the [glossary
 entry](https://spruceid.dev/docs/glossary#wallet)*
 
 ### Decentralized Identifiers ("*DIDs*")

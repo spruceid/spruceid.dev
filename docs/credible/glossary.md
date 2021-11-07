@@ -26,7 +26,7 @@ The mental model of a "wallet" for storing directly and manually controlled
 information and assets has become increasingly common in recent years thanks to
 the growing popularity of ledger-based cryptocurrencies, NFTs, and other virtual
 assets controlled by cryptography. Just as wallet software makes cryptographic
-key management intuitive and human-scaled when handling such
+key management intuitive and human-scaled when handling
 cryptographically-controlled assets on common ledgers, so too can "wallet"
 interfaces make cryptographically-controlled documents like Verifiable
 Credentials manageable. 
@@ -37,17 +37,18 @@ to an issuer to receive identifier-specific or identifier-locked credentials.
 This is often assumed to be a direct and interactive process, as is the process
 of presenting these strong credentials to verifiers (usually
 double-authenticated, to both the verifier and to the credential, with two
-respective identifiers). Credible Wallet was designed to a secure,
+respective identifiers). Credible Wallet was designed to be a secure,
 production-grade, yet lightweight and general-purpose wallet for such use cases,
 completely free of platform-, vendor-, or blockchain-lock-in.
 
-There are, however, fiduciary, automated, and/or "custodial" wallets (by analogy
-to cryptocurrency). Here, the dividing line between wallets and agents,
-services, and service providers gets a little blurry; particularly when the
-wallet holder is a legal entity or non-human actor, this is an important wrinkle
-on the concept of the "wallet." Here, DIDKit may be combined with enterprise
-identity and security platforms to provide a less human-scale "wallet" for
-handling strong credentials about human and non-human actors. 
+By analogy to cryptocurrency, SSI wallets can also be fiduciary, automated,
+and/or "custodial" in their architecture. Here, the dividing line between
+wallets and agents, services, and service providers gets a little blurry;
+particularly when the wallet holder is a legal entity or non-human actor, this
+is an important wrinkle on the concept of the "wallet." Here, DIDKit may be
+combined with enterprise identity and security platforms to provide a less
+human-scale "wallet" for handling strong credentials about human and non-human
+actors. 
 
 ### VC Nomenclature & Life-Cycle
 
