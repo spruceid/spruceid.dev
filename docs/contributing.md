@@ -62,6 +62,10 @@ Help](https://help.github.com/articles/about-pull-requests/) for more
 information on using pull requests. You may tag oustide reviewers additionally,
 but review by Spruce is still the condition of acceptance.
 
+## Contributing to documentation 
+
+Purely editorial submissions to the git repositories or contributions to this website do not require a CLA, and are warmly welcome. Note that in the case of contributions to the developer documentation website, there are tips in the [_process.md file](https://github.com/spruceid/spruceid.dev/main/_process.md)
+
 ## Code of Conduct
 
 All our OS projects follows Spruce's overall [Code of Conduct][].
