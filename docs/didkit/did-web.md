@@ -1,6 +1,6 @@
 ---
 id: did-web
-title: Did-web in minutes
+title: did-web in minutes
 sidebar_label: Did-web in minutes
 ---
 
@@ -40,11 +40,13 @@ the DID document for the DID `did:web:demo.spruceid.com:path:to`.*
 didkit generate-ed25519-key > issuer_key.jwk
 ```
 
-*Note: We recommend using a fresh and unique private key generated on the web
-server and never moved elsewhere. Copying a private key from elsewhere is
-discouraged.*
+*Note: in this tutorial we assume a unique, fresh key but omit any backup or
+storage considerations. While re-using existing keys entails risks, so does
+storing a private key only on a mutable server; if a key is lost, no new
+credentials can be signed (i.e. issued), and updating the public key published
+on step5 will invalidate any credentials signed with the lost private key.*
 
-3. Generate a `did:key` from that Ed25519 key, display it, and save its DID
+1. Generate a `did:key` from that Ed25519 key, display it, and save its DID
    document locally:
 ```sh
 did=$(didkit key-to-did key -k issuer_key.jwk)
@@ -80,20 +82,27 @@ You should see a DID that looks like this
 }
 ```
 
-4. In the text editor of your choice, open the DID document file above. 
+4. In the text editor of your choice, open the DID document file above. Either manually in the editor or with CLI commands, you'll want to make the following changes to the file:
     1. You'll want to change every instance of `did:key:z6Mkw...` to
        `did:web:{hosting site}` where `{hosting site}` is the full domain (with
-       or without path) you picked above, without the `https://` prefix.
+       or without path) you picked above, without the `https://` prefix. I.e.,
+       ```sh
+       sed -i -e "s/did:key:z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW/did:web:{hosting site}/g" <my_file>.json
+       ``` 
     2. Note that in the property `verificationMethod.id`, there is a query
        parameter `#z6Mkw...` defining the default (and only) "[verification
        method](/docs/didkit/concepts/)" of the DID by that name. You'll want to
        replace this with `#{mainKeyName}` (the conventional default is `#key1`
-       or `#owner`).
+       or `#owner`). 
     3. By default, a did-web should have at least two `verificationMethod`s:
        `authentication` and `assertionMethod`.  If you'd like these both to be
        aliases for the key generated above, simply change the two
        verificationMethod-qualified DIDs from the respective sections as the
-       bottom to the one created in the previous step.
+       bottom to the one created in the previous step. The changes in 2 & 3 can
+       be executed with a single command: 
+       ```sh
+       sed -i -e "s/#z6MkwJBFYK8vTVGeiMsLzcqbSRXW4aTg4PozGbekWtQNUnnW/#{mainKeyName}/g" <my_file>.json
+       ```
     4. *Note: adding any other properties to the DID document is discouraged,
        but adding unregistered properties and/or using keytypes other than
        Ed25519 may require inserting entries to an inline @Context definition.
