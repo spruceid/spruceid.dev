@@ -19,7 +19,8 @@ DIDKit can be installed as a package via [cargo](#cargo-install),
 1. To install the DIDKit command line program on GNU/Linux, MacOS, or
    Windows+WSL, first install
    [cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html). 
-2. Install `build-essential` or equivalent tools if they aren't already installed.
+2. Install `libssl-dev`, as well as `pkg-config`,`build-essential`, or 
+   equivalent core toolsets if they aren't already installed. 
 3. Then simply run `cargo install` for the given target package: 
 `didkit-cli | didkit-http`.  
 For example, for DIDKit CLI, run:
