@@ -48,7 +48,7 @@ cd didkit/
 cargo build
 ```
 
-That's it-- you're not ready to use `didkit`'s CLI. For comprehensive documentation of CLI commands, see [Github](https://github.com/spruceid/didkit/tree/main/cli), and for a more skimmable overview, see the [CLI page](/docs/didkit-packages/cli_commands)) here.  For example, these basic commands should confirm the installation was succesful:
+That's it-- you're now ready to use `didkit`'s CLI. For comprehensive documentation of CLI commands, see [Github](https://github.com/spruceid/didkit/tree/main/cli), and for a more skimmable overview, see the [CLI page](/docs/didkit-packages/cli_commands)) here.  For example, these basic commands should confirm the installation was succesful:
 
 ```sh
 ./target/debug/didkit -h
