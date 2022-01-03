@@ -38,7 +38,7 @@ This will add the binary didkit to your Cargo installation (typically
 DIDKit is written in [Rust][]. To get Rust, you can use [Rustup][].
 
 We do not depend on any Rust nightly features, so our installation instructions
-assume `stable` versions; be sure to [switch the installation
+assume the most recent `stable` version; be sure to [switch the installation
 defaults][installing-rust] to `nightly` if the calling application or forked
 source-code does depend on them.
 
