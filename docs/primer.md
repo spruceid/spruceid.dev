@@ -92,7 +92,7 @@ enigmatic of the actors. Decentralization makes many such omnipotent but
 impersonal authorities in the form of ledgers, oracles, "blockchains," and
 meshes of immutable or content-addressed data, so this concept may be less
 mysterious to those steeped in those technologies. It is a registry in the sense
-that all data gets puts there (registered) by people and software running on
+that all data gets put there (registered) by people and software running on
 behalf of people and organizations, but it is a decentralized and unconventional
 series of linked registries.
 
