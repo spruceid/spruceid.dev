@@ -5,25 +5,13 @@ title: Core Functions (CLI)
 
 ## Introduction
 
-This is an example shell script using all the core functions of DIDKit-CLI: key
-generation, credential/presentation issuance and verification.
+This is an example shell script using all the core functions of DIDKit-CLI: key generation, credential/presentation issuance and verification.
 
-### Setup
-
-_Note: This script is meant to be run in the directory where DIDKit-CLI is
-built, regardless of installation method. See the complete script below for
-setup details._
-
-1. These instructions assume Ubuntu, and have been tested on Linux, MacOS, and
-   WSL2.
-1. See DIDKit installation page instructions for dependencies and install options.
-1. `jq` is recommended but not required for testing purposes. It can be
-   installed by running the command `sudo apt-get install jq`.
+_Note: This script is meant to be in a DIDKit-CLI source directory. See the complete script below for setup details._
 
 ### Start with a keypair
 
-DIDKit can generate a unique ed25119 keypair from entropy. Alternately, you can
-provide a static key locally.
+DIDKit can generate a unique ed25119 keypair from entropy. Alternately, you can provide a static key locally.
 
 ```bash
 if [ -e issuer_key.jwk ]; then
@@ -38,11 +26,7 @@ echo
 
 ### Generate a DID:Key document
 
-This document gets wrapped around the keypair generated (or passed) in the
-previous step. For more context on the DID:key method, see the
-[specification](https://w3c-ccg.github.io/did-method-key/). For more info on the
-parameters and flags for the `key-to-did` function, run `didkit help
-key-to-did`.
+This document gets wrapped around the keypair generated (or passed) in the previous step. For more context on the DID:key method, see the [specification](https://w3c-ccg.github.io/did-method-key/).
 
 ```bash
 did=$(didkit key-to-did key -k issuer_key.jwk)
@@ -51,13 +35,11 @@ printf 'DID: %s\n\n' "$did"
 
 ### Define verificationMethod for keypair.
 
-This is used to identify the key in linked data proofs. Verifiers of such proofs
-query a DID found in a credential based on what [registered] proof type (i.e.,
-what kind of signatures) it needs key material to verify.
+This is used to identify the key in linked data proofs. Verifiers of such proofs query a DID found in a credential based on what [registered] proof type (i.e., what kind of signatures) it needs key material to verify.
 
 ```bash
-issuer_verification_method=$(didkit key-to-verification-method key -k issuer_key.jwk)
-printf 'verificationMethod: %s\n\n' "$issuer_verification_method"
+verification_method=$(didkit key-to-verification-method -k issuer_key.jwk)
+printf 'verificationMethod: %s\n\n' "$verification_method"
 ```
 
 ### Prepare credential for issuing.
@@ -74,9 +56,9 @@ i.e., "urn:uuid:", etc.
 
 ```bash
 SUBJECTDID='did:example:d23dd687a7dc6787646f2eb98d0'
-ISSUERDID=$did
+ISSUERDID='did:web:issuance.example.com'
 DATE=`date --utc +%FT%TZ`
-CREDID="urn:uuid:"`uuidgen`
+CREDID=`uuidgen`
 
 cat > credential-unsigned.jsonld <<EOF
 {
@@ -86,7 +68,7 @@ cat > credential-unsigned.jsonld <<EOF
 	"issuer": "$ISSUERDID",
 	"issuanceDate": "$DATE",
 	"credentialSubject": {
-		"id": "$SUBJECTDID"
+		"id": "$SUBJECTID"
 	}
 }
 EOF
@@ -101,12 +83,13 @@ EOF
 ```bash
 didkit vc-issue-credential \
 	-k issuer_key.jwk \
-	-v "$issuer_verification_method" \
+	-v "$verification_method" \
 	-p assertionMethod \
 	< credential-unsigned.jsonld \
 	> credential-signed.jsonld
 echo 'Issued verifiable credential:'
-cat credential-signed.jsonld | jq .
+print_json credential-signed.jsonld
+echo
 ```
 
 ### Verify a verifiable credential.
@@ -117,7 +100,7 @@ cat credential-signed.jsonld | jq .
 
 ```bash
 if ! didkit vc-verify-credential \
-	-v "$issuer_verification_method" \
+	-v "$verification_method" \
 	-p assertionMethod \
 	< credential-signed.jsonld \
 	> credential-verify-result.json
@@ -127,7 +110,8 @@ then
 	exit 1
 fi
 echo 'Verified verifiable credential:'
-cat credential-verify-result.json | jq .
+print_json credential-verify-result.json
+echo
 ```
 
 ### Create a verifiable presentation that embeds the verifiable credential.
@@ -167,7 +151,8 @@ didkit vc-issue-presentation \
 	< presentation-unsigned.jsonld \
 	> presentation-signed.jsonld
 echo 'Issued verifiable presentation:'
-cat presentation-signed.jsonld | jq .
+print_json presentation-signed.jsonld
+echo
 ```
 
 ### Verify the verifiable presentation.
@@ -176,7 +161,7 @@ cat presentation-signed.jsonld | jq .
 
 ```bash
 if ! didkit vc-verify-presentation \
-	-v "$issuer_verification_method" \
+	-v "$verification_method" \
 	-p authentication \
 	< presentation-signed.jsonld \
 	> presentation-verify-result.json
@@ -186,7 +171,8 @@ then
 	exit 1
 fi
 echo 'Verified verifiable presentation:'
-cat presentation-verify-result.json | jq .
+print_json presentation-verify-result.json
+echo
 
 echo Done
 ```
@@ -199,23 +185,19 @@ Also available on Github as
 ```bash
 #!/bin/sh
 # This is an example shell script using DIDKit for key generation,
-# credential/presentation issuance and verification. Run it in the
-# directory where didkit-cli has been built.
-# `jq` is an optional bash tool for displaying JSON objects legibly.
-# if desired, install with `sudo apt-get install jq`; otherwise, 
-# substitute all `cat $file | jq .` commands for a text editor
-# like `nano`  or `vim`.
+# credential/presentation issuance and verification.
+
 set -e
 
 print_json() {
-    file=${1?file}
-    if command -v jq >/dev/null 2>&1; then
-        jq . "$file" || cat "$file"
-    elif command -v json_pp >/dev/null 2>&1; then
-        json_pp < "$file" || cat "$file"
-    else
-        cat "$file"
-    fi
+	file=${1?file}
+	if command -v jq >/dev/null 2>&1; then
+		jq . "$file" || cat "$file"
+	elif command -v json_pp >/dev/null 2>&1; then
+		json_pp < "$file" || cat "$file"
+	else
+		cat "$file"
+	fi
 }
 
 cd "$(dirname "$0")"
@@ -227,10 +209,10 @@ export PATH=$PWD/../../target/debug:$PATH
 # check for issuer key and generate verification method to match
 
 if [ -e issuer_key.jwk ]; then
-    echo 'Using existing keypair.'
+	echo 'Using existing keypair.'
 else
-    didkit generate-ed25519-key > issuer_key.jwk
-    echo 'Generated keypair.'
+	didkit generate-ed25519-key > issuer_key.jwk
+	echo 'Generated keypair.'
 fi
 echo
 
@@ -242,36 +224,36 @@ printf 'issuer verificationMethod: %s\n\n' "$issuer_verification_method"
 
 cat > credential-unsigned.jsonld <<EOF
 {
-    "@context": "https://www.w3.org/2018/credentials/v1",
-    "id": "http://example.org/credentials/3731",
-    "type": ["VerifiableCredential"],
-    "issuer": "$did",
-    "issuanceDate": "2020-08-19T21:41:50Z",
-    "credentialSubject": {
-        "id": "did:example:d23dd687a7dc6787646f2eb98d0"
-    }
+	"@context": "https://www.w3.org/2018/credentials/v1",
+	"id": "http://example.org/credentials/3731",
+	"type": ["VerifiableCredential"],
+	"issuer": "$did",
+	"issuanceDate": "2020-08-19T21:41:50Z",
+	"credentialSubject": {
+		"id": "did:example:d23dd687a7dc6787646f2eb98d0"
+	}
 }
 EOF
 
 didkit vc-issue-credential \
-    -k issuer_key.jwk \
-    -v "$verification_method" \
-    -p assertionMethod \
-    < credential-unsigned.jsonld \
-    > credential-signed.jsonld
+	-k issuer_key.jwk \
+	-v "$verification_method" \
+	-p assertionMethod \
+	< credential-unsigned.jsonld \
+	> credential-signed.jsonld
 echo 'Issued verifiable credential:'
 print_json credential-signed.jsonld
 echo
 
 if ! didkit vc-verify-credential \
-    -v "$verification_method" \
-    -p assertionMethod \
-    < credential-signed.jsonld \
-    > credential-verify-result.json
+	-v "$verification_method" \
+	-p assertionMethod \
+	< credential-signed.jsonld \
+	> credential-verify-result.json
 then
-    echo 'Unable to verify credential:'
-    print_json credential-verify-result.json
-    exit 1
+	echo 'Unable to verify credential:'
+	print_json credential-verify-result.json
+	exit 1
 fi
 echo 'Verified verifiable credential:'
 print_json credential-verify-result.json
@@ -281,10 +263,10 @@ echo
 # for creating verifiable presentation
 
 if [ -e holder_key.jwk ]; then
-    echo 'Using existing keypair.'
+	echo 'Using existing keypair.'
 else
-    didkit generate-ed25519-key > holder_key.jwk
-    echo 'Generated keypair.'
+	didkit generate-ed25519-key > holder_key.jwk
+	echo 'Generated keypair.'
 fi
 echo
 
@@ -298,33 +280,33 @@ printf 'holder verificationMethod: %s\n\n' "$holder_verification_method"
 
 cat > presentation-unsigned.jsonld <<EOF
 {
-    "@context": ["https://www.w3.org/2018/credentials/v1"],
-    "id": "http://example.org/presentations/3731",
-    "type": ["VerifiablePresentation"],
-    "holder": "$did",
-    "verifiableCredential": $(cat credential-signed.jsonld)
+	"@context": ["https://www.w3.org/2018/credentials/v1"],
+	"id": "http://example.org/presentations/3731",
+	"type": ["VerifiablePresentation"],
+	"holder": "$did",
+	"verifiableCredential": $(cat credential-signed.jsonld)
 }
 EOF
 
 didkit vc-issue-presentation \
-    -k holder_key.jwk \
-    -v "$verification_method" \
-    -p authentication \
-    < presentation-unsigned.jsonld \
-    > presentation-signed.jsonld
+	-k holder_key.jwk \
+	-v "$verification_method" \
+	-p authentication \
+	< presentation-unsigned.jsonld \
+	> presentation-signed.jsonld
 echo 'Issued verifiable presentation:'
 print_json presentation-signed.jsonld
 echo
 
 if ! didkit vc-verify-presentation \
-    -v "$verification_method" \
-    -p authentication \
-    < presentation-signed.jsonld \
-    > presentation-verify-result.json
+	-v "$verification_method" \
+	-p authentication \
+	< presentation-signed.jsonld \
+	> presentation-verify-result.json
 then
-    echo 'Unable to verify presentation:'
-    print_json presentation-verify-result.json
-    exit 1
+	echo 'Unable to verify presentation:'
+	print_json presentation-verify-result.json
+	exit 1
 fi
 echo 'Verified verifiable presentation:'
 print_json presentation-verify-result.json

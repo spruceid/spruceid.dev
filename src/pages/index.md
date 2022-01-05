@@ -127,7 +127,7 @@ curl https://demo.spruceid.com/get-example-vc > example-vc.json
 ```
 
 <details>
-  <summary>`example-vc.json` should resemble the following content (click to expand):</summary>
+  <summary>`example-vc.json` should resemble the following content:</summary>
   <div>
      <code>{`
 {
