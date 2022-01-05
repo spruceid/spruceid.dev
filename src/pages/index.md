@@ -56,7 +56,7 @@ loaded via filepath.
 
 ```sh
 didkit generate-ed25519-key > issuer_key.jwk
-issuer_did=$(didkit key-to-did key -k key.jwk)
+issuer_did=$(didkit key-to-did key -k issuer_key.jwk)
 echo $issuer_did
 ```
 
