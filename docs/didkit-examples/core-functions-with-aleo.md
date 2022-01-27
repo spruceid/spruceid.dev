@@ -47,10 +47,10 @@ The format is as follows:
 - kty: "OKP"
 - crv: "AleoTestnet1Key"
 - x: An Aleo account address derived from the private key using Aleo Testnet1
-  parameters, as a Base64 value (without the "aleo" prefix that appears in its'
+  parameters, as a Base64Url value (without the "aleo" prefix that appears in its
   Base58 format)
 - d: An Aleo private key converted from Base58 (where it starts with
-  "APrivateKey1") to Base64 value
+  "APrivateKey1") to Base64Url value
 
 ### Generate a DID:Key document
 
