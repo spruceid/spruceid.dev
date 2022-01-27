@@ -67,7 +67,7 @@ did=$(didkit key-to-did pkh:aleo -k $key)
 
 Here, we'll issue an example credential (unsigned) and save it to a file. For
 more info about what these properties mean, see the Verifiable Credentials Data
-Model [specification](https://w3c.github.io/vc-data-model/).
+Model [specification](https://www.w3.org/TR/vc-data-model/).
 
 ```bash
 cat > credential-unsigned.jsonld <<EOF 
