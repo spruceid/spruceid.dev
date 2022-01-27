@@ -14,7 +14,8 @@ _Note 1: This script is meant to be in a DIDKit-CLI source directory. See the
 complete script below for setup details._
 
 _Note 2: Currently Aleo support is only available through the
-`feat/aleo-sig-pkh` branch of the ssi library._
+`feat/aleo-sig-pkh` branch of the ssi library. When building the DIDKit CLI the
+feature `ssi/aleosig` must also be enabled._
 
 ### Start with a keypair
 
@@ -46,7 +47,7 @@ The format is as follows:
 - kty: "OKP"
 - crv: "AleoTestnet1Key"
 - x: An Aleo account address derived from the private key using Aleo Testnet1
-  parameters, as a Base64 value(without the "aleo" prefix that appears in its'
+  parameters, as a Base64 value (without the "aleo" prefix that appears in its'
   Base58 format)
 - d: An Aleo private key converted from Base58 (where it starts with
   "APrivateKey1") to Base64 value
@@ -62,12 +63,14 @@ key=aleokey.jwk
 did=$(didkit key-to-did pkh:aleo -k $key)
 ```
 
-### Issue the verifiable credential.
+### Prepare credential for issuing.
 
-- We ask DIDKit to issue a verifiable credential using the given keypair file.
+Here, we'll issue an example credential (unsigned) and save it to a file. For
+more info about what these properties mean, see the Verifiable Credentials Data
+Model [specification](https://w3c.github.io/vc-data-model/).
 
 ```bash
-didkit vc-issue-credential -k $key <<-EOF 
+cat > credential-unsigned.jsonld <<EOF 
 {
        "@context": ["https://www.w3.org/2018/credentials/v1"],
        "type": ["VerifiableCredential"],
@@ -78,9 +81,24 @@ didkit vc-issue-credential -k $key <<-EOF
 EOF
 ```
 
+### Issue the verifiable credential.
+
+- We ask DIDKit to issue a verifiable credential using the given keypair file,
+  passing the unsigned credential on standard input.
+
+```bash
+didkit vc-issue-credential -k $key < credential-unsigned.jsonld \
+    > credential-signed.jsonld
+```
+
 ### Verify a verifiable credential.
 
-TODO
+- We pass the newly-issued signed verifiable credential back to didkit for
+  verification.
+
+```bash
+didkit vc-verify-credential < credential-signed.jsonld
+```
 
 ### Appendix: whole script without comments
 
@@ -90,7 +108,8 @@ set -ex
 key=../ssi/tests/aleotestnet1-2021-11-22.json
 did=$(didkit key-to-did pkh:aleo -k $key)
 issued=$(date -uIsec)
-didkit vc-issue-credential -k $key <<-EOF 
+
+cat > credential-unsigned.jsonld <<EOF 
 {
        "@context": ["https://www.w3.org/2018/credentials/v1"],
        "type": ["VerifiableCredential"],
@@ -99,5 +118,9 @@ didkit vc-issue-credential -k $key <<-EOF
        "credentialSubject": {}
 }
 EOF
-echo
+
+didkit vc-issue-credential -k $key < credential-unsigned.jsonld \
+    > credential-signed.jsonld
+
+didkit vc-verify-credential < credential-signed.jsonld
 ```
