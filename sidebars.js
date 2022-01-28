@@ -29,6 +29,7 @@ module.exports = {
       'didkit-examples/overview', 
       'didkit-examples/core-functions-in-bash', 
       'didkit-examples/core-functions-in-curl', 
+      'didkit-examples/core-functions-with-aleo', 
       'didkit/did-web',
       'didkit-examples/batch-generation',
       'didkit-examples/java-springboot',
