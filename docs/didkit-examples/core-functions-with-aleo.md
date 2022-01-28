@@ -14,8 +14,11 @@ _Note 1: This script is meant to be in a DIDKit-CLI source directory. See the
 complete script below for setup details._
 
 _Note 2: Currently Aleo support is only available through the
-`feat/aleo-sig-pkh` branch of the ssi library. When building the DIDKit CLI the
-feature `ssi/aleosig` must also be enabled._
+`feat/aleo-sig-pkh` branch of the ssi library. When building the DIDKit CLI the feature `ssi/aleosig` must also be enabled:_
+
+```bash
+cargo install --features=ssi/aleosig --path cli
+```
 
 ### Start with a keypair
 
@@ -61,6 +64,7 @@ previous step. For more context on the DID:key method, see the
 ```bash
 key=aleokey.jwk
 did=$(didkit key-to-did pkh:aleo -k $key)
+issued=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
 ```
 
 ### Prepare credential for issuing.
