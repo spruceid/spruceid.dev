@@ -5,7 +5,7 @@ title: Core Functions with Aleo
 
 ## Introduction
 
-DIDKit also supports the use of Aleo accounts as verifiable credentials.
+DIDKit also supports the issuance and verification of Verifiable Credentials using Aleo accounts.
 
 This is an example shell script using all the core functions of DIDKit-CLI: key
 generation, credential/presentation issuance and verification.
