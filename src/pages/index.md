@@ -115,7 +115,7 @@ This produces a signed VC, which we will now verify.
 didkit vc-verify-credential < signed-vc.json
 ```
 
-You should see that no checks, warnings, nor errors. For good measure, try
+You shouldn't see any failed checks, warnings, or errors. For good measure, try
 modifying the contents of `signed-vc.json` and ensuring that it no longer
 verifies successfully.
 
@@ -158,7 +158,7 @@ To verify the VC, run:
 didkit vc-verify-credential -p assertionMethod < example-vc.json
 ```
 
-You should see that no checks, warnings, nor errors. For good measure, try
+You shouldn't see any failed checks, warnings, or errors. For good measure, try
 modifying the contents of `example-vc.json` and ensuring that it no longer
 verifies successfully. Under the hood, DIDKit will resolve the
 [`did-web`](https://w3c-ccg.github.io/did-method-web/) DID into a DID Document
@@ -170,4 +170,4 @@ didkit did-resolve did:web:demo.spruceid.com
 ```
 
 Congratulations, you have issued a VC using a `did-key` DID, verified it, and
-also verified a VC issued by a `did-web` DID.
+also verified a VC issued by a `did-web` DID!
