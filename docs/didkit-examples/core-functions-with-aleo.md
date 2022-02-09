@@ -17,7 +17,10 @@ _Note 2: Currently Aleo support is only available through the
 `feat/aleo-sig-pkh` branch of the ssi library. When building the DIDKit CLI the feature `ssi/aleosig` must also be enabled:_
 
 ```bash
+git clone https://github.com/spruceid/didkit
+cd didkit
 cargo install --features=ssi/aleosig --path cli
+cd .. 
 ```
 
 ### Start with a keypair
