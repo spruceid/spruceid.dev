@@ -162,7 +162,7 @@ In these examples, the keys representing the two parties are stored in expressiv
 ```bash
 didkit vc-issue-presentation \
 	-k issuer_key.jwk \
-	-v "$verification_method" \
+	-v "$issuer_verification_method" \
 	-p authentication \
 	< presentation-unsigned.jsonld \
 	> presentation-signed.jsonld
