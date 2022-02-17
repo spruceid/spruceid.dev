@@ -102,7 +102,7 @@ There is a whole vocabulary used to describe how credentials are handled,
 stored, presented, verified, and revoked. The software that individual actors
 use to receive, hold, and present them is called a "wallet", and the software
 used to issue, transfer, revoke, and verify them is called an "agent". Both
-interact with verifiable registries in various ways, must importantly for
+interact with verifiable registries in various ways, most importantly for
 identifying and verifying each other. Spruce's wallet is called Credible, and
 the engine Spruce uses to create and power agents is called DIDKit. Both are
 intended to work at many scales and in many contexts.
