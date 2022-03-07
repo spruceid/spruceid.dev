@@ -4,60 +4,72 @@ title: Python
 sidebar_label: Python
 ---
 
-## At a Glance
-
-- DIDKit's Python binaries can be installed directly from `pip`/`pypi` (instructions below); for manual/custom builds, see the sub-repo [README.md file](https://github.com/spruceid/didkit/lib/python/README.md#Building).  
-- For a few clear examples see the [Syntax](#Syntax) section below.
-- The syntax is quite similar to the Rust library, so for a more systematic reference, you can read the [Rust documentation](https://rust.didkit.dev/didkit/).
+[![PyPI version](https://badge.fury.io/py/didkit.svg)](https://badge.fury.io/py/didkit)
 
 ## Installation
 
-Make sure you have the latest versions of pip and PyPA’s build installed:
+DIDKit is available [on PyPI](https://pypi.org/project/didkit/).
 
+> `asyncio` is required, meaning you will need Python 3.7 or above.
+
+You can install it globally with:
 ```bash
-sudo apt install -y python3-pip python3-virtualenv
-python3 -m pip install --upgrade pip build
+pip install -U didkit
 ```
 
-Build DIDKit (latest release):
-```bash
-cargo build --release
-```
-
-Build the package
-```bash
-python3 -m build
-```
-
-Install the package using the provided [**setup.cfg file**](https://github.com/spruceid/didkit/blob/main/lib/python/setup.cfg):
-```bash
-python3 -m pip install dist/didkit-`cat setup.cfg | grep version | cut -d' ' -f3`-*.whl
-```
+For further information you may refer to the [repository](https://github.com/spruceid/didkit-python).
 
 ## Syntax
 
-To use DIDKit in Python, import the didkit library and manipulate the `didkit`
-object as you would any other.  It contains all the same methods and properties
-as the didkit object in Rust, so you can refer to the [Rust
-docs](https://rust.didkit.dev/didkit/) for an overview of the core structure of
-DIDKit as a library.  
+To use DIDKit in Python, import the `didkit` library and manipulate the `didkit`
+module as you would any other.  It contains all the same functions as the other
+bindings, so you can refer to the [Rust docs](https://rust.didkit.dev/didkit/)
+for an overview of the core structure of DIDKit as a library.
 
 The method `issueCredential`, for example, takes all the properties you would
-expect, as strings (mind the escape quotes!) and returns a credential as a JSON
-object that the user then `.dumps` or `.loads`. See this example from the [Python-Flask example
-project](https://github.com/spruceid/didkit/blob/main/examples/python-flask/issue_credential.py#L43-L47):
+expect, as JSON strings and returns a credential as a JSON string that the user
+then `.loads` to access individual fields. See the following example.
 
 ```python
-    credential = didkit.issueCredential(
-        credential.__str__().replace("'", '"'),
-        didkit_options.__str__().replace("'", '"'),
-        key)
-    return json.loads(credential)
+import asyncio
+import didkit
+import json
+
+jwk = didkit.generate_ed25519_key()
+did = didkit.key_to_did("key", jwk)
+credential = {
+    "@context": "https://www.w3.org/2018/credentials/v1",
+    "id": "http://example.org/credentials/3731",
+    "type": ["VerifiableCredential"],
+    "issuer": did,
+    "issuanceDate": "2020-08-19T21:41:50Z",
+    "credentialSubject": {
+        "id": "did:example:d23dd687a7dc6787646f2eb98d0",
+    },
+}
+
+async def main():
+    signed_credential = await didkit.issue_credential(
+        json.dumps(credential),
+        json.dumps({}),
+        jwk)
+    print(json.loads(signed_credential))
+
+asyncio.run(main())
 ```
 
 ## Examples
 
-|Tool|Example|
+|Framework|Example|
 |---|---|
+|`pytest`|[On Github](https://github.com/spruceid/didkit-python/tree/main/pydidkit_tests)|
 |[Django web framework](https://www.djangoproject.com/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python_django)|
 |[Flask web microframework](https://flask.palletsprojects.com/en/2.0.x/)|[example in GitHub](https://github.com/spruceid/didkit/tree/main/examples/python-flask/)|
+
+## Migration
+
+### 0.2 to 0.3
+Functions have kept the same signatures, but some have become asynchronous. You
+will need to start using
+[`asyncio`](https://docs.python.org/3/library/asyncio.html) if it is not already
+the case.
