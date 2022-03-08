@@ -23,7 +23,6 @@ console.log("Testing didkit");
 // Import the module
 const DIDKit = require('@spruceid/didkit-wasm-node');
 
-// Print the Didkit version information
 console.log("DIDKit version = " + DIDKit.getVersion());
 
 // To issue credentials and presentations, you need a key.
@@ -35,9 +34,12 @@ console.log("Key = " + key);
 // `verificationMethod` from the key.
 const did = DIDKit.keyToDID('key', key);
 console.log("DID = " + did);
-
-const verificationMethod = DIDKit.keyToVerificationMethod('key', key);
-console.log("Verification method = " + verificationMethod);
+// Note keyToVerificationMethod returns a JavaScript Promise that must be handled
+const verificationMethodPromise = DIDKit.keyToVerificationMethod('key', key);
+verificationMethodPromise.then (
+	function(verificationMethod) {console.log("Verification method = " + verificationMethod)},
+	function(vmError) {console.log(vmError)}
+);
 ```
 
 ## Examples
@@ -50,4 +52,4 @@ console.log("Verification method = " + verificationMethod);
 ## Code
 
 - [WASM](https://github.com/spruceid/didkit/tree/main/lib/web)
-- [WASm-node](https://github.com/spruceid/didkit/tree/main/lib/node)
+- [WASM-node](https://github.com/spruceid/didkit/tree/main/lib/node)
