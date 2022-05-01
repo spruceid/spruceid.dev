@@ -13,8 +13,8 @@ generation, credential/presentation issuance and verification.
 _Note 1: This script is meant to be in a DIDKit-CLI source directory. See the
 complete script below for setup details._
 
-_Note 2: Currently Aleo support is only available through the
-`feat/aleo-sig-pkh` branch of the ssi library. When building the DIDKit CLI the feature `ssi/aleosig` must also be enabled:_
+_Note 2: Aleo signature functionality in the ssi library requires the `aleosig` feature.
+When building the DIDKit CLI the feature `ssi/aleosig` can be used to enable this functionality:_
 
 ```bash
 git clone https://github.com/spruceid/didkit
@@ -30,7 +30,6 @@ The SSI library can generate an Aleo keypair as an example:
 ```bash
 git clone https://github.com/spruceid/ssi
 cd ssi
-git checkout feat/aleo-sig-pkh
 cargo run --example genaleojwk --features=aleosig > aleokey.jwk
 ```
 
